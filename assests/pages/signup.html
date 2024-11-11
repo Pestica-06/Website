@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: white;
+      margin: 0;
+      overflow: hidden;
+    }
+    .login-container {
+      background: #3c6e71;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    button {
+      width: 100px;
+      padding: 12px;
+      color: black;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    button:hover {
+      color: #3c6e71;
+    }
+    span {
+      display: block;
+      text-align: left;
+      margin-left: 5%;
+      font-size: 12px;
+      color: red;
+      height: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Create an Account</h2>
+    <form id="myForm" action="" novalidate>
+      <input type="text" id="username" placeholder="Username" required>
+      <span id="nameError"></span>
+      <input type="email" id="email" placeholder="Email" required>
+      <span id="emailError"></span>
+      <input type="password" id="password" placeholder="Password" required>
+      <span id="passwordError"></span>
+      <input type="password" id="confirm_password" placeholder="Confirm Password" required>
+      <span id="confirmPasswordError"></span>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+    const firebaseConfig = {
+    apiKey: "AIzaSyB7ASHWeH7D9uph-jm_DzVYtmgumAtFnq4",
+    authDomain: "travworld-858a6.firebaseapp.com",
+    projectId: "travworld-858a6",
+    storageBucket: "travworld-858a6.firebasestorage.app",
+    messagingSenderId: "850634148926",
+    appId: "1:850634148926:web:2fd42f92d1e846938e156f",
+    measurementId: "G-67LRT5GK62"
+  };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // JSON object for validation messages
+    const validationMessages = {
+      usernameRequired: "Username is required.",
+      emailRequired: "Email is required.",
+      emailInvalid: "Please enter a valid email address.",
+      passwordRequired: "Password is required.",
+      passwordLength: "Password must be at least 8 characters.",
+      confirmPasswordRequired: "Confirm Password is required.",
+      passwordsMismatch: "Passwords do not match."
+    };
+
+    const myForm = document.getElementById("myForm");
+    const username = document.getElementById("username");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirm_password");
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const passwordError = document.getElementById("passwordError");
+    const confirmPasswordError = document.getElementById("confirmPasswordError");
+    const minlength = 8;
+
+    myForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      let valid = true;
+
+      // Reset error messages
+      nameError.textContent = "";
+      emailError.textContent = "";
+      passwordError.textContent = "";
+      confirmPasswordError.textContent = "";
+
+      // Username validation
+      if (username.value.trim() === "") {
+        nameError.textContent = validationMessages.usernameRequired;
+        valid = false;
+      }
+
+      // Email validation
+      if (email.value.trim() === "") {
+        emailError.textContent = validationMessages.emailRequired;
+        valid = false;
+      } else if (!email.checkValidity()) {
+        emailError.textContent = validationMessages.emailInvalid;
+        valid = false;
+      }
+
+      // Password validation
+      if (password.value.trim() === "") {
+        passwordError.textContent = validationMessages.passwordRequired;
+        valid = false;
+      } else if (password.value.length < minlength) {
+        passwordError.textContent = validationMessages.passwordLength;
+        valid = false;
+      }
+
+      // Confirm Password validation
+      if (confirmPassword.value.trim() === "") {
+        confirmPasswordError.textContent = validationMessages.confirmPasswordRequired;
+        valid = false;
+      } else if (password.value !== confirmPassword.value) {
+        confirmPasswordError.textContent = validationMessages.passwordsMismatch;
+        valid = false;
+      }
+
+      if (valid) {
+        // Sign up user with Firebase Authentication
+        createUserWithEmailAndPassword(auth, email.value, password.value)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            console.log("User created successfully:", user);
+            alert("Signup successful!");
+            // Additional logic after successful signup (e.g., redirect)
+            window.location.href = "../../index.html"; 
+          })
+          .catch((error) => {
+            const errorMessage = error.message;
+            console.error("Error creating user:", errorMessage);
+            passwordError.textContent = errorMessage;
+          });
+      }
+    });
+
+    // Clear error messages on input change
+    username.addEventListener("input", () => { nameError.textContent = ""; });
+    email.addEventListener("input", () => { emailError.textContent = ""; });
+    password.addEventListener("input", () => { passwordError.textContent = ""; });
+    confirmPassword.addEventListener("input", () => { confirmPasswordError.textContent = ""; });
+  </script>
+</body>
+</html>
+
+
+
+
+

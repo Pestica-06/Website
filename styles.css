@@ -1,0 +1,169 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: url('assests/images/dhanushkodi.webp') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Header styling */
+header {
+  width: 100%;
+  background-color: rgba(0, 102, 112, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo styling */
+.logo h1 {
+  color: #49a3a8;
+  font-size: 2em;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.logo p {
+  color: #f0f0f0;
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-top: -5px;
+}
+
+/* Navigation styling */
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 20px;
+  position: relative;
+}
+
+.nav-links a,
+.dropbtn {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover,
+.dropbtn:hover {
+  background-color: rgba(73, 163, 168, 0.8);
+}
+
+/* Dropdown menu styling */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 5px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #417f87;
+  color: #fff;
+}
+
+/* Show dropdown on hover for larger screens */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Responsive menu icon */
+.menu-icon {
+  display: none;
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.login-register img{
+ height:40px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .nav-links {
+      display: none;
+      flex-direction: column;
+      background-color: rgba(0, 102, 112, 0.95);
+      width: 100%;
+      border-radius: 0 0 10px 10px;
+      padding: 10px 0;
+  }
+
+  .nav-links li {
+      text-align: center;
+      margin: 10px 0;
+  }
+
+  .menu-icon {
+      display: block;
+  }
+
+  .nav-links.show {
+      display: flex;
+  }
+
+  /* Show dropdown on click for mobile */
+  .dropdown-content {
+      position: static;
+  }
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  color: #fff;
+  margin-top: 20%;
+}
+
+.hero h2 {
+  font-size: 3.5em;
+  color: #49a3a8;
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #f0f0f0;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}

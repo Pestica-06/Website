@@ -1,24 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./website.css" />
-  </head>
-  <body>
-   <div class="container">
-    <div class="header">
-      <img class="logo" src="./assests/images/logo.png">
-      <div class="nav">
-        <a href="" class="packages">Packages</a>
-        <a href="" class="tours">Tours</a>
-        <div class="register"></div>
-        <a href=""><img class="register_img" src="./assests/images/profile_img.png"></a>
-      </div>
-      </div>
-    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravWorld</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>TravWorld</h1>
+            <p>Let's Travel And Explore</p>
+        </div>
+        <!-- Navigation Menu -->
+        <nav>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Places</a>
+                    <div class="dropdown-content">
+                        <a href="#">Delhi</a>
+                        <a href="#">Mumbai</a>
+                        <a href="#">Chennai</a>
+                        <a href="#">Goa</a>
+                    </div>
+                </li>
+                <li><a href="#">Tours</a></li>
+            </ul>
+            <div class="login-register">
+                <a href="./assests/pages/login.html"><img src="./assests/images/profile_img.png"></a>
+            </div>
+            <!-- Mobile Menu Icon -->
+            <button class="menu-icon" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
 
-   </div>
-  </body>
+    <!-- Background Overlay -->
+    <main>
+        <div class="hero">
+            <h2>TravWorld</h2>
+            <p>Let's Travel And Explore</p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
 </html>

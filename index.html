@@ -10,7 +10,7 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <h1>TravWorld</h1>
+            <img src="./assests/images/logo2.jpg">
         </div>
         <!-- Navigation Menu -->
         <nav>
@@ -24,7 +24,7 @@
                         <a href="#">Goa</a>
                     </div>
                 </li>
-                <li><a href="#">Tours</a></li>
+                <li><a href="#" calss="tours">Tours</a></li>
             </ul>
             <div class="login-register">
                 <a href="./assests/pages/login.html"><img src="./assests/images/profile_img.png"></a>
@@ -32,16 +32,86 @@
             <!-- Mobile Menu Icon -->
             <button class="menu-icon" onclick="toggleMenu()">☰</button>
         </nav>
+        
     </header>
 
     <!-- Background Overlay -->
     <main>
         <div class="hero">
-            <h2>TravWorld</h2>
-            <p>Let's Travel And Explore</p>
+            <img src="./assests/images/dhanush2.avif">
+            <div class="letter">
+            <h2>TravWorld</h2>            <p>Let's Travel And Explore</p>
+        </div>
         </div>
     </main>
+    <div class="hero-image">
+        <!-- Add background image for landmarks in CSS -->
+    </div>
+</header>
+<h1>Popular Packages</h1>
+<div class="package-grid">
+  <div class="package">
+    <img src="./assests/images/beach.jpg" alt="India Tour">
+    <div class="package-info">
+      <h2>India Tour Packages</h2>
+      <button>0 TOURS</button>
+    </div>
+  </div>
+  <div class="package">
+    <img src="./assests/images/boy_pic.jpg" alt="International Tour">
+    <div class="package-info">
+      <h2>International Tour Packages</h2>
+      <button>0 TOURS</button>
+    </div>
+  </div>
+  <div class="package">
+    <img src="./assests/images/kerala.jpg" alt="Honeymoon Package">
+    <div class="package-info">
+      <h2>International Honeymoon Packages</h2>
+      <button>0 TOURS</button>
+    </div>
+  </div>
+  <div class="package">
+    <img src="./assests/images/beach.jpg" alt="Europe Tour">
+    <div class="package-info">
+      <h2>Europe Tour Packages</h2>
+      <button>0 TOURS</button>
+    </div>
+  </div>
+  <div class="package">
+    <img src="./assests/images/cable.webp" alt="Educational Tour">
+    <div class="package-info">
+      <h2>Educational Tour Packages</h2>
+      <button>0 TOURS</button>
+    </div>
+  </div>
+</div>
+</section>
 
-    <script src="script.js"></script>
+
+<div class="enquiry-form-container">
+    <h2>Enquire with Us</h2>
+    <form action="#" method="post">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+        </div>
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message here" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+</div>
+    <script src="script.js">
+    </script>
 </body>
 </html>

@@ -1,0 +1,20 @@
+{
+  "places": [
+    {
+      "image": "./assets/images/pamban-bridge-.webp",
+      "name": "Delhi"
+    },
+    {
+      "image": "./assets/images/pamban-bridge-.webp",
+      "name": "Chennai"
+    },
+    {
+      "image": "./assets/images/pamban-bridge-.webp",
+      "name": "Hyderabad"
+    },
+    {
+      "image": "./assets/images/pamban-bridge-.webp",
+      "name": "Delhi"
+    }
+  ]
+}

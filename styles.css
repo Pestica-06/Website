@@ -208,6 +208,10 @@ h1{
   height:350px;
 
 }
+.hero-text{
+  position: relative;
+  bottom: 210px;
+}
 
 .popular-packages {
   text-align: center;
@@ -269,78 +273,323 @@ h1{
   background-color: #e0a800;
 }
 
-/* General Form Container Styling */
+
+/* contact us*/
 .enquiry-form-container {
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    width: 500px;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+  text-align: center;
 }
 
 /* Form Heading */
 .enquiry-form-container h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-    font-family: Arial, sans-serif;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  font-family: Arial, sans-serif;
 }
 
 /* Form Group Styling */
 .form-group {
-    margin-bottom: 15px;
-    text-align: left;
+  margin-bottom: 15px;
+  text-align: left;
 }
 
 .form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #555;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
 }
 
 .form-group input,
 .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-    transition: border-color 0.3s ease;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #007bff;
+  border-color: #007bff;
 }
 
 /* Button Styling */
 .submit-btn {
-    display: inline-block;
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  background-color:rgba(0, 102, 112, 0.95);
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .submit-btn:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 /* Responsive Design */
 @media (max-width: 600px) {
-    .enquiry-form-container {
-        padding: 15px;
-    }
-    .submit-btn {
-        width: 100%;
-    }
+  .enquiry-form-container {
+      padding: 15px;
+  }
+  .submit-btn {
+      width: 100%;
+  }
+}
+
+
+section {
+  padding: 50px 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  text-align: center;
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  background-color: #f9f9f9;
+}
+
+.feature {
+  flex: 1 1 calc(33.333% - 40px); /* Responsive width */
+  margin: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 10px 0;
+}
+
+.feature p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.feature:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Experience Section */
+.experience {
+ background-color: rgba(0, 102, 112, 0.95);
+  color: white;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  line-height: 1.8;
+}
+
+.experience h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color:white;
+}
+
+.experience p {
+  font-size: 1.1rem;
+  color:white;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .features {
+      flex-direction: column;
+  }
+
+  .feature {
+      flex: 1 1 100%;
+  }
+
+  .experience h1 {
+      font-size: 2rem;
+  }
+
+  .experience p {
+      font-size: 1rem;
+  }
+}
+.features {
+display: flex;
+justify-content: space-around;
+padding: 20px;
+background-color: #f9f9f9; /* Optional background color */
+}
+
+.feature {
+text-align: center;
+width: 30%; /* Adjust width based on your layout */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional box shadow */
+border-radius: 8px; /* Rounded corners */
+padding: 20px;
+background: #fff; /* Card background color */
+transition: transform 0.3s ease;
+}
+
+.feature:hover {
+transform: translateY(-5px); /* Hover effect */
+}
+
+.icon img {
+width: 50px; /* Adjust size */
+height: auto;
+margin-bottom: 15px;
+}
+
+h3 {
+font-size: 1.2rem;
+margin: 10px 0;
+}
+
+p {
+font-size: 0.9rem;
+color: #555; /* Optional text color */
+}
+.card {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 300px;
+  text-align: center;
+  margin:20px;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-content h3 {
+  font-size: 18px;
+  color: #333;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #555;
+}
+
+.card-content button {
+  background-color: #ff9900;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card-content button:hover {
+  background-color:  #ffc107;
+}
+
+.cards-container{
+  display:flex;
+
+}
+
+/*footre*/
+footer {
+  background-color: rgba(0, 102, 112, 0.95);
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+footer p{
+  color:white;
+}
+
+footer a {
+  color: #ecf0f1;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  color:  #ffc107;
+  text-decoration: underline;
+}
+
+footer hr {
+  border: 0;
+  border-top: 1px solid #34495e;
+  margin: 20px auto;
+  width: 80%;
+}
+
+footer .footer-top nav a,
+footer .footer-links nav a {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+footer .footer-contact a,
+footer .footer-social a {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+footer input[type="email"] {
+  padding: 10px;
+  border: 1px solid #34495e;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+footer button {
+  padding: 10px 20px;
+  background: #ffc107;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+footer button:hover {
+  background: #ffc107;
+}
+
+footer p {
+  margin: 10px 0;
 }
 

@@ -135,22 +135,32 @@
       }
 
       // Email validation
+     
       if (email.value.trim() === "") {
-        emailError.textContent = validationMessages.emailRequired;
-        valid = false;
-      } else if (!email.checkValidity()) {
+         emailError.textContent = validationMessages.emailRequired;
+         valid = false;
+}     else {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic regex for validating email format
+      if (!emailRegex.test(email.value)) {
         emailError.textContent = validationMessages.emailInvalid;
-        valid = false;
-      }
-
+         valid = false;
+  }
+}
       // Password validation
-      if (password.value.trim() === "") {
-        passwordError.textContent = validationMessages.passwordRequired;
-        valid = false;
-      } else if (password.value.length < minlength) {
-        passwordError.textContent = validationMessages.passwordLength;
-        valid = false;
-      }
+       if (password.value.trim() === "") {
+          passwordError.textContent = validationMessages.passwordRequired;
+         valid = false;
+       } else if (password.value.length < minlength) {
+           passwordError.textContent = validationMessages.passwordLength;
+            valid = false;
+      } else {
+           const specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/; // Regex for special characters
+           if (!specialCharRegex.test(password.value)) {
+            passwordError.textContent = "Password must contain at least one special character.";
+           valid = false;
+  }
+}
+
 
       // Confirm Password validation
       if (confirmPassword.value.trim() === "") {
@@ -184,6 +194,7 @@
     email.addEventListener("input", () => { emailError.textContent = ""; });
     password.addEventListener("input", () => { passwordError.textContent = ""; });
     confirmPassword.addEventListener("input", () => { confirmPasswordError.textContent = ""; });
+    
   </script>
 </body>
 </html>

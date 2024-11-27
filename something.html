@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cards-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.card {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 300px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-content h3 {
+  font-size: 18px;
+  color: #333;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #555;
+}
+
+.card-content button {
+  background-color: #ff9900;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card-content button:hover {
+  background-color: #cc7a00;
+}
+
+    </style>
+</head>
+<body>
+    <div id="tour-cards" class="cards-container"></div>
+    <script>
+        
+        const tours = [
+  {
+    title: "Dreams of Egypt Group Tour",
+    subtitle: "4 Nights 5 Days",
+    image: "./assests/images/man.png",
+    description: "GT Premium Group Tours",
+    cta: "Know More"
+  },
+  {
+    title: "Golden Triangle Group Tour",
+    subtitle: "4 Nights 5 Days",
+    image: "path_to_golden_triangle_image.jpg",
+    description: "GT Premium Group Tours",
+    cta: "Know More"
+  },
+  {
+    title: "Kashmir Memories Group Tour",
+    subtitle: "4 Nights 5 Days",
+    image: "path_to_kashmir_image.jpg",
+    description: "GT Premium Group Tours",
+    cta: "Know More"
+  },
+  {
+    title: "Singapore Malaysia Tour",
+    subtitle: "6 Nights 7 Days",
+    image: "path_to_singapore_malaysia_image.jpg",
+    description: "GT Premium Group Tours",
+    cta: "Know More"
+  }
+];
+
+const container = document.getElementById("tour-cards");
+
+tours.forEach((tour) => {
+  const card = document.createElement("div");
+  card.classList.add("card");
+  card.innerHTML = `
+    <img src="${tour.image}" alt="${tour.title}">
+    <div class="card-content">
+      <h3>${tour.title}</h3>
+      <p>${tour.subtitle}</p>
+      <span>${tour.description}</span>
+      <button>${tour.cta}</button>
+    </div>
+  `;
+  container.appendChild(card);
+});
+
+    </script>
+
+</body>
+</html>

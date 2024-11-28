@@ -47,10 +47,10 @@
         </div>
     </main>
 
-    <section>
-        <h1 style="text-align: center; margin-top: 20px;">Popular Packages</h1>
-        <div id="tour-cards" class="cards-container"></div>
-    </section>
+    <section class="popular-packages">
+      <h1>Popular Packages</h1>
+      <div class="package-grid" id="tourContainer"></div>
+  </section>
 
     <!-- Features Section -->
     <section class="features">
@@ -115,58 +115,38 @@
             <button type="submit" class="submit-btn">Send Message</button>
         </form>
     </div>
-
     <!-- JavaScript -->
     <script>
-        // Fetch and display package data
+   
             
-        const tours = [
-  {
-    title: "Dreams of Egypt Group Tour",
-    subtitle: "4 Nights 5 Days",
-    image: "./assests/images/beach.jpg",
-    description: "GT Premium Group Tours",
-    cta: "Know More"
-  },
-  {
-    title: "Golden Triangle Group Tour",
-    subtitle: "4 Nights 5 Days",
-    image: "./assests/images/kerala.jpg",
-    description: "GT Premium Group Tours",
-    cta: "Know More"
-  },
-  {
-    title: "Kashmir Memories Group Tour",
-    subtitle: "4 Nights 5 Days",
-    image: "./assests/images/wonders.webp",
-    description: "GT Premium Group Tours",
-    cta: "Know More"
-  },
-  {
-    title: "Singapore Malaysia Tour",
-    subtitle: "6 Nights 7 Days",
-    image: "./assests/images/cable.webp",
-    description: "GT Premium Group Tours",
-    cta: "Know More"
-  }
-];
-
-const container = document.getElementById("tour-cards");
-
-tours.forEach((tour) => {
-  const card = document.createElement("div");
-  card.classList.add("card");
-  card.innerHTML = `
-    <img src="${tour.image}" alt="${tour.title}">
-    <div class="card-content">
-      <h3>${tour.title}</h3>
-      <p>${tour.subtitle}</p>
-      <span>${tour.description}</span>
-      <button>${tour.cta}</button>
-    </div>
-  `;
-  container.appendChild(card);
-});
+        // Fetch data from the JSON file
+        fetch('./assests/places.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(tours => {
+                const tourContainer = document.getElementById('tourContainer');
+                tours.forEach(tour => {
+                    const tourCard = document.createElement('div');
+                    tourCard.classList.add('package');
+                    tourCard.innerHTML = `
+                        <img src="${tour.image}" alt="${tour.title}">
+                        <div class="package-info">
+                            <h2>${tour.title}</h2>
+                            <h4>${tour.subtitle}</h4>
+                            <p>${tour.description}</p>
+                            <button>${tour.cta}</button>
+                        </div>
+                    `;
+                    tourContainer.appendChild(tourCard);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching the tours data:', error);
+            });
     </script>
     <footer>
         <div class="footer-top">

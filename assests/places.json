@@ -3,28 +3,42 @@
       "title": "Dreams of Egypt Group Tour",
       "subtitle": "4 Nights 5 Days",
       "image": "./assests/images/beach.jpg",
-      "description": "GT Premium Group Tours",
+      "description": "TW Premium Group Tours",
       "cta": "Know More"
     },
     {
       "title": "Golden Triangle Group Tour",
       "subtitle": "4 Nights 5 Days",
       "image": "./assests/images/kerala.jpg",
-      "description": "GT Premium Group Tours",
+      "description": "TW Premium Group Tours",
       "cta": "Know More"
     },
     {
       "title": "Kashmir Memories Group Tour",
       "subtitle": "4 Nights 5 Days",
       "image": "./assests/images/wonders.webp",
-      "description": "GT Premium Group Tours",
+      "description": "TW Premium Group Tours",
+      "cta": "Know More"
+    },
+    {
+      "title": "Singapore Malaysia Tour",
+      "subtitle": "6 Nights 7 Days",
+      "image": "./assests/images/beach.jpg",
+      "description": "TW Premium Group Tours",
       "cta": "Know More"
     },
     {
       "title": "Singapore Malaysia Tour",
       "subtitle": "6 Nights 7 Days",
       "image": "./assests/images/cable.webp",
-      "description": "GT Premium Group Tours",
+      "description": "TW Premium Group Tours",
+      "cta": "Know More"
+    },
+    {
+      "title": "Singapore Malaysia Tour",
+      "subtitle": "6 Nights 7 Days",
+      "image": "./assests/images/rameswaram-1.webp",
+      "description": "TW Premium Group Tours",
       "cta": "Know More"
     }
   ]

@@ -3,110 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Explore India - Tourist Destinations</title>
     <style>
-        .cards-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-}
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-.card {
-  background: #f8f8f8;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  width: 300px;
-  text-align: center;
-}
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
 
-.card img {
-  width: 100%;
-  height: auto;
-}
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
 
-.card-content {
-  padding: 15px;
-}
+        header p {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
 
-.card-content h3 {
-  font-size: 18px;
-  color: #333;
-}
+        .search-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        }
 
-.card-content p {
-  font-size: 14px;
-  color: #555;
-}
+        #searchInput {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
 
-.card-content button {
-  background-color: #ff9900;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
+        #searchResults {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            border-top: 1px solid #ccc;
+        }
 
-.card-content button:hover {
-  background-color: #cc7a00;
-}
+        #searchResults li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
 
+        #searchResults li img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+
+        #searchResults li strong {
+            font-size: 1.2em;
+        }
+
+        .book-btn {
+            margin-left: auto;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .category {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .category h3 {
+            margin-top: 0;
+        }
+
+        .destination {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .destination img {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+
+        .destination h4 {
+            margin: 0;
+        }
     </style>
 </head>
 <body>
-    <div id="tour-cards" class="cards-container"></div>
-    <script>
-        
-        const tours = [
-  {
-    title: "Dreams of Egypt Group Tour",
-    subtitle: "4 Nights 5 Days",
-    image: "./assests/images/man.png",
-    description: "GT Premium Group Tours",
-    cta: "Know More"
-  },
-  {
-    title: "Golden Triangle Group Tour",
-    subtitle: "4 Nights 5 Days",
-    image: "path_to_golden_triangle_image.jpg",
-    description: "GT Premium Group Tours",
-    cta: "Know More"
-  },
-  {
-    title: "Kashmir Memories Group Tour",
-    subtitle: "4 Nights 5 Days",
-    image: "path_to_kashmir_image.jpg",
-    description: "GT Premium Group Tours",
-    cta: "Know More"
-  },
-  {
-    title: "Singapore Malaysia Tour",
-    subtitle: "6 Nights 7 Days",
-    image: "path_to_singapore_malaysia_image.jpg",
-    description: "GT Premium Group Tours",
-    cta: "Know More"
-  }
-];
 
-const container = document.getElementById("tour-cards");
+<header>
+    <h1>Explore India</h1>
+    <p>Discover beautiful places across India with ease!</p>
+</header>
 
-tours.forEach((tour) => {
-  const card = document.createElement("div");
-  card.classList.add("card");
-  card.innerHTML = `
-    <img src="${tour.image}" alt="${tour.title}">
-    <div class="card-content">
-      <h3>${tour.title}</h3>
-      <p>${tour.subtitle}</p>
-      <span>${tour.description}</span>
-      <button>${tour.cta}</button>
+<main>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search for places..." onkeyup="searchFunction()">
+        <ul id="searchResults"></ul>
     </div>
-  `;
-  container.appendChild(card);
-});
 
-    </script>
+    <section id="categories">
+        <h2>Popular Categories</h2>
 
+        <!-- Historical Places Category -->
+        <div class="category">
+            <h3>Historical Places</h3>
+            <div class="destination">
+                <img src="images/taj-mahal.jpg" alt="Taj Mahal">
+                <div>
+                    <h4>Taj Mahal, Agra</h4>
+                    <p>Visit the iconic Taj Mahal, a symbol of love and one of the Seven Wonders.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mountain Destinations -->
+        <div class="category">
+            <h3>Mountain Retreats</h3>
+            <div class="destination">
+                <img src="images/leh-ladakh.jpg" alt="Leh-Ladakh">
+                <div>
+                    <h4>Leh-Ladakh, Jammu and Kashmir</h4>
+                    <p>Experience the breathtaking landscapes of Leh and Ladakh.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beach Destinations -->
+        <div class="category">
+            <h3>Beaches</h3>
+            <div class="destination">
+                <img src="images/goa-beaches.jpg" alt="Goa Beaches">
+                <div>
+                    <h4>Goa Beaches</h4>
+                    <p>Relax at the vibrant beaches of Goa known for sun and nightlife.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wildlife Destinations -->
+        <div class="category">
+            <h3>Wildlife Adventures</h3>
+            <div class="destination">
+                <img src="images/ranthambore.jpg" alt="Ranthambore National Park">
+                <div>
+                    <h4>Ranthambore National Park</h4>
+                    <p>Embark on a thrilling safari to spot tigers in their natural habitat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Explore India | Designed for wanderlust seekers</p>
+</footer>
+
+<script>
+    const data = [
+        { name: "Taj Mahal", location: "Agra", category: "Historical", image: "images/taj-mahal.jpg" },
+        { name: "Jaipur", location: "Rajasthan", category: "Historical", image: "images/jaipur.jpg" },
+        { name: "Leh-Ladakh", location: "Jammu and Kashmir", category: "Mountains", image: "images/leh-ladakh.jpg" },
+        { name: "Goa Beaches", location: "Goa", category: "Beach", image: "images/goa-beaches.jpg" },
+        { name: "Ranthambore National Park", location: "Rajasthan", category: "Wildlife", image: "images/ranthambore.jpg" }
+    ];
+
+    function searchFunction() {
+        const input = document.getElementById("searchInput").value.toLowerCase();
+        const resultsList = document.getElementById("searchResults");
+        resultsList.innerHTML = "";
+
+        const filtered = data.filter(place => place.name.toLowerCase().includes(input));
+
+        filtered.forEach(item => {
+            const listItem = document.createElement("li");
+            listItem.innerHTML = `<img src="${item.image}" alt="${item.name}"> <strong>${item.name}, ${item.location}</strong>`;
+            resultsList.appendChild(listItem);
+        });
+    }
+</script>
 </body>
 </html>

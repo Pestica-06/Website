@@ -4,193 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TravWorld</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+    /* General Reset */
+    body, html {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+    
+    /* Header and Navigation */
+    header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        padding: 20px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color:white;
+    }
+    
+    .logo img {
+        height: 40px;
+    }
+    
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        padding-left: 380px;
+    }
+    
+    .nav-links li a {
+        text-decoration: none;
+        color: white;
+        font-size: 1rem;
+        transition: color 0.3s;
+        margin:30px;
+    }
+    
+    .nav-links li a:hover {
+        color: #3c6e71;
+    }
+    
+    .lang-toggle button {
+        background: transparent;
+        color: white;
+        border: 1px solid white;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background: url('./assests/images/dhanush2.avif') no-repeat center center/cover;
+    }
+    
+    .hero .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+    }
+    
+    .hero h1 {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 5px black;
+    }
+    
+    .hero p {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 3px black;
+    }
+    
+    .hero .btn {
+        background: #3c6e71;
+        color: black;
+        padding: 15px 30px;
+        text-decoration: none;
+        font-size: 1rem;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+    
+    .hero .btn:hover {
+        background: #3c6e71;
+    }
+
+
+   </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <div class="logo">
-            <img src="./assests/images/airplane-around-earth.png" alt="TravWorld Logo">
-        </div>
-        <!-- Navigation Menu -->
         <nav>
-            <ul class="nav-links">
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Places</a>
-                    <div class="dropdown-content">
-                        <a href="./something.html">Delhi</a>
-                        <a href="./something.html">Mumbai</a>
-                        <a href="./something.html">Chennai</a>
-                        <a href="./something.html">Goa</a>
-                    </div>
-                </li>
-                <li><a href="#" class="tours">Tours</a></li>
-            </ul>
-            <div class="login-register">
-                <a href="./assests/pages/login.html">
-                    <img src="./assests/images/profile_img.png" alt="Profile Icon">
-                </a>
+            <div class="logo">
+                <img src="./assests/images/airplane-around-earth.png" alt="Destination Africa Logo">
+                <span>TravWorld</span>
             </div>
-            <!-- Mobile Menu Icon -->
-            <button class="menu-icon" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#tours">Tours</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contacts">Contacts</a></li>
+            </ul>
         </nav>
     </header>
-
-    <!-- Hero Section -->
-    <main>
-        <div class="hero">
-            <img src="./assests/images/dhanush2.avif" alt="Travel Banner">
-            <div class="hero-text">
-                <h2>TravWorld</h2>
-                <p>Let's Travel And Explore</p>
-            </div>
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchFunction()">
-                <ul id="searchResults"></ul>
-            </div>
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Travel World
+            </h1>
+            <p>culture | nature | exposure</p>
+            <a href="./homepage.html" class="btn">Explore</a>
         </div>
-    </main>
-
-    <section class="popular-packages">
-      <h1>Popular Packages</h1>
-      <div class="package-grid" id="tourContainer"></div>
-  </section> 
-  
-  
-  
-
-    <!-- Features Section -->
-    <section class="features">
-      <div class="feature">
-        <div class="icon">
-          <img src="./assests/images/airplane-around-earth.png" alt="Abroad Trips Icon">
-        </div>
-        <h3>Abroad Trips</h3>
-        <p>We’ve already started crafting unique international itineraries and are rapidly growing to serve countless travelers.</p>
-      </div>
-    
-      <div class="feature">
-        <div class="icon">
-          <img src="./assests/images/man.png" alt="Handcrafted Experiences Icon">
-        </div>
-        <h3>Handcrafted Experiences</h3>
-        <p>Every itinerary is thoughtfully curated to match your travel dreams and preferences.</p>
-      </div>
-    
-      <div class="feature">
-        <div class="icon">
-          <img src="./assests/images/destination.png" alt="Happy Travellers Icon">
-        </div>
-        <h3>Extremely Happy Travellers</h3>
-        <p>Our focus is on delighting customers with exceptional journeys, building trust as your travel partner.</p>
-      </div>
     </section>
-    
-    
-
-    <!-- Welcome Section -->
-    <section class="experience">
-        <h1>Welcome to TravWorld</h1>
-        <p>
-            "TravWorld started with a big dream: to make travel personal and unforgettable for everyone. Our team is made up of passionate travelers and experts who love helping others explore the world. We focus on creating unique travel plans that match your interests, making every trip special and stress-free.
-        </p>
-        <p>
-            At TravWorld, we don’t just plan trips—we help you create memories, share stories, and discover new adventures. With a focus on friendly service and smart solutions, we’re here to make your travel dreams come true."
-        </p>
-    </section>
-
-    <!-- Enquiry Form -->
-    <div class="enquiry-form-container">
-        <h2>Enquire with Us</h2>
-        <form action="#" method="post">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone:</label>
-                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
-            </div>
-            <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" placeholder="Write your message here" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
-    </div>
-    <!-- JavaScript -->
-    <script>
-        // Global variable to store tours data
-        let toursData = [];
-    
-        // Fetch data from the JSON file
-        fetch('./assests/places.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(tours => {
-                toursData = tours; // Store the tours globally
-    
-                const tourContainer = document.getElementById('tourContainer');
-                tours.forEach((tour, index) => {
-                    const tourCard = document.createElement('div');
-                    tourCard.classList.add('package');
-                    tourCard.innerHTML = `
-                        <img src="${tour.image}" alt="${tour.title}">
-                        <div class="package-info">
-                            <h2>${tour.title}</h2>
-                            <h4>${tour.subtitle}</h4>
-                            <p>${tour.description.slice(0, 100)}...</p>
-                            <button onclick="goToDetailsPage(${index})">${tour.cta || 'Know More'}</button>
-                        </div>
-                    `;
-                    tourContainer.appendChild(tourCard);
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching the tours data:', error);
-            });
-    
-        // Navigate to details page
-        function goToDetailsPage(index) {
-            const selectedTour = toursData[index];
-    
-            // Store the selected tour data in localStorage
-            localStorage.setItem('selectedTour', JSON.stringify(selectedTour));
-    
-            // Redirect to details.html (or your detailed page)
-            window.location.href = './check.html';
-        }
-    </script>
-    
-
-
-
-    <footer>
-        <div class="footer-top">
-          <h3>Explore the World with Us</h3>
-        </div>
-        <hr>
-        <div class="footer-contact">
-          <h4>Contact Us</h4>
-          <p>
-            📍 123 Travel Street, Wanderlust City|
-            📧 <a href="mailto:info@travelwebsite.com">info@travelwebsite.com</a>|
-            📞 <a href="tel:+123456789">+1 (234) 567-890</a>
-          </p>
-        </div>
-        <div class="footer-bottom">
-          <p>© TravelWebsite 2024. All Rights Reserved.</p>
-          <p>Love Travel? Subscribe to our newsletter</p>
-        </div>
-      </footer>
 </body>
 </html>
-

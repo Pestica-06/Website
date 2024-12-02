@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travworld - Explore More Destinations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+        }
+
+        .navbar {
+            background-color:  rgba(0, 102, 112, 0.95);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .search-container input {
+            width: 300px;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .search-container button {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-left: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .destination-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .destination-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 300px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .destination-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .destination-card h2 {
+            margin: 0;
+            color: rgba(0, 102, 112, 0.95);
+        }
+
+        .destination-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .destination-card button {
+            background-color: rgba(0, 102, 112, 0.95);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Travworld</div>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search for places...">
+        <button onclick="searchDestinations()">Search</button>
+    </div>
+
+    <!-- Destinations Section -->
+    <div class="destination-section" id="destinations">
+        <!-- Delhi -->
+        <div class="destination-card" data-place="delhi">
+            <img src="../images/beach.jpg" alt="India Gate, Delhi">
+            <h2>India Gate, Delhi</h2>
+            <p>Iconic war memorial dedicated to Indian soldiers.</p>
+            <button onclick="bookNow('India Gate, Delhi')">Book Now</button>
+        </div>
+
+        <div class="destination-card" data-place="delhi">
+            <img src="../images/beach.jpg" alt="Lotus Temple, Delhi">
+            <h2>Lotus Temple, Delhi</h2>
+            <p>A Baháʼí House of Worship known for its stunning architecture.</p>
+            <button onclick="bookNow('Lotus Temple, Delhi')">Book Now</button>
+        </div>
+
+        <!-- Chennai -->
+        <div class="destination-card" data-place="chennai">
+            <img src="../images/beach.jpg" alt="Fort St. George, Chennai">
+            <h2>Fort St. George, Chennai</h2>
+            <p>Historic fort and the first British fortress in India.</p>
+            <button onclick="bookNow('Fort St. George, Chennai')">Book Now</button>
+        </div>
+
+        <!-- Mumbai -->
+        <div class="destination-card" data-place="mumbai">
+            <img src="../images/beach.jpg" alt="Marine Drive, Mumbai">
+            <h2>Marine Drive, Mumbai</h2>
+            <p>A picturesque promenade known as the Queen’s Necklace.</p>
+            <button onclick="bookNow('Marine Drive, Mumbai')">Book Now</button>
+        </div>
+
+        <div class="destination-card" data-place="mumbai">
+            <img src="../images/beach.jpg" alt="Elephanta Caves, Mumbai">
+            <h2>Elephanta Caves, Mumbai</h2>
+            <p>UNESCO World Heritage site featuring ancient rock-cut temples.</p>
+            <button onclick="bookNow('Elephanta Caves, Mumbai')">Book Now</button>
+        </div>
+
+        <!-- Goa -->
+        <div class="destination-card" data-place="goa">
+            <img src="../images/beach.jpg" alt="Old Goa Churches">
+            <h2>Old Goa Churches</h2>
+            <p>Explore the Basilica of Bom Jesus, a UNESCO World Heritage site.</p>
+            <button onclick="bookNow('Old Goa Churches')">Book Now</button>
+        </div>
+
+        <div class="destination-card" data-place="goa">
+            <img src="../images/beach.jpg" alt="Calangute Beach, Goa">
+            <h2>Calangute Beach, Goa</h2>
+            <p>The largest beach in Goa, known for its lively atmosphere.</p>
+            <button onclick="bookNow('Calangute Beach, Goa')">Book Now</button>
+        </div>
+
+        <!-- Jaipur -->
+        <div class="destination-card" data-place="jaipur">
+            <img src="../images/beach.jpg" alt="Amber Fort, Jaipur">
+            <h2>Amber Fort, Jaipur</h2>
+            <p>A magnificent hilltop fort known for its artistic Hindu architecture.</p>
+            <button onclick="bookNow('Amber Fort, Jaipur')">Book Now</button>
+        </div>
+
+        <div class="destination-card" data-place="jaipur">
+            <img src="../images/beach.jpg" alt="Hawa Mahal, Jaipur">
+            <h2>Hawa Mahal, Jaipur</h2>
+            <p>The Palace of Winds with its intricate facade of 953 windows.</p>
+            <button onclick="bookNow('Hawa Mahal, Jaipur')">Book Now</button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Search and Booking -->
+    <script>
+        function searchDestinations() {
+            const searchValue = document.getElementById('searchBar').value.toLowerCase();
+            const destinations = document.querySelectorAll('.destination-card');
+            destinations.forEach(destination => {
+                const place = destination.getAttribute('data-place');
+                if (place.includes(searchValue) || searchValue === '') {
+                    destination.style.display = 'block';
+                } else {
+                    destination.style.display = 'none';
+                }
+            });
+        }
+
+        function bookNow(place) {
+            alert(`Booking for ${place} initiated!`);
+        }
+    </script>
+</body>
+</html>

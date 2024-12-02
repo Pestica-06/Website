@@ -1,45 +1,63 @@
 [
+  
+      {
+        "title": "Rajasthan Royal Heritage Tour",
+        "subtitle": "6 Nights 7 Days",
+        "image": "./assests/images/rajastan.jpg",
+        "description": "Explore forts, palaces, and vibrant culture.",
+        "cta": "Know More"
+      },
+      {
+        "title": "Kerala Backwaters and Wellness Tour",
+        "subtitle": "5 Nights 6 Days",
+        "image": "./assests/images/kerala_place.jpg",
+        "description": "Relax in backwaters and enjoy Ayurveda.",
+        "cta": "Know More"
+      },
+      {
+        "title": "Himalayan Adventure in Himachal",
+        "subtitle": "7 Nights 8 Days",
+        "image": "./assests/images/himalaya.jpg",
+        "description": "Experience adventure in serene hill towns.",
+        "cta": "Know More"
+      },
+      {
+        "title": "Spiritual Sojourn to Varanasi and Rishikesh",
+        "subtitle": "5 Nights 6 Days",
+        "image": "./assests/images/varanasi.jpg",
+        "description": "Discover yoga and sacred rituals by the Ganges.",
+        "cta": "Know More"
+      },
     {
-      "title": "Dreams of Egypt Group Tour",
-      "subtitle": "4 Nights 5 Days",
-      "image": "./assests/images/beach.jpg",
-      "description": "TW Premium Group Tours",
-      "cta": "Know More"
-    },
-    {
-      "title": "Golden Triangle Group Tour",
-      "subtitle": "4 Nights 5 Days",
-      "image": "./assests/images/kerala.jpg",
-      "description": "TW Premium Group Tours",
-      "cta": "Know More"
-    },
-    {
-      "title": "Kashmir Memories Group Tour",
-      "subtitle": "4 Nights 5 Days",
-      "image": "./assests/images/wonders.webp",
-      "description": "TW Premium Group Tours",
-      "cta": "Know More"
-    },
-    {
-      "title": "Singapore Malaysia Tour",
+      "title": "South India Temple and Cultural Tour",
       "subtitle": "6 Nights 7 Days",
-      "image": "./assests/images/beach.jpg",
+      "image": "./assests/images/south_india temple.jpg",
       "description": "TW Premium Group Tours",
       "cta": "Know More"
     },
     {
-      "title": "Singapore Malaysia Tour",
-      "subtitle": "6 Nights 7 Days",
+      "title": "Northeast India Nature and Culture Tour",
+      "subtitle": "7 Nights 8 Days",
+      "image": "./assests/images/landscape.jpg",
+      "description": "Explore pristine landscapes and rich culture.",
+      "cta": "Know More"
+    },
+    {
+      "title": "Goa Beach and Adventure Tour",
+      "subtitle": "4 Nights 5 Days",
+      "image": "./assests/images/goa beach.jpg",
+      "description": "Enjoy beaches, nightlife, and water sports.",
+      "cta": "Know More"
+    },
+    {
+      "title": "Andaman Islands Beach Paradise Tour",
+      "subtitle": "5 Nights 6 Days",
       "image": "./assests/images/cable.webp",
-      "description": "TW Premium Group Tours",
-      "cta": "Know More"
-    },
-    {
-      "title": "Singapore Malaysia Tour",
-      "subtitle": "6 Nights 7 Days",
-      "image": "./assests/images/rameswaram-1.webp",
-      "description": "TW Premium Group Tours",
+      "description": "Unwind on serene beaches and clear waters.",
       "cta": "Know More"
     }
   ]
+ 
+
+
   

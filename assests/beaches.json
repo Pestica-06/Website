@@ -1,0 +1,19 @@
+{
+    "beaches": [
+      {
+        "name": "Calangute Beach",
+        "location": "Goa",
+        "description": "Beautiful beach in Goa.",
+        "cta": "Know More",
+        "image_url": "images/calangute_beach.jpg"
+      },
+      {
+        "name": "Radhanagar Beach",
+        "location": "Havelock Island, Andaman and Nicobar Islands",
+        "description": "Famous for its pristine waters.",
+        "cta": "Explore More",
+        "image_url": "images/radhanagar_beach.jpg"
+      }
+    ]
+  }
+  

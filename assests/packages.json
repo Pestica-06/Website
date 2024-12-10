@@ -1,0 +1,48 @@
+[
+    {
+      "tour_name": "Southern Splendor",
+      "duration": "7 Days / 6 Nights",
+      "destinations": "Bangalore, Mysore, Ooty, Coorg",
+      "image": "../images/auli.jpg",
+      "details": {
+        "highlights": [
+          "Visit the Mysore Palace and Brindavan Gardens.",
+          "Scenic train ride through the Nilgiri Hills to Ooty.",
+          "Coffee plantation tours in Coorg.",
+          "Explore local markets and temples in Bangalore."
+        ],
+        "includes": ["Accommodation", "Local transport", "Guide", "Breakfast"]
+      }
+    },
+    {
+      "tour_name": "Kerala Backwater Bliss",
+      "duration": "6 Days / 5 Nights",
+      "destinations": "Cochin, Munnar, Alleppey, Kovalam",
+      "image": "./assets/images/kerala_backwater_bliss.jpg",
+      "details": {
+        "highlights": [
+          "Stay in a houseboat on Alleppey’s backwaters.",
+          "Tea plantations and waterfalls in Munnar.",
+          "Relax on Kovalam Beach.",
+          "Sightseeing in Cochin, including Fort Kochi."
+        ],
+        "includes": ["Accommodation", "Meals", "Private car", "Boat rides"]
+      }
+    },
+    {
+      "tour_name": "Tamil Nadu Heritage Trail",
+      "duration": "5 Days / 4 Nights",
+      "destinations": "Chennai, Mahabalipuram, Pondicherry, Thanjavur",
+      "image": "./assets/images/tamil_nadu_heritage_trail.jpg",
+      "details": {
+        "highlights": [
+          "UNESCO Heritage sites in Mahabalipuram.",
+          "French colonial charm of Pondicherry.",
+          "Brihadeeswarar Temple in Thanjavur.",
+          "Marina Beach in Chennai."
+        ],
+        "includes": ["Guided tours", "Accommodation", "Breakfast", "Transport"]
+      }
+    }
+  ]
+  

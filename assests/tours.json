@@ -1,0 +1,51 @@
+[
+    {
+      "location": "Bangalore, Mysore, Coorg",
+      "title": "Glorious South Indian Tour Package",
+      "duration": "3 Nights 4 Days",
+      "image": "image1.jpg"
+    },
+    {
+      "location": "Mumbai, Goa, Pune, India",
+      "title": "The Indian Splendor Package",
+      "duration": "7 Nights 8 Days",
+      "image": "image2.jpg"
+    },
+    {
+      "location": "Darjeeling, West Bengal, India",
+      "title": "Super Saver Gangtok- Darjeeling Tour Package",
+      "duration": "7 Nights 8 Days",
+      "image": "image3.jpg"
+    },
+    {
+      "location": "Agra, Uttar Pradesh, India",
+      "title": "Special Himalayan Tours",
+      "duration": "9 Nights 10 Days",
+      "image": "image4.jpg"
+    },
+    {
+      "location": "Delhi, Agra, India",
+      "title": "Himachal Tour Delight Package",
+      "duration": "9 Nights 10 Days",
+      "image": "image5.jpg"
+    },
+    {
+      "location": "Delhi, Jaipur, India",
+      "title": "The Golden Triangle Tour",
+      "duration": "5 Nights 6 Days",
+      "image": "image6.jpg"
+    },
+    {
+      "location": "Cochin, Alleppey, Munnar",
+      "title": "Grand Kerala Summer Vacation Package",
+      "duration": "3 Nights 4 Days",
+      "image": "image7.jpg"
+    },
+    {
+      "location": "Hyderabad",
+      "title": "Wonderful Hyderabad Tour",
+      "duration": "3 Nights 4 Days",
+      "image": "image8.jpg"
+    }
+  ]
+  

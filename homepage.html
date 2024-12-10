@@ -24,7 +24,7 @@
                         <a href="./something.html">Mountains</a>
                     </div>
                 </li>
-                <li><a href="./assests/pages/tour.html" class="tours">Tours</a></li>
+                <li><a href="./assests/pages/random.html" class="tours">Tours</a></li>
             </ul>
             <div class="login-register">
                 <a href="./assests/pages/login.html">
@@ -52,11 +52,8 @@
 
         </div>
     </main>
-
-    <section class="popular-packages">
-      <h1>Popular Packages</h1>
-      <div class="package-grid" id="tourContainer"></div>
-  </section> 
+    <h1>Popular Packages</h1>
+    <div id="packages" class="package-container"></div>
   
   
   
@@ -132,9 +129,9 @@
         <div class="footer-contact">
           <h4>Contact Us</h4>
           <p>
-            📍 123 Travel Street, Wanderlust City|
-            📧 <a href="mailto:info@travelwebsite.com">info@travelwebsite.com</a>|
-            📞 <a href="tel:+123456789">+1 (234) 567-890</a>
+            📍 123 Parthasarathy Street, Chennai City|
+            📧 <a href="mailto:info@travelwebsite.com">info@travelworld.com</a>|
+            📞 <a href="tel:+123456789">+91  934-494-6575</a>
           </p>
         </div>
         <div class="footer-bottom">
@@ -145,38 +142,32 @@
     <!-- JavaScript -->
     <script>
         // Global variable to store tours data
-        let toursData = [];
     
-        // Fetch data from the JSON file
-        fetch('./assests/places.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(tours => {
-                toursData = tours; // Store the tours globally
     
-                const tourContainer = document.getElementById('tourContainer');
-                tours.forEach((tour, index) => {
-                    const tourCard = document.createElement('div');
-                    tourCard.classList.add('package');
-                    tourCard.innerHTML = `
-                        <img src="${tour.image}" alt="${tour.title}">
-                        <div class="package-info">
-                            <h2>${tour.title}</h2>
-                            <h4>${tour.subtitle}</h4>
-                            <p>${tour.description.slice(0, 100)}...</p>
-                            <button onclick="goToDetailsPage(${index})">${tour.cta || 'Know More'}</button>
-                        </div>
-                    `;
-                    tourContainer.appendChild(tourCard);
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching the tours data:', error);
-            });
+          // Fetch data from the JSON file and render the cards
+              // Fetch data from the JSON file and render the cards
+fetch('./assests/places.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('packages');
+    data.packages.forEach(packageItem => {
+      const card = document.createElement('div');
+      card.classList.add('card');
+      card.innerHTML = `
+        <div class="card-image">
+          <img src="${packageItem.image}" alt="${packageItem.title}">
+        </div>
+        <div class="card-content">
+          <h3>${packageItem.title}</h3>
+          <a href="${packageItem.link}" class="button">${packageItem.count} TOURS</a>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  })
+  .catch(error => console.error('Error fetching data:', error));
+
+
     
         // Navigate to details page
         function goToDetailsPage(index) {
@@ -223,42 +214,6 @@
     this.submit();
 });
 
-
-//search bar
-function searchDestinations() {
-        const query = document.getElementById('searchBar').value.trim().toLowerCase();
-        const tourContainer = document.getElementById('tourContainer');
-
-        // Clear the current displayed tours
-        tourContainer.innerHTML = '';
-
-        // Filter tours based on the query
-        const filteredTours = toursData.filter(tour =>
-            tour.title.toLowerCase().includes(query) ||
-            tour.subtitle.toLowerCase().includes(query) ||
-            tour.description.toLowerCase().includes(query)
-        );
-
-        // Display filtered results or show "No results"
-        if (filteredTours.length > 0) {
-            filteredTours.forEach((tour, index) => {
-                const tourCard = document.createElement('div');
-                tourCard.classList.add('package');
-                tourCard.innerHTML = `
-                    <img src="${tour.image}" alt="${tour.title}">
-                    <div class="package-info">
-                        <h2>${tour.title}</h2>
-                        <h4>${tour.subtitle}</h4>
-                        <p>${tour.description.slice(0, 100)}...</p>
-                        <button onclick="goToDetailsPage(${toursData.indexOf(tour)})">${tour.cta || 'Know More'}</button>
-                    </div>
-                `;
-                tourContainer.appendChild(tourCard);
-            });
-        } else {
-            tourContainer.innerHTML = '<p>No destinations found. Please try a different search.</p>';
-        }
-    }
 
 
     </script> 

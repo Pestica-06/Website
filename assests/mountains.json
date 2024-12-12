@@ -1,0 +1,96 @@
+[
+    {
+      "name": "Kanchenjunga",
+      "height_meters": 8586,
+      "height_feet": 28169,
+      "location": "Sikkim",
+      "significance": "The third-highest mountain in the world and revered as a sacred mountain by the people of Sikkim.",
+      "image_url": "https://example.com/images/kanchenjunga.jpg",
+      "know_more": "https://example.com/mountains/kanchenjunga"
+    },
+    {
+      "name": "Nanda Devi",
+      "height_meters": 7816,
+      "height_feet": 25643,
+      "location": "Uttarakhand",
+      "significance": "The second-highest peak in India, part of the UNESCO World Heritage Nanda Devi and Valley of Flowers National Parks.",
+      "image_url": "https://example.com/images/nanda_devi.jpg",
+      "know_more": ""
+    },
+    {
+      "name": "Mount Trishul",
+      "height_meters": 7120,
+      "height_feet": 23359,
+      "location": "Uttarakhand",
+      "significance": "Known for its resemblance to Lord Shiva’s trident and popular among trekkers.",
+      "image_url": "https://example.com/images/trishul.jpg",
+      "know_more": ""
+    },
+    {
+      "name": "Kangto",
+      "height_meters": 7060,
+      "height_feet": 23163,
+      "location": "Arunachal Pradesh",
+      "significance": "The highest peak in Arunachal Pradesh, located in the Eastern Himalayas.",
+      "image_url": "https://example.com/images/kangto.jpg",
+      "know_more": ""
+    },
+    {
+      "name": "Stok Kangri",
+      "height_meters": 6153,
+      "height_feet": 20187,
+      "location": "Ladakh",
+      "significance": "A popular trekking peak offering stunning views of Ladakh.",
+      "image_url": "https://example.com/images/stok_kangri.jpg",
+      "know_more": ""
+    },
+    {
+      "name": "Kedarnath Peak",
+      "height_meters": 6940,
+      "height_feet": 22769,
+      "location": "Uttarakhand",
+      "significance": "Located near the Kedarnath temple and a favorite for experienced mountaineers.",
+      "image_url": "https://example.com/images/kedarnath_peak.jpg",
+      "know_more": ""
+    },
+    {
+      "name": "Shivling Peak",
+      "height_meters": 6543,
+      "height_feet": 21466,
+      "location": "Uttarakhand",
+      "significance": "Known as the ‘Matterhorn of the Himalayas,’ it’s sacred to Hindus and a challenging climb.",
+      "image_url": "https://example.com/images/shivling_peak.jpg",
+      "know_more": ""
+    },
+    {
+      "name": "Aravalli Hills",
+      "highest_peak": {
+        "name": "Guru Shikhar",
+        "height_meters": 1722,
+        "height_feet": 5650
+      },
+      "location": "Rajasthan",
+      "significance": "One of the oldest mountain ranges in the world with historical and cultural importance.",
+      "image_url": "https://example.com/images/aravalli_hills.jpg",
+      "know_more": ""
+    },
+    {
+      "name": "Anamudi",
+      "height_meters": 2695,
+      "height_feet": 8842,
+      "location": "Kerala",
+      "significance": "The highest peak in South India, located in the Western Ghats.",
+      "image_url": "https://example.com/images/anamudi.jpg",
+      "know_more": ""
+    },
+    {
+      "name": "Sandakphu",
+      "height_meters": 3636,
+      "height_feet": 11929,
+      "location": "West Bengal",
+      "significance": "Offers panoramic views of Kanchenjunga and other high peaks.",
+      "image_url": "https://example.com/images/sandakphu.jpg",
+      "know_more": ""
+    }
+  ]
+  

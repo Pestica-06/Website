@@ -4,31 +4,31 @@
       "title": "South India Tour Packages",
       "count": 0,
       "image": "./assests/images/taj mahal.jpg",
-      "link": "india-tour.html"
+      "link": "../assests/pages/south_india.html"
     },
     {
       "title": "East India Tour Packages",
       "count": 0,
       "image": "./assests/images/wonders.webp",
-      "link": "international-tour.html"
+      "link": "../assests/pages/east_india.html"
     },
     {
       "title": "North India Packages",
       "count": 0,
       "image": "./assests/images/kerala_place.jpg",
-      "link": "honeymoon-tour.html"
+      "link": "../assests/pages/north_india.html"
     },
     {
       "title": "Family Tour Packages",
       "count": 0,
       "image": "./assests/images/manali.jpg",
-      "link": "europe-tour.html"
+      "link": "../assests/pages/family_tour.html"
     },
     {
       "title": "Educational Tour Packages",
       "count":0,
       "image": "./assests/images/meghalaya.jpg",
-      "link": "educational-tour.html"
+      "link": "../assests/pages/educational_tour.html"
     }
   ]
 }

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popular Mountains in India</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background-color: #007BFF;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+    .mountain-card {
+      background-color: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      width: 320px;
+      margin: 16px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .mountain-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+    .mountain-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .mountain-card h3 {
+      margin: 16px;
+      font-size: 1.5rem;
+      color: #007BFF;
+    }
+    .mountain-card p {
+      margin: 0 16px 12px;
+      color: #555;
+      font-size: 0.95rem;
+    }
+    .mountain-card a {
+      display: inline-block;
+      margin: 16px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      text-align: center;
+      transition: background-color 0.2s ease;
+    }
+    .mountain-card a:hover {
+      background-color: #0056b3;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 30px;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .mountain-card {
+        width: 90%;
+        margin: 16px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Popular Mountains in India</h1>
+  </header>
+  <div class="container" id="mountain-container"></div>
+  <footer>
+    <p>&copy; 2024 Travworld. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Path to the JSON file
+    const jsonUrl = '../mountains.json';
+
+    // Function to fetch and display mountains
+    async function fetchMountains() {
+      try {
+        const response = await fetch(jsonUrl);
+        if (!response.ok) throw new Error('Failed to load JSON');
+        const mountains = await response.json();
+
+        const container = document.getElementById('mountain-container');
+        container.innerHTML = ''; // Clear any previous content
+
+        mountains.forEach(mountain => {
+          const card = document.createElement('div');
+          card.className = 'mountain-card';
+
+          card.innerHTML = `
+            <img src="${mountain.image_url}" alt="${mountain.name}">
+            <h3>${mountain.name}</h3>
+            <p><strong>Height:</strong> ${mountain.height_meters} meters (${mountain.height_feet} feet)</p>
+            <p><strong>Location:</strong> ${mountain.location}</p>
+            <p>${mountain.significance}</p>
+            <a href="${mountain.know_more}" target="_blank">Know More</a>
+          `;
+
+          container.appendChild(card);
+        });
+      } catch (error) {
+        console.error('Error fetching mountains:', error);
+      }
+    }
+
+    // Call the function to fetch and display the mountains
+    fetchMountains();
+  </script>
+</body>
+</html>

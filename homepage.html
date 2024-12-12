@@ -20,8 +20,8 @@
                     <div class="dropdown-content">
                         <a href="./assests/pages/historical.html">Historical</a>
                         <a href="./assests/pages/adventures.html">Adventures</a>
-                        <a href="./something.html">Beaches</a>
-                        <a href="./something.html">Mountains</a>
+                        <a href="./assests/pages/beaches.html">Beaches</a>
+                        <a href="./assests/pages/mountains.html">Mountains</a>
                     </div>
                 </li>
                 <li><a href="./assests/pages/random.html" class="tours">Tours</a></li>
@@ -101,7 +101,7 @@
     <!-- Enquiry Form -->
     <div class="enquiry-form-container">
         <h2>Enquire with Us</h2>
-        <form action="#" method="post">
+        <form action="#" method="post" id="enquiryForm">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="Enter your full name" required>
@@ -159,9 +159,14 @@ fetch('./assests/places.json')
         </div>
         <div class="card-content">
           <h3>${packageItem.title}</h3>
-          <a href="${packageItem.link}" class="button">${packageItem.count} TOURS</a>
+          <button class="button">${packageItem.count} TOURS</button>
         </div>
       `;
+      card.querySelector("button").addEventListener("click",()=>{
+        localStorage.setItem("packageName",packageItem.title)
+        window.location.href="./assests/pages/packages.html"
+        
+      })
       container.appendChild(card);
     });
   })
@@ -177,7 +182,7 @@ fetch('./assests/places.json')
             localStorage.setItem('selectedTour', JSON.stringify(selectedTour));
     
             // Redirect to details.html (or your detailed page)
-            window.location.href = './check.html';
+            window.location.href = '././assests/pages/info.html';
         }
 
   //FORM VALIDATION

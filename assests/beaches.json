@@ -1,19 +1,66 @@
 {
-    "beaches": [
-      {
-        "name": "Calangute Beach",
-        "location": "Goa",
-        "description": "Beautiful beach in Goa.",
-        "cta": "Know More",
-        "image_url": "images/calangute_beach.jpg"
+  "popular_beaches": [
+    {
+      "name": "Baga Beach",
+      "location": {
+        "state": "Goa",
+        "district": "North Goa",
+        "latitude": 15.5583,
+        "longitude": 73.7631
       },
-      {
-        "name": "Radhanagar Beach",
-        "location": "Havelock Island, Andaman and Nicobar Islands",
-        "description": "Famous for its pristine waters.",
-        "cta": "Explore More",
-        "image_url": "images/radhanagar_beach.jpg"
-      }
-    ]
-  }
+      "description": "Known for vibrant nightlife, water sports, and lively beach shacks.",
+      "activities": ["Water sports", "Beach shacks", "Nightlife"],
+      "best_time_to_visit": ["November", "December", "January", "February"]
+    },
+    {
+      "name": "Marina Beach",
+      "location": {
+        "state": "Tamil Nadu",
+        "district": "Chennai",
+        "latitude": 13.0537,
+        "longitude": 80.2824
+      },
+      "description": "The longest urban beach in India, famous for its sunrise views and cultural landmarks.",
+      "activities": ["Walking", "Horse riding", "Street food"],
+      "best_time_to_visit": ["November", "December", "January", "February"]
+    },
+    {
+      "name": "Radhanagar Beach",
+      "location": {
+        "state": "Andaman and Nicobar Islands",
+        "district": "Havelock Island",
+        "latitude": 11.9836,
+        "longitude": 92.9783
+      },
+      "description": "Renowned for its pristine beauty, turquoise waters, and white sands.",
+      "activities": ["Swimming", "Snorkeling", "Photography"],
+      "best_time_to_visit": ["November", "December", "January", "February", "March"]
+    },
+    {
+      "name": "Kovalam Beach",
+      "location": {
+        "state": "Kerala",
+        "district": "Thiruvananthapuram",
+        "latitude": 8.4003,
+        "longitude": 76.9786
+      },
+      "description": "A popular beach destination in Kerala, known for its crescent-shaped coastline.",
+      "activities": ["Surfing", "Ayurvedic treatments", "Sunbathing"],
+      "best_time_to_visit": ["September", "October", "November", "December", "January", "February"]
+    },
+    {
+      "name": "Gokarna Beach",
+      "location": {
+        "state": "Karnataka",
+        "district": "Uttara Kannada",
+        "latitude": 14.5503,
+        "longitude": 74.3186
+      },
+      "description": "A serene beach town famous for its temples and laid-back atmosphere.",
+      "activities": ["Yoga retreats", "Hiking", "Beach camping"],
+      "best_time_to_visit": ["October", "November", "December", "January", "February"]
+    }
+  ]
+}
+ 
   

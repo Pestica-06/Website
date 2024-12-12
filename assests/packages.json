@@ -1,48 +1,232 @@
-[
-    {
-      "tour_name": "Southern Splendor",
-      "duration": "7 Days / 6 Nights",
-      "destinations": "Bangalore, Mysore, Ooty, Coorg",
-      "image": "../images/auli.jpg",
-      "details": {
-        "highlights": [
-          "Visit the Mysore Palace and Brindavan Gardens.",
-          "Scenic train ride through the Nilgiri Hills to Ooty.",
-          "Coffee plantation tours in Coorg.",
-          "Explore local markets and temples in Bangalore."
-        ],
-        "includes": ["Accommodation", "Local transport", "Guide", "Breakfast"]
+{
+    "North India Packages": [
+      {
+        "name": "Golden Triangle Tour",
+        "duration": "7 Days / 6 Nights",
+        "price_per_person": "₹15,000",
+        "description": "Explore the iconic cities of Delhi, Agra, and Jaipur, featuring world-famous landmarks like the Taj Mahal and Amber Fort.",
+        "image_url": "https://example.com/images/golden_triangle.jpg",
+        "cta": "Book Now"
+      },
+      {
+        "name": "Shimla and Manali Getaway",
+        "duration": "5 Days / 4 Nights",
+        "price_per_person": "₹12,000",
+        "description": "Enjoy the serene beauty of the Himalayas with visits to Shimla and Manali. Perfect for nature and adventure lovers.",
+        "image_url": "https://example.com/images/shimla_manali.jpg",
+        "cta": "Explore Now"
+      },
+      {
+        "name": "Varanasi Spiritual Retreat",
+        "duration": "3 Days / 2 Nights",
+        "price_per_person": "₹8,500",
+        "description": "Immerse yourself in the spiritual vibes of Varanasi with a visit to the Ganga Ghats and Kashi Vishwanath Temple.",
+        "image_url": "https://example.com/images/varanasi.jpg",
+        "cta": "Book Now"
+      },
+      {
+        "name": "Rajasthan Heritage Tour",
+        "duration": "10 Days / 9 Nights",
+        "price_per_person": "₹25,000",
+        "description": "Discover the royal palaces, forts, and desert landscapes of Rajasthan, including Jodhpur, Udaipur, and Jaisalmer.",
+        "image_url": "https://example.com/images/rajasthan.jpg",
+        "cta": "View Details"
+      },
+      {
+        "name": "Leh-Ladakh Adventure",
+        "duration": "6 Days / 5 Nights",
+        "price_per_person": "₹20,000",
+        "description": "Embark on a thrilling journey to Leh-Ladakh with stunning landscapes, monasteries, and adventure activities.",
+        "image_url": "https://example.com/images/leh_ladakh.jpg",
+        "cta": "Plan Your Trip"
       }
-    },
-    {
-      "tour_name": "Kerala Backwater Bliss",
-      "duration": "6 Days / 5 Nights",
-      "destinations": "Cochin, Munnar, Alleppey, Kovalam",
-      "image": "./assets/images/kerala_backwater_bliss.jpg",
-      "details": {
+    ],"East India Tour Packages": [
+      {
+        "name": "Discover Darjeeling & Gangtok",
+        "duration": "6 Days / 5 Nights",
+        "price_per_person": "₹25,000",
         "highlights": [
-          "Stay in a houseboat on Alleppey’s backwaters.",
-          "Tea plantations and waterfalls in Munnar.",
-          "Relax on Kovalam Beach.",
-          "Sightseeing in Cochin, including Fort Kochi."
+          "Tiger Hill Sunrise View",
+          "Tea Gardens of Darjeeling",
+          "Gangtok Ropeway",
+          "Tsomgo Lake & Baba Mandir"
         ],
-        "includes": ["Accommodation", "Meals", "Private car", "Boat rides"]
-      }
-    },
-    {
-      "tour_name": "Tamil Nadu Heritage Trail",
-      "duration": "5 Days / 4 Nights",
-      "destinations": "Chennai, Mahabalipuram, Pondicherry, Thanjavur",
-      "image": "./assets/images/tamil_nadu_heritage_trail.jpg",
-      "details": {
+        "description": "Explore the scenic beauty of Darjeeling and Gangtok, the cultural charm of monasteries, and breathtaking Himalayan views.",
+        "cta": "Book Now",
+        "image_url": "darjeeling_gangtok.jpg"
+      },
+      {
+        "name": "Mesmerizing Meghalaya",
+        "duration": "7 Days / 6 Nights",
+        "price_per_person": "₹30,000",
         "highlights": [
-          "UNESCO Heritage sites in Mahabalipuram.",
-          "French colonial charm of Pondicherry.",
-          "Brihadeeswarar Temple in Thanjavur.",
-          "Marina Beach in Chennai."
+          "Living Root Bridges at Cherrapunji",
+          "Seven Sisters Waterfalls",
+          "Shillong Peak & Umiam Lake",
+          "Mawsynram - Wettest Place on Earth"
         ],
-        "includes": ["Guided tours", "Accommodation", "Breakfast", "Transport"]
+        "description": "Discover the magical landscapes of Meghalaya, including lush valleys, waterfalls, and unique living root bridges.",
+        "cta": "Explore Package",
+        "image_url": "meghalaya.jpg"
+      },
+      {
+        "name": "Odisha Heritage & Chilika Lake",
+        "duration": "5 Days / 4 Nights",
+        "price_per_person": "₹20,000",
+        "highlights": [
+          "Jagannath Temple in Puri",
+          "Konark Sun Temple",
+          "Chilika Lake Dolphin Watch",
+          "Pipili Applique Village"
+        ],
+        "description": "Dive into Odisha's rich heritage with visits to ancient temples and the serene beauty of Chilika Lake.",
+        "cta": "Plan Your Trip",
+        "image_url": "odisha.jpg"
+      },
+      {
+        "name": "Majestic Arunachal Pradesh",
+        "duration": "8 Days / 7 Nights",
+        "price_per_person": "₹35,000",
+        "highlights": [
+          "Tawang Monastery",
+          "Sela Pass",
+          "Bumla Pass & Madhuri Lake",
+          "Dirang Valley"
+        ],
+        "description": "Experience the untouched beauty of Arunachal Pradesh, its monasteries, snow-capped mountains, and vibrant tribal culture.",
+        "cta": "Reserve Now",
+        "image_url": "arunachal_pradesh.jpg"
       }
-    }
-  ]
+    ],"Educational Tour Packages": [
+      {
+        "name": "Delhi Historical Monuments Tour",
+        "duration": "3 Days / 2 Nights",
+        "price_per_person": "₹5,000",
+        "description": "A fascinating educational tour of Delhi's historical landmarks such as the Red Fort, Qutub Minar, and India Gate.",
+        "image_url": "https://example.com/images/delhi_tour.jpg",
+        "cta": "Learn More"
+      },
+      {
+        "name": "Science City and Planetarium Visit, Kolkata",
+        "duration": "2 Days / 1 Night",
+        "price_per_person": "₹3,500",
+        "description": "Explore the wonders of science at the Kolkata Science City and learn about astronomy at the Birla Planetarium.",
+        "image_url": "https://example.com/images/science_city_kolkata.jpg",
+        "cta": "Book Now"
+      },
+      {
+        "name": "Jaipur and Agra Cultural Heritage Tour",
+        "duration": "5 Days / 4 Nights",
+        "price_per_person": "₹12,000",
+        "description": "Discover the architectural marvels of Jaipur and Agra, including the Taj Mahal, Amber Fort, and Hawa Mahal.",
+        "image_url": "https://example.com/images/agra_jaipur.jpg",
+        "cta": "Explore Now"
+      },
+      {
+        "name": "Hyderabad's Birla Science Museum and Ramoji Film City",
+        "duration": "4 Days / 3 Nights",
+        "price_per_person": "₹10,000",
+        "description": "An educational journey to the Birla Science Museum and the world-famous Ramoji Film City in Hyderabad.",
+        "image_url": "https://example.com/images/hyderabad_tour.jpg",
+        "cta": "View Details"
+      },
+      {
+        "name": "Bengaluru ISRO and Visvesvaraya Museum Tour",
+        "duration": "3 Days / 2 Nights",
+        "price_per_person": "₹6,500",
+        "description": "Visit ISRO's Space Research Center and the Visvesvaraya Industrial and Technological Museum in Bengaluru.",
+        "image_url": "https://example.com/images/bengaluru_tour.jpg",
+        "cta": "Plan Your Visit"
+      }
+    ],"Family Tour Packages": [
+      {
+        "name": "Goa Family Vacation",
+        "duration": "5 Days / 4 Nights",
+        "price_per_person": "₹12,500",
+        "description": "A fun-filled family holiday exploring the beautiful beaches of Goa, including water sports, shopping, and cultural experiences.",
+        "image_url": "https://example.com/images/goa_family_vacation.jpg",
+        "cta": "Book Now"
+      },
+      {
+        "name": "Kerala Backwaters Family Tour",
+        "duration": "6 Days / 5 Nights",
+        "price_per_person": "₹15,000",
+        "description": "Experience the tranquil beauty of Kerala's backwaters on a houseboat cruise, along with visits to tea plantations and beaches.",
+        "image_url": "https://example.com/images/kerala_backwaters.jpg",
+        "cta": "Explore Now"
+      },
+      {
+        "name": "Rajasthan Family Heritage Tour",
+        "duration": "8 Days / 7 Nights",
+        "price_per_person": "₹20,000",
+        "description": "A royal family tour across Rajasthan, visiting palaces, forts, and desert cities like Jaipur, Udaipur, and Jodhpur.",
+        "image_url": "https://example.com/images/rajasthan_family_tour.jpg",
+        "cta": "View Details"
+      },
+      {
+        "name": "Andaman Family Escape",
+        "duration": "7 Days / 6 Nights",
+        "price_per_person": "₹18,000",
+        "description": "A relaxing family tour to the pristine beaches and coral reefs of Andaman and Nicobar Islands with water activities and sightseeing.",
+        "image_url": "https://example.com/images/andaman_family_escape.jpg",
+        "cta": "Plan Your Trip"
+      },
+      {
+        "name": "Shimla and Manali Family Getaway",
+        "duration": "6 Days / 5 Nights",
+        "price_per_person": "₹14,500",
+        "description": "A perfect family vacation in the picturesque hill stations of Shimla and Manali with snow-capped mountains and local markets.",
+        "image_url": "https://example.com/images/shimla_manali_family.jpg",
+        "cta": "Book Now"
+      }
+    ],
+    "South India Tour Packages":[
+        {
+          "tour_name": "Southern Splendor",
+          "duration": "7 Days / 6 Nights",
+          "destinations": "Bangalore, Mysore, Ooty, Coorg",
+          "image": "../assests/images/tamilnadu_heritage.jpg",
+          "details": {
+            "highlights": [
+              "Visit the Mysore Palace and Brindavan Gardens.",
+              "Scenic train ride through the Nilgiri Hills to Ooty.",
+              "Coffee plantation tours in Coorg.",
+              "Explore local markets and temples in Bangalore."
+            ],
+            "includes": ["Accommodation", "Local transport", "Guide", "Breakfast"]
+          }
+        },
+        {
+          "tour_name": "Kerala Backwater Bliss",
+          "duration": "6 Days / 5 Nights",
+          "destinations": "Cochin, Munnar, Alleppey, Kovalam",
+          "image": "./images/kerala_backwater.jpg",
+          "details": {
+            "highlights": [
+              "Stay in a houseboat on Alleppey’s backwaters.",
+              "Tea plantations and waterfalls in Munnar.",
+              "Relax on Kovalam Beach.",
+              "Sightseeing in Cochin, including Fort Kochi."
+            ],
+            "includes": ["Accommodation", "Meals", "Private car", "Boat rides"]
+          }
+        },
+        {
+          "tour_name": "Tamil Nadu Heritage Trail",
+          "duration": "5 Days / 4 Nights",
+          "destinations": "Chennai, Mahabalipuram, Pondicherry, Thanjavur",
+          "image": "../assests/images/tamilnadu_heritage.jpg",
+          "details": {
+            "highlights": [
+              "UNESCO Heritage sites in Mahabalipuram.",
+              "French colonial charm of Pondicherry.",
+              "Brihadeeswarar Temple in Thanjavur.",
+              "Marina Beach in Chennai."
+            ],
+            "includes": ["Guided tours", "Accommodation", "Breakfast", "Transport"]
+          }
+        }
+      ]
+    
+  }
   

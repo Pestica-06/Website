@@ -212,7 +212,7 @@ h1 {
 }
 
 .button:hover {
-  background-color: #ff9800;
+  background-color:  #ffc107;
 }
 /* Features Section */
 .features {
@@ -323,7 +323,7 @@ h1 {
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #007bff;
+  border-color:  #ffc107;
 }
 
 /* Button Styling */
@@ -340,7 +340,7 @@ h1 {
 }
 
 .submit-btn:hover {
-  background-color: #0056b3;
+  background-color:  #ffc107;
 }
 
 /* Responsive Design */

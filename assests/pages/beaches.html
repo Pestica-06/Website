@@ -12,7 +12,7 @@
       background-color: #f4f4f4;
     }
     header {
-      background-color: #007bff;
+      background-color:cadetblue;
       color: white;
       padding: 10px 20px;
       text-align: center;
@@ -50,7 +50,7 @@
       object-fit: cover;
     }
     .destination h3 {
-      color: #007bff;
+      color: cadetblue;
       margin: 10px 0;
     }
     .destination p {
@@ -59,14 +59,21 @@
     }
     .book-btn {
       padding: 10px 20px;
-      background-color: #007bff;
+      background-color:cadetblue;
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      margin-bottom: 10px;
     }
     .book-btn:hover {
-      background-color: #0056b3;
+      background-color: cadetblue;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #f4f4f4;
+      border-top: 1px solid #ddd;
     }
   </style>
 </head>
@@ -94,50 +101,56 @@
   <script>
     let destinationsData = [];
 
-    // Adjust path if needed
-    fetch('././assests/beaches.json') // Check path
+    // Adjust the path to your JSON file
+    const jsonUrl = '../beaches.json'; // Ensure the file is in the correct relative path
+
+    // Fetch JSON data
+    fetch(jsonUrl)
       .then(response => {
         if (!response.ok) {
-          throw new Error('Failed to fetch data from JSON file. Status: ' + response.status);
+          throw new Error(`Failed to fetch data from JSON file. Status: ${response.status}`);
         }
         return response.json();
       })
-      .then(destinations => {
-        console.log('Data fetched successfully:', destinations);
-        destinationsData = destinations.beaches;
+      .then(data => {
+        destinationsData = data.popular_beaches; // Adjust according to your JSON structure
         displayDestinations(destinationsData);
       })
       .catch(error => {
         console.error('Error fetching the destinations data:', error);
+        document.getElementById('destinationContainer').innerHTML = '<p>Error loading data. Please try again later.</p>';
       });
 
+    // Display destinations
     function displayDestinations(destinations) {
-      const tourContainer = document.getElementById('destinationContainer');
-      tourContainer.innerHTML = '';
+      const destinationContainer = document.getElementById('destinationContainer');
+      destinationContainer.innerHTML = ''; // Clear existing content
       destinations.forEach((destination, index) => {
-        const tourCard = document.createElement('div');
-        tourCard.classList.add('destination');
-        tourCard.innerHTML = `
-          <img src="${destination.image_url}" alt="${destination.name}">
-          <h3>${destination.name}, ${destination.location}</h3>
-          <p>${destination.description.slice(0, 100)}...</p>
-          <button class="book-btn" onclick="goToDetailsPage(${index})">${destination.cta || 'Know More'}</button>
+        const destinationCard = document.createElement('div');
+        destinationCard.classList.add('destination');
+        destinationCard.innerHTML = `
+          <img src="${destination.image_url || 'placeholder.jpg'}" alt="${destination.name}">
+          <h3>${destination.name}, ${destination.location.state}</h3>
+          <p>${destination.description}</p>
+          <button class="book-btn" onclick="goToDetailsPage(${index})">Know More</button>
         `;
-        tourContainer.appendChild(tourCard);
+        destinationContainer.appendChild(destinationCard);
       });
     }
 
+    // Filter destinations based on search
     function filterDestinations() {
       const searchValue = document.getElementById('searchInput').value.toLowerCase();
-      const filteredDestinations = destinationsData.filter(destination => 
-        destination.name.toLowerCase().includes(searchValue) || 
-        destination.location.toLowerCase().includes(searchValue)
+      const filteredDestinations = destinationsData.filter(destination =>
+        destination.name.toLowerCase().includes(searchValue) ||
+        destination.location.state.toLowerCase().includes(searchValue)
       );
       displayDestinations(filteredDestinations);
     }
 
+    // Navigate to details page
     function goToDetailsPage(index) {
-      window.location.href = `booking.html?index=${index}`;
+      window.location.href = `details.html?index=${index}`;
     }
   </script>
 </body>

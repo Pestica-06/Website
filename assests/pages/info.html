@@ -99,8 +99,8 @@
     </div>
     <div class="enquiry-section">
       <h2>Stay Connected</h2>
-      <p>📞 +91 9940882200</p>
-      <p>📧 mail@gtholiday.in</p>
+      <p>📞 +91 9344946575</p>
+      <p>📧 travelworld@gmail.com</p>
       <form>
         <label for="name">Name *</label>
         <input type="text" id="name" required>
@@ -129,21 +129,21 @@
   </div>
 
   <script>
-    // Get the index from the URL
+  // Get the index from the URL
 const queryParams = new URLSearchParams(window.location.search);
 const tourIndex = queryParams.get('index');
 
 // Fetch the JSON data
-fetch('tours.json')
+fetch('../tours.json') // Update the path as per your file location
   .then(response => response.json())
   .then(data => {
     const tour = data[tourIndex];
     if (tour) {
-      document.getElementById('tour-title').textContent = tour.title;
-      document.getElementById('tour-location').textContent = tour.location;
+      document.getElementById('tour-title').textContent = tour.tour_name;
+      document.getElementById('tour-location').textContent = tour.location || 'Location not available';
       document.getElementById('tour-duration').textContent = tour.duration;
       document.getElementById('tour-image').src = tour.image;
-      document.getElementById('tour-image').alt = tour.title;
+      document.getElementById('tour-image').alt = tour.tour_name;
     } else {
       document.body.innerHTML = '<h1>Tour not found</h1>';
     }

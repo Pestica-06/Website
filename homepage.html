@@ -141,11 +141,7 @@
       </footer>
     <!-- JavaScript -->
     <script>
-        // Global variable to store tours data
-    
-    
-          // Fetch data from the JSON file and render the cards
-              // Fetch data from the JSON file and render the cards
+  // Fetch data from the JSON file and render the cards
 fetch('./assests/places.json')
   .then(response => response.json())
   .then(data => {
@@ -187,7 +183,7 @@ fetch('./assests/places.json')
 
   //FORM VALIDATION
   document.getElementById('enquiryForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default submission for validation
+    event.preventDefault(); 
 
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();

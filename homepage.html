@@ -44,11 +44,13 @@
                 <h2>TravWorld</h2>
                 <p>Let's Travel And Explore</p>
             </div>
-            <!-- Search Bar -->
-    <div class="search-container">
-        <input type="text" placeholder="Search destinations..." id="searchBar">
-        <button type="submit" onclick="searchDestinations()">Search</button>
-    </div>
+          
+           <!-- Search Bar -->
+<div class="search-container">
+  <input type="text" placeholder="Search destinations..." id="searchBar" oninput="filterPackages()">
+  <button type="button" onclick="filterPackages()">Search</button>
+</div>
+
 
         </div>
     </main>
@@ -142,7 +144,7 @@
     <!-- JavaScript -->
     <script>
   // Fetch data from the JSON file and render the cards
-fetch('./assests/places.json')
+fetch('./assests/json/places.json')
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById('packages');
@@ -214,8 +216,14 @@ fetch('./assests/places.json')
     // Submit the form if validation passes
     this.submit();
 });
-
-
+// Filter packages based on search input
+function filterPackages() {
+  const searchInput = document.getElementById('searchBar').value.toLowerCase();
+  const filteredPackages = allPackages.filter(packageItem =>
+    packageItem.title.toLowerCase().includes(searchInput)
+  );
+  renderPackages(filteredPackages);
+}
 
     </script> 
 </body>

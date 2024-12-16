@@ -53,7 +53,7 @@
         ],
         "description": "Explore the scenic beauty of Darjeeling and Gangtok, the cultural charm of monasteries, and breathtaking Himalayan views.",
         "cta": "Book Now",
-        "image_url": "darjeeling_gangtok.jpg"
+        "image_url": "../images/kerala_place.jpg"
       },
       {
         "name": "Mesmerizing Meghalaya",
@@ -67,7 +67,7 @@
         ],
         "description": "Discover the magical landscapes of Meghalaya, including lush valleys, waterfalls, and unique living root bridges.",
         "cta": "Explore Package",
-        "image_url": "meghalaya.jpg"
+        "image_url": "../images/andaman.jpg"
       },
       {
         "name": "Odisha Heritage & Chilika Lake",
@@ -182,10 +182,11 @@
     ],
     "South India Tour Packages":[
         {
-          "tour_name": "Southern Splendor",
+          "name": "Southern Splendor",
           "duration": "7 Days / 6 Nights",
           "destinations": "Bangalore, Mysore, Ooty, Coorg",
-          "image": "../assests/images/tamilnadu_heritage.jpg",
+          "price_per_person": "₹18,000",
+          "image_url": "../images/southern_splendor.jpg",
           "details": {
             "highlights": [
               "Visit the Mysore Palace and Brindavan Gardens.",
@@ -197,10 +198,11 @@
           }
         },
         {
-          "tour_name": "Kerala Backwater Bliss",
+          "name": "Kerala Backwater Bliss",
           "duration": "6 Days / 5 Nights",
           "destinations": "Cochin, Munnar, Alleppey, Kovalam",
-          "image": "./images/kerala_backwater.jpg",
+          "price_per_person": "₹18,000",
+          "image_url": "../images/kerala_backwater.jpg",
           "details": {
             "highlights": [
               "Stay in a houseboat on Alleppey’s backwaters.",
@@ -212,10 +214,11 @@
           }
         },
         {
-          "tour_name": "Tamil Nadu Heritage Trail",
+          "name": "Tamil Nadu Heritage Trail",
           "duration": "5 Days / 4 Nights",
           "destinations": "Chennai, Mahabalipuram, Pondicherry, Thanjavur",
-          "image": "../assests/images/tamilnadu_heritage.jpg",
+          "price_per_person": "₹18,000",
+          "image_url": "../images/tamilnadu_heritage.jpg",
           "details": {
             "highlights": [
               "UNESCO Heritage sites in Mahabalipuram.",

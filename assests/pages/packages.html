@@ -96,7 +96,7 @@
 
     <script>
         // Replace with your actual JSON file path if needed
-        const jsonUrl = '../packages.json';
+        const jsonUrl = '../json/packages.json';
         const package=localStorage.getItem("packageName")
         
 
@@ -118,8 +118,10 @@
 
         function displayTourPackages(packages) {
             document.getElementById("packageName").innerText=package;
+            document.getElementsByTagName("title")[0].innerText=package;
             const container = document.getElementById('tourPackages');
             packages.forEach(pkg => {
+                
                 const packageCard = document.createElement('div');
                 packageCard.classList.add('tour-package');
                 packageCard.innerHTML = `
@@ -128,7 +130,7 @@
                     <p><strong>Duration:</strong> ${pkg.duration}</p>
                     <p><strong>Price:</strong> ${pkg.price_per_person}</p>
                     <p>${pkg.description}</p>
-                    <button onclick="alert('Booking ${pkg.name}...')">${pkg.cta}</button>
+                    <button onclick="alert('Booking ${pkg.name}...')">Book now</button>
                 `;
                 container.appendChild(packageCard);
             });

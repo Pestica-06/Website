@@ -167,6 +167,10 @@ h1 {
   margin-bottom: 20px;
 }
 
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
 .package-container {
   display: flex;
   flex-wrap: wrap;

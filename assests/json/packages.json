@@ -5,7 +5,7 @@
         "duration": "7 Days / 6 Nights",
         "price_per_person": "₹15,000",
         "description": "Explore the iconic cities of Delhi, Agra, and Jaipur, featuring world-famous landmarks like the Taj Mahal and Amber Fort.",
-        "image_url": "https://example.com/images/golden_triangle.jpg",
+        "image_url": "../images/taj mahal.jpg",
         "cta": "Book Now"
       },
       {
@@ -13,7 +13,7 @@
         "duration": "5 Days / 4 Nights",
         "price_per_person": "₹12,000",
         "description": "Enjoy the serene beauty of the Himalayas with visits to Shimla and Manali. Perfect for nature and adventure lovers.",
-        "image_url": "https://example.com/images/shimla_manali.jpg",
+        "image_url": "../images/manali.jpg",
         "cta": "Explore Now"
       },
       {
@@ -21,7 +21,7 @@
         "duration": "3 Days / 2 Nights",
         "price_per_person": "₹8,500",
         "description": "Immerse yourself in the spiritual vibes of Varanasi with a visit to the Ganga Ghats and Kashi Vishwanath Temple.",
-        "image_url": "https://example.com/images/varanasi.jpg",
+        "image_url": "../images/varanasi.jpg",
         "cta": "Book Now"
       },
       {
@@ -29,7 +29,7 @@
         "duration": "10 Days / 9 Nights",
         "price_per_person": "₹25,000",
         "description": "Discover the royal palaces, forts, and desert landscapes of Rajasthan, including Jodhpur, Udaipur, and Jaisalmer.",
-        "image_url": "https://example.com/images/rajasthan.jpg",
+        "image_url": "../images/rajastan.jpg",
         "cta": "View Details"
       },
       {
@@ -37,7 +37,7 @@
         "duration": "6 Days / 5 Nights",
         "price_per_person": "₹20,000",
         "description": "Embark on a thrilling journey to Leh-Ladakh with stunning landscapes, monasteries, and adventure activities.",
-        "image_url": "https://example.com/images/leh_ladakh.jpg",
+        "image_url": "../images/ladakh.jpg",
         "cta": "Plan Your Trip"
       }
     ],"East India Tour Packages": [
@@ -81,7 +81,7 @@
         ],
         "description": "Dive into Odisha's rich heritage with visits to ancient temples and the serene beauty of Chilika Lake.",
         "cta": "Plan Your Trip",
-        "image_url": "odisha.jpg"
+        "image_url": "../images/southern_splendor.jpg"
       },
       {
         "name": "Majestic Arunachal Pradesh",
@@ -95,7 +95,7 @@
         ],
         "description": "Experience the untouched beauty of Arunachal Pradesh, its monasteries, snow-capped mountains, and vibrant tribal culture.",
         "cta": "Reserve Now",
-        "image_url": "arunachal_pradesh.jpg"
+        "image_url": "../images/himachal pradesh.jpg"
       }
     ],"Educational Tour Packages": [
       {
@@ -103,7 +103,7 @@
         "duration": "3 Days / 2 Nights",
         "price_per_person": "₹5,000",
         "description": "A fascinating educational tour of Delhi's historical landmarks such as the Red Fort, Qutub Minar, and India Gate.",
-        "image_url": "https://example.com/images/delhi_tour.jpg",
+        "image_url": "../images/hampi.jpg",
         "cta": "Learn More"
       },
       {
@@ -111,7 +111,7 @@
         "duration": "2 Days / 1 Night",
         "price_per_person": "₹3,500",
         "description": "Explore the wonders of science at the Kolkata Science City and learn about astronomy at the Birla Planetarium.",
-        "image_url": "https://example.com/images/science_city_kolkata.jpg",
+        "image_url": "../images/himalaya.jpg",
         "cta": "Book Now"
       },
       {
@@ -119,7 +119,7 @@
         "duration": "5 Days / 4 Nights",
         "price_per_person": "₹12,000",
         "description": "Discover the architectural marvels of Jaipur and Agra, including the Taj Mahal, Amber Fort, and Hawa Mahal.",
-        "image_url": "https://example.com/images/agra_jaipur.jpg",
+        "image_url": "../images/india gate.jpg",
         "cta": "Explore Now"
       },
       {
@@ -127,7 +127,7 @@
         "duration": "4 Days / 3 Nights",
         "price_per_person": "₹10,000",
         "description": "An educational journey to the Birla Science Museum and the world-famous Ramoji Film City in Hyderabad.",
-        "image_url": "https://example.com/images/hyderabad_tour.jpg",
+        "image_url": "../images/golkonda.jpg",
         "cta": "View Details"
       },
       {
@@ -135,7 +135,7 @@
         "duration": "3 Days / 2 Nights",
         "price_per_person": "₹6,500",
         "description": "Visit ISRO's Space Research Center and the Visvesvaraya Industrial and Technological Museum in Bengaluru.",
-        "image_url": "https://example.com/images/bengaluru_tour.jpg",
+        "image_url": "../images/hampi.jpg",
         "cta": "Plan Your Visit"
       }
     ],"Family Tour Packages": [
@@ -144,7 +144,7 @@
         "duration": "5 Days / 4 Nights",
         "price_per_person": "₹12,500",
         "description": "A fun-filled family holiday exploring the beautiful beaches of Goa, including water sports, shopping, and cultural experiences.",
-        "image_url": "https://example.com/images/goa_family_vacation.jpg",
+        "image_url": "../images/goa beach.jpg",
         "cta": "Book Now"
       },
       {
@@ -152,7 +152,7 @@
         "duration": "6 Days / 5 Nights",
         "price_per_person": "₹15,000",
         "description": "Experience the tranquil beauty of Kerala's backwaters on a houseboat cruise, along with visits to tea plantations and beaches.",
-        "image_url": "https://example.com/images/kerala_backwaters.jpg",
+        "image_url": "../images/kerala_backwater.jpg",
         "cta": "Explore Now"
       },
       {
@@ -160,7 +160,7 @@
         "duration": "8 Days / 7 Nights",
         "price_per_person": "₹20,000",
         "description": "A royal family tour across Rajasthan, visiting palaces, forts, and desert cities like Jaipur, Udaipur, and Jodhpur.",
-        "image_url": "https://example.com/images/rajasthan_family_tour.jpg",
+        "image_url": "../images/rajastan.jpg",
         "cta": "View Details"
       },
       {
@@ -168,7 +168,7 @@
         "duration": "7 Days / 6 Nights",
         "price_per_person": "₹18,000",
         "description": "A relaxing family tour to the pristine beaches and coral reefs of Andaman and Nicobar Islands with water activities and sightseeing.",
-        "image_url": "https://example.com/images/andaman_family_escape.jpg",
+        "image_url": "../images/andaman.jpg",
         "cta": "Plan Your Trip"
       },
       {
@@ -176,7 +176,7 @@
         "duration": "6 Days / 5 Nights",
         "price_per_person": "₹14,500",
         "description": "A perfect family vacation in the picturesque hill stations of Shimla and Manali with snow-capped mountains and local markets.",
-        "image_url": "https://example.com/images/shimla_manali_family.jpg",
+        "image_url": "../images/india gate.jpg",
         "cta": "Book Now"
       }
     ],

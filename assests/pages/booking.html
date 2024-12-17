@@ -17,14 +17,35 @@
         body {
             background-color: #F8F6ED;
             color: #000;
-
         }
+
+        /* Header Section */
+        .header {
+            background-color: #2C5558;
+            color: #FFF;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 1.5rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        /* Package details */
         .details {
             background-color: #3E7377;
             padding: 20px;
             border-radius: 10px;
             color: #FFF;
             max-width: 50%;
+            margin: 20px auto;
         }
 
         .details h2 {
@@ -35,6 +56,7 @@
             margin: 5px 0;
         }
 
+        /* Book Now button */
         .book-now-btn {
             display: inline-block;
             margin-top: 15px;
@@ -45,17 +67,6 @@
             border-radius: 5px;
             font-weight: bold;
             text-align: center;
-        }
-
-        .place-image {
-            width: 150px;
-            height: 150px;
-            background-color: #E0E0E0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.2rem;
-            color: #000;
         }
 
         /* Bottom Section */
@@ -116,9 +127,45 @@
             margin: 5px;
             text-align: center;
         }
+
+        /* Footer */
+        .footer {
+            background-color: #3E7377;
+            color: #FFF;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .footer a {
+            color: #FFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
+
+    <!-- Header Section with Impressive Tourism Quote -->
+    <div class="header">
+        <h1>Discover the World with Us</h1>
+        <p>"The world is a book and those who do not travel read only one page."</p>
+    </div>
+
+    <!-- Display Package Details -->
+    <div class="details" id="package-details">
+        <h2 id="package-name">Package Name</h2>
+        <p><strong>Duration:</strong> <span id="package-duration">Loading...</span></p>
+        <p><strong>Price:</strong> <span id="package-price">Loading...</span></p>
+        <p id="package-description">Loading...</p>
+        <p><strong>Food:</strong> <span id="package-food">Included</span></p>
+        <p><strong>Night Stay:</strong> <span id="package-night-stay">Included</span></p>
+        <p><strong>Group Size:</strong> <span id="package-group-size">Minimum 5 people</span></p>
+    </div>
 
     <!-- Bottom Section -->
     <div class="bottom-section" id="booking">
@@ -144,6 +191,11 @@
         </div>
     </div>
 
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Travel Booking. All Rights Reserved.</p>
+    </div>
+
     <script>
         // Price Constants
         const adultPrice = 2400;
@@ -157,6 +209,30 @@
         const adultPriceDisplay = document.getElementById("adult-price");
         const kidPriceDisplay = document.getElementById("kid-price");
         const totalPriceDisplay = document.getElementById("total-price");
+
+        // Package details display elements
+        const packageNameDisplay = document.getElementById("package-name");
+        const packageDurationDisplay = document.getElementById("package-duration");
+        const packagePriceDisplay = document.getElementById("package-price");
+        const packageDescriptionDisplay = document.getElementById("package-description");
+        const packageFoodDisplay = document.getElementById("package-food");
+        const packageNightStayDisplay = document.getElementById("package-night-stay");
+        const packageGroupSizeDisplay = document.getElementById("package-group-size");
+
+        // Retrieve package details from localStorage
+        const packageDetails = JSON.parse(localStorage.getItem("packageDetails"));
+
+        if (packageDetails) {
+            packageNameDisplay.textContent = packageDetails.name;
+            packageDurationDisplay.textContent = packageDetails.duration;
+            packagePriceDisplay.textContent = packageDetails.price_per_person;
+            packageDescriptionDisplay.textContent = packageDetails.description;
+            packageFoodDisplay.textContent = packageDetails.food || 'Included';
+            packageNightStayDisplay.textContent = packageDetails.night_stay || 'Included';
+            packageGroupSizeDisplay.textContent = packageDetails.group_size || 'Minimum 5 people';
+        } else {
+            alert("No package details found.");
+        }
 
         // Event Listeners for Input Changes
         adultInput.addEventListener("input", calculatePrice);
@@ -178,6 +254,7 @@
 
         function bookNow() {
             alert("Booking Confirmed! 🎉");
+            // You can handle further booking actions here (e.g., saving to a database or redirecting to a confirmation page)
         }
 
         function cancelBooking() {
@@ -185,7 +262,10 @@
             adultInput.value = 0;
             kidInput.value = 0;
             calculatePrice();
+            window.location.href = "../../homepage.html";
+        
         }
     </script>
+
 </body>
 </html>

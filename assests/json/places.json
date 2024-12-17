@@ -2,7 +2,7 @@
   "packages": [
     {
       "title": "South India Tour Packages",
-      "count": 3,
+      "count": 5,
       "image": "./assests/images/taj mahal.jpg",
       "link": "../assests/pages/south_india.html"
     },

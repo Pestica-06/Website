@@ -13,7 +13,7 @@
         }
 
         header {
-            background-color:  cadetblue;
+            background-color: cadetblue;
             color: white;
             padding: 15px 20px;
             text-align: center;
@@ -54,7 +54,7 @@
 
         .tour-package h3 {
             margin: 15px 10px 5px;
-            color:  cadetblue;
+            color: cadetblue;
         }
 
         .tour-package p {
@@ -75,14 +75,14 @@
         }
 
         .tour-package button:hover {
-            background-color: cadetblue;
+            background-color:  #3E7377;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1 id="packageName">Package Tile</h1>
+        <h1 id="packageName">Package Title</h1>
         <p>Explore the rich heritage and culture of North India with our curated tour packages</p>
     </header>
 
@@ -95,11 +95,9 @@
     </footer>
 
     <script>
-        // Replace with your actual JSON file path if needed
         const jsonUrl = '../json/packages.json';
-        const package=localStorage.getItem("packageName")
-        
-
+        const package = localStorage.getItem("packageName");
+    
         fetch(jsonUrl)
             .then(response => {
                 if (!response.ok) {
@@ -115,13 +113,12 @@
                 console.error('Error:', error);
                 document.getElementById('tourPackages').innerHTML = '<p>Unable to load tour packages. Please try again later.</p>';
             });
-
+    
         function displayTourPackages(packages) {
-            document.getElementById("packageName").innerText=package;
-            document.getElementsByTagName("title")[0].innerText=package;
+            document.getElementById("packageName").innerText = package;
+            document.getElementsByTagName("title")[0].innerText = package;
             const container = document.getElementById('tourPackages');
-            packages.forEach(pkg => {
-                
+            packages.forEach((pkg, index) => {
                 const packageCard = document.createElement('div');
                 packageCard.classList.add('tour-package');
                 packageCard.innerHTML = `
@@ -130,11 +127,19 @@
                     <p><strong>Duration:</strong> ${pkg.duration}</p>
                     <p><strong>Price:</strong> ${pkg.price_per_person}</p>
                     <p>${pkg.description}</p>
-                    <button onclick="alert('Booking ${pkg.name}...')">Book now</button>
+                    <button onclick="viewDetails(${index})">View Details</button>
                 `;
                 container.appendChild(packageCard);
             });
         }
+    
+        function viewDetails(packageIndex) {
+            // Store the selected package index in localStorage to retrieve on details page
+            localStorage.setItem("selectedPackageIndex", packageIndex);
+            // Redirect to the details page
+            window.location.href = '../pages/details.html';
+        }
     </script>
+    
 </body>
 </html>

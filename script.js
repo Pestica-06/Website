@@ -69,7 +69,7 @@ function filterPackages() {
   const filteredPackages = allPackages.filter(packageItem =>
     packageItem.title.toLowerCase().includes(query)
   );
-  renderPackages(filteredPackages); // Re-render packages with the filtered list
+  renderPackages(filteredPackages); 
 }
 
 //form validation

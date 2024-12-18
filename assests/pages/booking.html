@@ -221,6 +221,8 @@
 
         // Retrieve package details from localStorage
         const packageDetails = JSON.parse(localStorage.getItem("packageDetails"));
+        console.log(packageDetails);
+        
 
         if (packageDetails) {
             packageNameDisplay.textContent = packageDetails.name;
@@ -252,11 +254,11 @@
             totalPriceDisplay.textContent = `${totalPrice} Rs.`;
         }
 
-        function bookNow() {
+     /*    function bookNow() {
             alert("Booking Confirmed! 🎉");
             // You can handle further booking actions here (e.g., saving to a database or redirecting to a confirmation page)
         }
-
+ */
         function cancelBooking() {
             // Reset values
             adultInput.value = 0;

@@ -152,7 +152,8 @@
         }
 
         function goToDetailsPage(index) {
-            window.location.href = `booking.html?index=${index}`;
+            localStorage.setItem("packageIndex",index)
+            window.location.href = `booking.html`;
         }
     </script>
 </body>

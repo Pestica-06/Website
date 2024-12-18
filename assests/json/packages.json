@@ -5,7 +5,7 @@
       "duration": "7 Days / 6 Nights",
       "price_per_person": "₹15,000",
       "description": "Explore the iconic cities of Delhi, Agra, and Jaipur, featuring world-famous landmarks like the Taj Mahal and Amber Fort.",
-      "image_url": "../images/taj_mahal.jpg",
+      "image_url": "../images/lotus temple.avif",
       "cta": "Book Now",
       "itinerary": {
         "Day 1": "Arrival in Delhi. Sightseeing: India Gate, Qutub Minar, and Humayun's Tomb.",
@@ -50,7 +50,7 @@
       "duration": "10 Days / 9 Nights",
       "price_per_person": "₹25,000",
       "description": "Discover the royal palaces, forts, and desert landscapes of Rajasthan, including Jodhpur, Udaipur, and Jaisalmer.",
-      "image_url": "../images/rajasthan.jpg",
+      "image_url": "../images/rajastan.jpg",
       "cta": "View Details",
       "itinerary": {
         "Day 1": "Arrival in Jaipur. Visit Hawa Mahal and City Palace.",
@@ -95,7 +95,7 @@
       ],
       "description": "Explore the scenic beauty of Darjeeling and Gangtok, the cultural charm of monasteries, and breathtaking Himalayan views.",
       "cta": "Book Now",
-      "image_url": "../images/darjeeling.jpg",
+      "image_url": "../images/auli.jpg",
       "itinerary": {
         "Day 1": "Arrival in Darjeeling. Evening free for leisure or a stroll at Mall Road.",
         "Day 2": "Early morning visit to Tiger Hill for sunrise. Explore Batasia Loop and Ghoom Monastery.",
@@ -140,7 +140,7 @@
       ],
       "description": "Dive into Odisha's rich heritage with visits to ancient temples and the serene beauty of Chilika Lake.",
       "cta": "Plan Your Trip",
-      "image_url": "../images/odisha.jpg",
+      "image_url": "../images/coorg.jpg",
       "itinerary": {
         "Day 1": "Arrival in Bhubaneswar. Visit Lingaraj Temple, Udayagiri, and Khandagiri Caves.",
         "Day 2": "Drive to Puri. Visit Jagannath Temple and relax at Puri Beach.",
@@ -161,7 +161,7 @@
       ],
       "description": "Experience the untouched beauty of Arunachal Pradesh, its monasteries, snow-capped mountains, and vibrant tribal culture.",
       "cta": "Reserve Now",
-      "image_url": "../images/arunachal.jpg",
+      "image_url": "../images/delhi.jpg",
       "itinerary": {
         "Day 1": "Arrival in Guwahati. Drive to Bhalukpong. Overnight stay.",
         "Day 2": "Drive to Dirang. Visit Dirang Monastery and Hot Springs.",
@@ -250,7 +250,7 @@
       "duration": "5 Days / 4 Nights",
       "price_per_person": "₹12,500",
       "description": "A fun-filled family holiday exploring the beautiful beaches of Goa, including water sports, shopping, and cultural experiences.",
-      "image_url": "../images/goa_beach.jpg",
+      "image_url": "../images/goa beach.jpg",
       "cta": "Book Now",
       "itinerary": {
         "Day 1": "Arrival in Goa. Relax at the resort and enjoy a sunset beach walk at Calangute Beach.",
@@ -281,7 +281,7 @@
       "duration": "8 Days / 7 Nights",
       "price_per_person": "₹20,000",
       "description": "A royal family tour across Rajasthan, visiting palaces, forts, and desert cities like Jaipur, Udaipur, and Jodhpur.",
-      "image_url": "../images/rajasthan.jpg",
+      "image_url": "../images/rajastan.jpg",
       "cta": "View Details",
       "itinerary": {
         "Day 1": "Arrival in Jaipur. Visit Hawa Mahal and City Palace.",
@@ -316,7 +316,7 @@
       "duration": "6 Days / 5 Nights",
       "price_per_person": "₹14,500",
       "description": "A perfect family vacation in the picturesque hill stations of Shimla and Manali with snow-capped mountains and local markets.",
-      "image_url": "../images/shimla_manali.jpg",
+      "image_url": "../images/manali.jpg",
       "cta": "Book Now",
       "itinerary": {
         "Day 1": "Arrival in Shimla. Relax and explore Mall Road in the evening.",

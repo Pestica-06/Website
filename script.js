@@ -4,21 +4,32 @@ function toggleMenu() {
     navLinks.classList.toggle('show');
 }
 
-// Close the dropdown when clicking outside
 document.addEventListener('click', function (event) {
-    const dropdown = document.querySelector('.dropdown-content');
-    const isDropdownButton = event.target.matches('.dropbtn');
-    const isMenuButton = event.target.closest('.menu-icon');
+  const dropdowns = document.querySelectorAll('.dropdown-content');
+  const isDropdownButton = event.target.matches('.dropbtn');
+  const currentDropdown = event.target.closest('.dropdown')?.querySelector('.dropdown-content');
 
-    // Close dropdown if clicking outside of it (when it's open)
-    if (!isDropdownButton && !isMenuButton && dropdown && dropdown.classList.contains('show')) {
-        dropdown.classList.remove('show');
+  // Close all open dropdowns
+  dropdowns.forEach(dropdown => {
+    if (dropdown !== currentDropdown) {
+      dropdown.classList.remove('show');
     }
+  });
 
-    // Toggle the dropdown menu when the button is clicked
-    if (isDropdownButton) {
-        dropdown.classList.toggle('show');
-    }
+  // Toggle the clicked dropdown menu
+  if (isDropdownButton && currentDropdown) {
+    currentDropdown.classList.toggle('show');
+  }
+});
+
+// Close the dropdown menu when clicking outside
+document.addEventListener('click', function (event) {
+  const isDropdown = event.target.closest('.dropdown');
+  if (!isDropdown) {
+    document.querySelectorAll('.dropdown-content.show').forEach(dropdown => {
+      dropdown.classList.remove('show');
+    });
+  }
 });
 
 // Fetch data from the JSON file and render the cards
@@ -39,7 +50,8 @@ function renderPackages(packages) {
   container.innerHTML = ""; // Clear existing packages
 
   if (packages.length === 0) {
-    container.innerHTML = `<p>No packages found.</p>`;
+    container.innerHTML = `<p>No packages found.</p>`; vb
+  
     return;
   }
 
@@ -112,3 +124,9 @@ document.getElementById('enquiryForm').addEventListener('submit', function(event
             alert(`Thank you, ${name}! Your message has been sent successfully.`);
             document.getElementById('enquiryForm').reset(); // Clear the form
         });
+
+
+        function selectCategory(category) {
+          localStorage.setItem('selectedCategory', category);
+          window.location.href = './assests/pages/roughdetails.html'; // Redirect to the packages page
+      }

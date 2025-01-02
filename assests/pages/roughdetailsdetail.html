@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tour Details</title>
   <style>
-    /* Your existing styles */
-  
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -93,7 +89,7 @@
 <body>
   <div class="details-container">
     <div class="tour-info">
-      <h1 id="tour-title">Loading...</h1>
+      <h1 id="tour-title"></h1>
       <p id="tour-location"></p>
       <div class="details">
         <p><strong>Duration:</strong> <span id="tour-duration"></span></p>
@@ -146,14 +142,7 @@
         .then(response => response.json())
         .then(data => {
           const tours = data[category];
-
-          if (!tours) {
-            document.body.innerHTML = '<h1>Invalid category selected. Please try again.</h1>';
-            return;
-          }
-
-          const tour = tours[index];
-
+          const tour = tours ? tours[index] : null;
           if (tour) {
             document.getElementById('tour-title').textContent = tour.name;
             document.getElementById('tour-location').textContent = tour.location?.state || 'Location not available';
@@ -170,5 +159,5 @@
         });
     }
   </script>
-</body>  
+</body>
 </html>

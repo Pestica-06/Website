@@ -1,18 +1,10 @@
-
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-section {
-  padding: 50px 20px;
-  margin: 0 auto;
-  max-width: 1200px;
-  text-align: center;
-}
-
-/* Body styling */
 body {
   font-family: Arial, sans-serif;
   display: flex;
@@ -21,7 +13,15 @@ body {
   color: #333;
 }
 
-/* Header styling */
+/* Section Styling */
+section {
+  padding: 50px 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  text-align: center;
+}
+
+/* Header */
 header {
   width: 100%;
   background-color: rgba(0, 102, 112, 0.85);
@@ -36,7 +36,7 @@ header {
   width: 40px;
 }
 
-/* Navigation styling */
+/* Navigation */
 nav {
   display: flex;
   align-items: center;
@@ -66,28 +66,36 @@ nav {
   background-color: rgba(73, 163, 168, 0.8);
 }
 
-/* Dropdown menu */
+/* Dropdown Menu */
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(73, 163, 168, 0.8);
   border-radius: 5px;
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
-.dropdown-content a {
-  color: #333;
+.dropdown-content button {
+  color: white;
+  background-color: rgba(73, 163, 168, 0.8);
   padding: 10px 15px;
   display: block;
+  text-align: left;
+  border-color: rgba(73, 163, 168, 0.8);
+  width: 100%;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* Mobile menu icon */
+/* Mobile Menu Icon */
 .menu-icon {
   display: none;
   font-size: 1.5em;
@@ -101,7 +109,7 @@ nav {
   height: 40px;
 }
 
-/* Hero section */
+/* Hero Section */
 .hero {
   position: relative;
   text-align: center;
@@ -110,14 +118,16 @@ nav {
 
 .hero img {
   width: 100%;
-  height: 400px;
+  height:400px;
+  object-fit: fill;
 }
 
 .hero-text {
   position: absolute;
-  bottom: 39%;
+  bottom: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .hero h2 {
@@ -128,12 +138,7 @@ nav {
 
 .hero p {
   font-size: 1.5rem;
-  color:white;
-}
-
-h1{
-  padding-left: 50px;
-  padding-bottom: 50px;
+  color: white;
 }
 
 /* Search Bar */
@@ -167,10 +172,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-.card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
 .package-container {
   display: flex;
   flex-wrap: wrap;
@@ -186,6 +187,12 @@ h1 {
   width: 350px;
   text-align: center;
   margin-bottom: 30px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .card-image img {
@@ -207,7 +214,7 @@ h1 {
   display: inline-block;
   margin-top: 10px;
   padding: 10px 15px;
-  background-color:  rgba(73, 163, 168, 0.8);
+  background-color: rgba(73, 163, 168, 0.8);
   color: #fff;
   text-decoration: none;
   font-weight: bold;
@@ -216,8 +223,9 @@ h1 {
 }
 
 .button:hover {
-  background-color:  #ffc107;
+  background-color: #ffc107;
 }
+
 /* Features Section */
 .features {
   display: flex;
@@ -245,7 +253,6 @@ h1 {
   color: white;
   padding: 40px;
   text-align: center;
-  box-shadow: #f8f9fa;
   border-radius: 7px;
 }
 
@@ -255,7 +262,7 @@ h1 {
 
 .experience p {
   line-height: 1.8;
-  color:white;
+  color: white;
 }
 
 /* Enquiry Form */
@@ -265,50 +272,22 @@ h1 {
   border-radius: 8px;
   width: 500px;
   margin: 20px auto;
-}
-
-.form-group input, .form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
-.submit-btn {
-  background-color: rgba(0, 102, 112, 0.95);
-  color: white;
-  padding: 10px 20px;
-  border: none;
-}
-
-
-/* contact us*/
-.enquiry-form-container {
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 8px;
-  width: 500px;
-  margin: 20px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  
   text-align: center;
 }
 
-/* Form Heading */
 .enquiry-form-container h2 {
   margin-bottom: 20px;
   font-size: 24px;
   color: #333;
-  font-family: Arial, sans-serif;
 }
 
-/* Form Group Styling */
 .form-group {
   margin-bottom: 15px;
   text-align: left;
 }
 
 .form-group label {
-  display: block;
   font-weight: bold;
   margin-bottom: 5px;
   color: #555;
@@ -318,43 +297,29 @@ h1 {
 .form-group textarea {
   width: 100%;
   padding: 10px;
-  font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color:  #ffc107;
+  border-color: #ffc107;
 }
 
-/* Button Styling */
 .submit-btn {
-  display: inline-block;
-  background-color:rgba(0, 102, 112, 0.95);
+  background-color: rgba(0, 102, 112, 0.95);
   color: white;
   padding: 10px 20px;
-  font-size: 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 }
 
 .submit-btn:hover {
-  background-color:  #ffc107;
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-  .enquiry-form-container {
-      padding: 15px;
-  }
-  .submit-btn {
-      width: 100%;
-  }
+  background-color: #ffc107;
 }
 
 /* Footer */
@@ -373,24 +338,6 @@ footer a:hover {
   color: #ffc107;
 }
 
-footer {
-  background-color: rgba(0, 102, 112, 0.95);
-  color: #fff;
-  padding: 20px 0;
-  text-align: center;
-}
-footer p{
-  color:white;
-}
-
-footer a {
-  color: #ecf0f1;
-  text-decoration: none;
-  margin: 0 10px;
-}
-
-
-
 footer hr {
   border: 0;
   border-top: 1px solid #34495e;
@@ -398,9 +345,16 @@ footer hr {
   width: 80%;
 }
 
-
-
-
 footer p {
   margin: 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .enquiry-form-container {
+    padding: 15px;
+  }
+  .submit-btn {
+    width: 100%;
+  }
 }

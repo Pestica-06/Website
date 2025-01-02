@@ -24,7 +24,7 @@
       "description": "The longest urban beach in India, famous for its sunrise views and cultural landmarks.",
       "activities": ["Walking", "Horse riding", "Street food"],
       "best_time_to_visit": ["November", "December", "January", "February"],
-      "image_url": "https://example.com/images/marina_beach.jpg"
+      "image_url": "../images/beach.jpg"
     },
     {
       "name": "Radhanagar Beach",
@@ -37,7 +37,7 @@
       "description": "Renowned for its pristine beauty, turquoise waters, and white sands.",
       "activities": ["Swimming", "Snorkeling", "Photography"],
       "best_time_to_visit": ["November", "December", "January", "February", "March"],
-      "image_url": "https://example.com/images/radhanagar_beach.jpg"
+      "image_url": "../images/goa beach.jpg"
     },
     {
       "name": "Kovalam Beach",
@@ -50,7 +50,7 @@
       "description": "A popular beach destination in Kerala, known for its crescent-shaped coastline.",
       "activities": ["Surfing", "Ayurvedic treatments", "Sunbathing"],
       "best_time_to_visit": ["September", "October", "November", "December", "January", "February"],
-      "image_url": "https://example.com/images/kovalam_beach.jpg"
+      "image_url": "../images/kerala_place.jpg"
     },
     {
       "name": "Gokarna Beach",
@@ -63,7 +63,7 @@
       "description": "A serene beach town famous for its temples and laid-back atmosphere.",
       "activities": ["Yoga retreats", "Hiking", "Beach camping"],
       "best_time_to_visit": ["October", "November", "December", "January", "February"],
-      "image_url": "https://example.com/images/gokarna_beach.jpg"
+      "image_url": "../images/auli.jpg"
     }
   ]
 }

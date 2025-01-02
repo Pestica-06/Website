@@ -14,18 +14,19 @@
         </div>
         <!-- Navigation Menu -->
         <nav>
-            <ul class="nav-links">
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Places</a>
-                    <div class="dropdown-content">
-                        <a href="./assests/pages/historical.html">Historical</a>
-                        <a href="./assests/pages/adventures.html">Adventures</a>
-                        <a href="./assests/pages/beaches.html">Beaches</a>
-                        <a href="./assests/pages/mountains.html">Mountains</a>
-                    </div>
-                </li>
-                <li><a href="./assests/pages/tour.html" class="tours">Tours</a></li>
-            </ul>
+          <ul class="nav-links">
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Places</a>
+                <div class="dropdown-content">
+                    <button onclick="selectCategory('popular_beaches')">Popular Beaches</button>
+                    <button onclick="selectCategory('mountains')">Mountains</button>
+                    <button onclick="selectCategory('adventures')">Adventures</button>
+                    <button onclick="selectCategory('historical')">Historical</button>
+                </div>
+            </li>
+            <li><a href="./assests/pages/tour.html" class="tours">Tours</a></li>
+        </ul>
+        
             <div class="login-register">
                 <a href="./assests/pages/login.html">
                     <img src="./assests/images/profile_img.png" alt="Profile Icon">
@@ -57,8 +58,9 @@
     <h1>Popular Packages</h1>
     <div id="packages" class="package-container"></div>
   
-  
-  
+
+
+
 
     <!-- Features Section -->
     <section class="features">

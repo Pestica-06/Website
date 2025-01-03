@@ -133,42 +133,42 @@
       </form>
     </div>
   </div>
-
   <script>
-    const queryParams = new URLSearchParams(window.location.search);
-    const category = queryParams.get('category');
-    const index = queryParams.get('index');
 
-    if (!category || !index) {
-      document.body.innerHTML = '<h1>No tour selected. Please go back and select a tour.</h1>';
-    } else {
-      fetch('../json/navjson.json') // Update the path to match your file structure
-        .then(response => response.json())
-        .then(data => {
-          const tours = data[category];
+const queryParams = new URLSearchParams(window.location.search);
+const category = queryParams.get('category');
+const index = queryParams.get('index');
 
-          if (!tours) {
+// Log values for debugging
+console.log('Category:', category);
+console.log('Index:', index);
+
+// Fetch and display the data
+fetch('../json/navjson.json')
+    .then(response => response.json())
+    .then(data => {
+        const tours = data[category];
+        if (!tours) {
             document.body.innerHTML = '<h1>Invalid category selected. Please try again.</h1>';
             return;
-          }
+        }
 
-          const tour = tours[index];
-
-          if (tour) {
+        const tour = tours[index];
+        if (tour) {
             document.getElementById('tour-title').textContent = tour.name;
             document.getElementById('tour-location').textContent = tour.location?.state || 'Location not available';
             document.getElementById('tour-duration').textContent = tour.duration || 'Duration not available';
             document.getElementById('tour-image').src = tour.image_url || 'placeholder.jpg';
             document.getElementById('tour-image').alt = tour.name || 'Tour image';
-          } else {
+        } else {
             document.body.innerHTML = '<h1>Tour not found</h1>';
-          }
-        })
-        .catch(error => {
-          console.error('Error fetching tour details:', error);
-          document.body.innerHTML = '<h1>Error loading tour details. Please try again later.</h1>';
-        });
-    }
-  </script>
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching tour details:', error);
+        document.body.innerHTML = '<h1>Error loading tour details. Please try again later.</h1>';
+    });
+    </script>
+
 </body>  
 </html>

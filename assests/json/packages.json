@@ -3,7 +3,7 @@
     {
       "name": "Golden Triangle Tour",
       "duration": "7 Days / 6 Nights",
-      "price_per_person": "₹15,000",
+      "price_per_person": "₹4,000",
       "description": "Explore the iconic cities of Delhi, Agra, and Jaipur, featuring world-famous landmarks like the Taj Mahal and Amber Fort.",
       "image_url": "../images/lotus temple.avif",
       "cta": "Book Now",
@@ -20,7 +20,7 @@
     {
       "name": "Shimla and Manali Getaway",
       "duration": "5 Days / 4 Nights",
-      "price_per_person": "₹12,000",
+      "price_per_person": "₹3,000",
       "description": "Enjoy the serene beauty of the Himalayas with visits to Shimla and Manali. Perfect for nature and adventure lovers.",
       "image_url": "../images/manali.jpg",
       "cta": "Explore Now",
@@ -35,7 +35,7 @@
     {
       "name": "Varanasi Spiritual Retreat",
       "duration": "3 Days / 2 Nights",
-      "price_per_person": "₹8,500",
+      "price_per_person": "₹3,500",
       "description": "Immerse yourself in the spiritual vibes of Varanasi with a visit to the Ganga Ghats and Kashi Vishwanath Temple.",
       "image_url": "../images/varanasi.jpg",
       "cta": "Book Now",
@@ -48,7 +48,7 @@
     {
       "name": "Rajasthan Heritage Tour",
       "duration": "10 Days / 9 Nights",
-      "price_per_person": "₹25,000",
+      "price_per_person": "₹5,000",
       "description": "Discover the royal palaces, forts, and desert landscapes of Rajasthan, including Jodhpur, Udaipur, and Jaisalmer.",
       "image_url": "../images/rajastan.jpg",
       "cta": "View Details",
@@ -68,7 +68,7 @@
     {
       "name": "Leh-Ladakh Adventure",
       "duration": "6 Days / 5 Nights",
-      "price_per_person": "₹20,000",
+      "price_per_person": "₹7,000",
       "description": "Embark on a thrilling journey to Leh-Ladakh with stunning landscapes, monasteries, and adventure activities.",
       "image_url": "../images/ladakh.jpg",
       "cta": "Plan Your Trip",
@@ -86,7 +86,7 @@
     {
       "name": "Discover Darjeeling & Gangtok",
       "duration": "6 Days / 5 Nights",
-      "price_per_person": "₹25,000",
+      "price_per_person": "₹5,000",
       "highlights": [
         "Tiger Hill Sunrise View",
         "Tea Gardens of Darjeeling",
@@ -108,7 +108,7 @@
     {
       "name": "Mesmerizing Meghalaya",
       "duration": "7 Days / 6 Nights",
-      "price_per_person": "₹30,000",
+      "price_per_person": "₹3,000",
       "highlights": [
         "Living Root Bridges at Cherrapunji",
         "Seven Sisters Waterfalls",
@@ -131,7 +131,7 @@
     {
       "name": "Odisha Heritage & Chilika Lake",
       "duration": "5 Days / 4 Nights",
-      "price_per_person": "₹20,000",
+      "price_per_person": "₹10,000",
       "highlights": [
         "Jagannath Temple in Puri",
         "Konark Sun Temple",
@@ -152,7 +152,7 @@
     {
       "name": "Majestic Arunachal Pradesh",
       "duration": "8 Days / 7 Nights",
-      "price_per_person": "₹35,000",
+      "price_per_person": "₹5,500",
       "highlights": [
         "Tawang Monastery",
         "Sela Pass",
@@ -161,7 +161,7 @@
       ],
       "description": "Experience the untouched beauty of Arunachal Pradesh, its monasteries, snow-capped mountains, and vibrant tribal culture.",
       "cta": "Reserve Now",
-      "image_url": "../images/delhi.jpg",
+      "image_url": "../images/himachal pradesh.jpg",
       "itinerary": {
         "Day 1": "Arrival in Guwahati. Drive to Bhalukpong. Overnight stay.",
         "Day 2": "Drive to Dirang. Visit Dirang Monastery and Hot Springs.",
@@ -203,7 +203,7 @@
     {
       "name": "Jaipur and Agra Cultural Heritage Tour",
       "duration": "5 Days / 4 Nights",
-      "price_per_person": "₹12,000",
+      "price_per_person": "₹2,000",
       "description": "Discover the architectural marvels of Jaipur and Agra, including the Taj Mahal, Amber Fort, and Hawa Mahal.",
       "image_url": "../images/jaipur_agra.jpg",
       "cta": "Explore Now",
@@ -218,7 +218,7 @@
     {
       "name": "Hyderabad's Birla Science Museum and Ramoji Film City",
       "duration": "4 Days / 3 Nights",
-      "price_per_person": "₹10,000",
+      "price_per_person": "₹1,000",
       "description": "An educational journey to the Birla Science Museum and the world-famous Ramoji Film City in Hyderabad.",
       "image_url": "../images/hyderabad.jpg",
       "cta": "View Details",

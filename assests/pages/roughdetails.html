@@ -93,15 +93,13 @@
 <footer>
     <p>&copy; 2024 Travworld | All Rights Reserved</p>
 </footer>
-
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const jsonUrl = '../json/navjson.json';
     const tourName = document.getElementById("tourName");
     const tourList = document.getElementById("tourList");
     const selectedCategory = localStorage.getItem("selectedCategory");
     console.log(selectedCategory);
-    
 
     if (!selectedCategory) {
         tourName.textContent = "Explore India's Best Destinations";
@@ -121,7 +119,8 @@
             const categoryMap = {
                 popular_beaches: { title: "Popular Beaches in India", tours: data.popular_beaches },
                 mountains: { title: "Mountain Adventures in India", tours: data.mountains },
-                adventures: { title: "Thrilling Adventures in India", tours: data.adventures }
+                adventures: { title: "Thrilling Adventures in India", tours: data.adventures },
+                historical:{title:"Ancient Places in India",tours:data.historical} 
             };
 
             const selectedData = categoryMap[selectedCategory];
@@ -164,11 +163,15 @@
 
     // Redirect to a detailed page
     window.viewDetails = function(tourIndex) {
-        localStorage.setItem("selectedTourIndex", tourIndex);
-        window.location.href = '../pages/info.html';
+        const selectedCategory = localStorage.getItem("selectedCategory");
+        if (!selectedCategory) {
+            alert("Category is not selected.");
+            return;
+        }
+        // Redirect with category and index as query parameters
+        window.location.href = `../pages/info.html?category=${selectedCategory}&index=${tourIndex}`;
     };
 });
-
 </script>
 
 </body>

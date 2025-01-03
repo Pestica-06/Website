@@ -254,11 +254,26 @@
             totalPriceDisplay.textContent = `${totalPrice} Rs.`;
         }
 
-     /*    function bookNow() {
-            alert("Booking Confirmed! 🎉");
-            // You can handle further booking actions here (e.g., saving to a database or redirecting to a confirmation page)
-        }
- */
+        function bookNow() {
+    const totalPriceElement = document.getElementById("total-price").textContent;
+    const totalPrice = parseInt(totalPriceElement.replace(" Rs.", "")) || 0;
+
+    if (totalPrice <= 1000) {
+        alert("Total price must be greater than 1000 Rs to proceed.");
+        return;
+    }
+
+    const packageDetails = {
+        name: document.getElementById("package-name").textContent,
+        duration: document.getElementById("package-duration").textContent,
+        price: totalPriceElement,
+    };
+
+    const queryParams = new URLSearchParams(packageDetails).toString();
+    window.location.href = `../pages/payment.html?${queryParams}`;
+}
+
+
         function cancelBooking() {
             // Reset values
             adultInput.value = 0;

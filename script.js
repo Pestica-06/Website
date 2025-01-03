@@ -130,3 +130,6 @@ document.getElementById('enquiryForm').addEventListener('submit', function(event
           localStorage.setItem('selectedCategory', category);
           window.location.href = './assests/pages/roughdetails.html'; // Redirect to the packages page
       }
+
+
+      

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <style>
+        body {
+            background-image: url("../images/payment_background.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #F9F9F9;
+            gap: 30px;
+            margin-top: 175px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .col {
+            flex: 1;
+            margin-left: 50px;
+        }
+
+        .title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .inputBox {
+            margin-bottom: 15px;
+            gap: 30px;
+        }
+
+        .inputBox span {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .inputBox input, .inputBox select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            gap: 30px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            display: none;
+        }
+
+        .submit-btn {
+            background-color:rgba(73, 163, 168, 0.8);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-left: 370px;
+        }
+
+        .submit-btn:hover {
+            background-color:  #ffc107;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-content {
+            text-align: center;
+        }
+
+        .modal-header {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .btn-close {
+            background-color: #ffc107;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .btn-close:hover {
+            background-color: #ffc107;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="payment-form">
+            <div class="row">
+                <div class="col">
+                    <div class="inputBox">
+                        <span>Full Name:</span>
+                        <input type="text" id="full-name" placeholder="Enter your name">
+                        <span id="full-name-error" class="error-message"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="inputBox">
+                        <span>Email:</span>
+                        <input type="email" id="email" placeholder="Enter your email">
+                        <span id="email-error" class="error-message"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="inputBox">
+                <span>Address:</span>
+                <input type="text" id="address" placeholder="Enter your address">
+                <span id="address-error" class="error-message"></span>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="inputBox">
+                        <span>City:</span>
+                        <input type="text" id="city" placeholder="Enter your city">
+                        <span id="city-error" class="error-message"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="inputBox">
+                        <span>State:</span>
+                        <input type="text" id="state" placeholder="Enter your state">
+                        <span id="state-error" class="error-message"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="inputBox">
+                        <span>Zip Code:</span>
+                        <input type="text" id="zip-code" placeholder="Enter your zip code">
+                        <span id="zip-code-error" class="error-message"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="inputBox">
+                <span>Payment Method:</span>
+                <select id="payment-method">
+                    <option value="">Select</option>
+                    <option value="card">Credit/Debit Card</option>
+                    <option value="net-banking">Net Banking</option>
+                    <option value="upi">UPI</option>
+                </select>
+                <span id="payment-method-error" class="error-message"></span>
+            </div>
+
+            <div id="card-info" style="display: none;">
+                <div class="inputBox">
+                    <span>Card Number:</span>
+                    <input type="text" id="card-number" placeholder="Enter your card number">
+                    <span id="card-number-error" class="error-message"></span>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="inputBox">
+                            <span>Expiry Month:</span>
+                            <input type="text" id="exp-month" placeholder="MM">
+                            <span id="exp-month-error" class="error-message"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="inputBox">
+                            <span>Expiry Year:</span>
+                            <input type="text" id="exp-year" placeholder="YYYY">
+                            <span id="exp-year-error" class="error-message"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="inputBox">
+                            <span>CVV:</span>
+                            <input type="text" id="cvv" placeholder="Enter CVV">
+                            <span id="cvv-error" class="error-message"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="upi-info" style="display: none;">
+                <div class="inputBox">
+                    <span>UPI ID:</span>
+                    <input type="text" id="upi-id" placeholder="Enter your UPI ID">
+                    <span id="upi-id-error" class="error-message"></span>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">Booking Successful!</div>
+            <button class="btn-close" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+    <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const paymentMethodSelect = document.getElementById("payment-method");
+        const cardInfo = document.getElementById("card-info");
+        const upiInfo = document.getElementById("upi-info");
+        const form = document.getElementById("payment-form");
+        const modal = document.getElementById("confirmation-modal");
+    
+        // Display booking summary if query parameters are present
+        const urlParams = new URLSearchParams(window.location.search);
+        const packageName = urlParams.get("name");
+        const packageDuration = urlParams.get("duration");
+        const packagePrice = urlParams.get("price");
+    
+        if (packageName && packageDuration && packagePrice) {
+            const summaryDiv = document.createElement("div");
+            summaryDiv.innerHTML = `
+                <h3>Booking Summary</h3>
+                <p><strong>Package Name:</strong> ${packageName}</p>
+                <p><strong>Duration:</strong> ${packageDuration}</p>
+                <p><strong>Total Price:</strong> ${packagePrice}</p>
+            `;
+            document.querySelector(".container").prepend(summaryDiv);
+        }
+    
+        // Toggle payment method fields
+        paymentMethodSelect.addEventListener("change", () => {
+            const selectedMethod = paymentMethodSelect.value;
+            cardInfo.style.display = selectedMethod === "card" ? "block" : "none";
+            upiInfo.style.display = selectedMethod === "upi" ? "block" : "none";
+        });
+    
+        // Validate form
+        function validateForm() {
+            let isValid = true;
+    
+            // Validate required fields
+            const fields = [
+                { id: "full-name", errorId: "full-name-error", message: "Full Name is required" },
+                { id: "email", errorId: "email-error", message: "Email is required" },
+                { id: "address", errorId: "address-error", message: "Address is required" },
+                { id: "city", errorId: "city-error", message: "City is required" },
+                { id: "state", errorId: "state-error", message: "State is required" },
+                { id: "zip-code", errorId: "zip-code-error", message: "Zip Code is required" },
+                { id: "payment-method", errorId: "payment-method-error", message: "Payment method is required" },
+            ];
+    
+            fields.forEach(field => {
+                const input = document.getElementById(field.id);
+                const error = document.getElementById(field.errorId);
+    
+                if (!input.value.trim()) {
+                    error.textContent = field.message;
+                    error.style.display = "block";
+                    isValid = false;
+                } else {
+                    error.style.display = "none";
+                }
+            });
+    
+            // Additional validation for card details if payment method is "card"
+            if (paymentMethodSelect.value === "card") {
+                const cardFields = [
+                    { id: "card-number", errorId: "card-number-error", message: "Card Number is required" },
+                    { id: "exp-month", errorId: "exp-month-error", message: "Expiry Month is required" },
+                    { id: "exp-year", errorId: "exp-year-error", message: "Expiry Year is required" },
+                    { id: "cvv", errorId: "cvv-error", message: "CVV is required" },
+                ];
+    
+                cardFields.forEach(field => {
+                    const input = document.getElementById(field.id);
+                    const error = document.getElementById(field.errorId);
+    
+                    if (!input.value.trim()) {
+                        error.textContent = field.message;
+                        error.style.display = "block";
+                        isValid = false;
+                    } else {
+                        error.style.display = "none";
+                    }
+                });
+            }
+    
+            // Additional validation for UPI if payment method is "upi"
+            if (paymentMethodSelect.value === "upi") {
+                const upiInput = document.getElementById("upi-id");
+                const upiError = document.getElementById("upi-id-error");
+    
+                if (!upiInput.value.trim()) {
+                    upiError.textContent = "UPI ID is required";
+                    upiError.style.display = "block";
+                    isValid = false;
+                } else {
+                    upiError.style.display = "none";
+                }
+            }
+    
+            return isValid;
+        }
+    
+        // Handle form submission
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            if (validateForm()) {
+                modal.style.display = "block";
+            }
+        });
+    });
+    
+    function closeModal() {
+        document.getElementById("confirmation-modal").style.display = "none";
+    }
+    
+    </script>
+</body>
+</html>

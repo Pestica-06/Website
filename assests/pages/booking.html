@@ -150,7 +150,7 @@
 </head>
 <body>
 
-    <!-- Header Section with Impressive Tourism Quote -->
+    <!-- Header Section -->
     <div class="header">
         <h1>Discover the World with Us</h1>
         <p>"The world is a book and those who do not travel read only one page."</p>
@@ -186,7 +186,7 @@
         </div>
         <h3>Total: <span id="total-price">0 Rs.</span></h3>
         <div class="action-buttons">
-            <button class="book-btn" onclick="bookNow()">Book</button>
+            <button class="book-btn" id="bookBtn">Book</button>
             <button class="cancel-btn" onclick="cancelBooking()">Cancel</button>
         </div>
     </div>
@@ -196,7 +196,39 @@
         <p>&copy; 2024 Travel Booking. All Rights Reserved.</p>
     </div>
 
-    <script>
+    <!-- Sign-in/Sign-up Section -->
+    <div class="signin-section" id="signin-section">
+        <p>You need to <a href="../pages/login.html">Sign In</a> or <a href="../pages/signup.html">Sign Up</a> to book a package.</p>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyB7ASHWeH7D9uph-jm_DzVYtmgumAtFnq4",
+            authDomain: "travworld-858a6.firebaseapp.com",
+            projectId: "travworld-858a6",
+            storageBucket: "travworld-858a6.firebasestorage.app",
+            messagingSenderId: "850634148926",
+            appId: "1:850634148926:web:2fd42f92d1e846938e156f",
+            measurementId: "G-67LRT5GK62"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Check the authentication status
+        onAuthStateChanged(auth, (user) => {
+            const signinSection = document.getElementById("signin-section");
+            if (user) {
+                signinSection.style.display = "none"; // Hide sign-in section
+                alert(`Welcome back, ${user.displayName || user.email}!`); // Greet the user
+            } else {
+                signinSection.style.display = "block"; // Show sign-in section
+            }
+        });
+
         // Price Constants
         const adultPrice = 2400;
         const kidPrice = 1200;
@@ -221,9 +253,7 @@
 
         // Retrieve package details from localStorage
         const packageDetails = JSON.parse(localStorage.getItem("packageDetails"));
-        console.log(packageDetails);
         
-
         if (packageDetails) {
             packageNameDisplay.textContent = packageDetails.name;
             packageDurationDisplay.textContent = packageDetails.duration;
@@ -241,48 +271,70 @@
         kidInput.addEventListener("input", calculatePrice);
 
         function calculatePrice() {
-            const adults = parseInt(adultInput.value) || 0;
-            const kids = parseInt(kidInput.value) || 0;
+    const adults = parseInt(adultInput.value) || 0;
+    const kids = parseInt(kidInput.value) || 0;
 
-            const totalAdultPrice = adults * adultPrice;
-            const totalKidPrice = kids * kidPrice;
-            const totalPrice = totalAdultPrice + totalKidPrice;
+    const totalAdultPrice = adults * adultPrice;
+    const totalKidPrice = kids * kidPrice;
 
-            // Update the DOM
-            adultPriceDisplay.innerHTML = `<strong>${totalAdultPrice} Rs.</strong>`;
-            kidPriceDisplay.innerHTML = `<strong>${totalKidPrice} Rs.</strong>`;
-            totalPriceDisplay.textContent = `${totalPrice} Rs.`;
-        }
+    // Calculate the total number of people
+    const totalPeople = adults + kids;
 
-        function bookNow() {
-    const totalPriceElement = document.getElementById("total-price").textContent;
-    const totalPrice = parseInt(totalPriceElement.replace(" Rs.", "")) || 0;
+    // Calculate the base price for 5 people
+    const basePrice = 5 * (adultPrice + kidPrice); // Price for 5 people (base cost)
 
-    if (totalPrice <= 1000) {
-        alert("Total price must be greater than 1000 Rs to proceed.");
-        return;
+    // If the total number of people is less than 5, base price applies
+    // If the total number of people is greater than 5, add the extra amount for additional people
+    let totalPrice;
+    if (totalPeople < 5) {
+        totalPrice = basePrice;  // Base price for 5 people
+    } else {
+        const extraPeople = totalPeople - 5;
+        totalPrice = basePrice + (extraPeople * (adultPrice + kidPrice));
     }
 
-    const packageDetails = {
-        name: document.getElementById("package-name").textContent,
-        duration: document.getElementById("package-duration").textContent,
-        price: totalPriceElement,
-    };
-
-    const queryParams = new URLSearchParams(packageDetails).toString();
-    window.location.href = `../pages/payment.html?${queryParams}`;
+    // Update the DOM with the calculated prices
+    adultPriceDisplay.innerHTML = `<strong>${totalAdultPrice} Rs.</strong>`;
+    kidPriceDisplay.innerHTML = `<strong>${totalKidPrice} Rs.</strong>`;
+    totalPriceDisplay.textContent = `${totalPrice} Rs.`;  // Final total price
 }
 
+        document.getElementById("bookBtn").addEventListener("click", function() {
+            const totalPriceElement = document.getElementById("total-price").textContent;
+            const totalPrice = parseInt(totalPriceElement.replace(" Rs.", "")) || 0;
+
+            // Ensure the user is logged in
+            const user = auth.currentUser;
+            if (!user) {
+                alert("You need to sign in or sign up to book a package.");
+                window.location.href = "../pages/login.html";  // Redirect to login page
+                return;
+            }
+
+            if (totalPrice <= 1000) {
+                alert("Total price must be greater than 1000 Rs to proceed.");
+                return;
+            }
+
+            // Proceed to payment page if logged in and price is valid
+            const packageDetails = {
+                name: document.getElementById("package-name").textContent,
+                duration: document.getElementById("package-duration").textContent,
+                price: totalPriceElement,
+            };
+
+            const queryParams = new URLSearchParams(packageDetails).toString();
+            window.location.href = `../pages/payment.html?${queryParams}`;
+        });
 
         function cancelBooking() {
             // Reset values
             adultInput.value = 0;
             kidInput.value = 0;
             calculatePrice();
-            window.location.href = "../../homepage.html";
-        
+            window.location.href = "homepage.html";
         }
     </script>
 
 </body>
-</html>
+</

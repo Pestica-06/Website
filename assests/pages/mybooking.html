@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings</title>
+</head>
+<body>
+    <div id="bookings-container">
+        <!-- Booking details will be injected here -->
+    </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const bookingsContainer = document.getElementById("bookings-container");
+
+    // Get all bookings from localStorage
+    const allBookings = JSON.parse(localStorage.getItem("userBookings")) || {};
+    const userEmail = prompt("Enter your email to view bookings:");
+
+    if (userEmail && allBookings[userEmail]) {
+        const bookings = allBookings[userEmail];
+        bookings.forEach((booking) => {
+            const bookingDiv = document.createElement("div");
+            bookingDiv.innerHTML = `
+                <h4>Package Name: ${booking.packageName}</h4>
+                <p>Duration: ${booking.duration}</p>
+                <p>Total Price: ${booking.totalPrice}</p>
+                <p>Date: ${booking.date}</p>
+                <hr>
+            `;
+            bookingsContainer.appendChild(bookingDiv);
+        });
+    } else {
+        bookingsContainer.innerHTML = "<p>No bookings found for this email.</p>";
+    }
+});
+
+    </script>
+</body>
+</html>

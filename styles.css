@@ -169,7 +169,8 @@ nav {
 
 /* Popular Packages Section */
 h1 {
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+  margin-left: 510px;
 }
 
 .package-container {
@@ -178,6 +179,7 @@ h1 {
   gap: 20px;
   justify-content: center;
 }
+
 
 .card {
   background: #fff;

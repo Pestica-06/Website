@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+
+    <style>
+        /* Your existing styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 5px 15px;
+        }
+
+        .profile-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .profile-container img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .profile-container h2 {
+            font-size: 22px;
+        }
+
+        .profile-container p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .logout-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .logout-button:hover {
+            background-color: #d32f2f;
+        }
+
+        .links {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px;
+        }
+
+        .links a:hover {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../homepage.html">Home</a></li>
+                <li><a href="#" id="logout-link">Logout</a></li>
+                <li><a href="../pages/mybooking.html">My bookings</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="profile-container">
+        <img id="profile-pic" src="../images/profile_img.png" alt="Profile Picture">
+        <h2 id="profile-name">Name: </h2>
+        <p id="profile-email">Email: </p>
+        <p id="profile-phone">Phone: </p>
+        <button class="logout-button" id="logout-btn">Logout</button>
+    </div>
+
+    <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+    
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyB7ASHWeH7D9uph-jm_DzVYtmgumAtFnq4",
+            authDomain: "travworld-858a6.firebaseapp.com",
+            projectId: "travworld-858a6",
+            storageBucket: "travworld-858a6.firebasestorage.app",
+            messagingSenderId: "850634148926",
+            appId: "1:850634148926:web:2fd42f92d1e846938e156f",
+            measurementId: "G-67LRT5GK62"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+    
+        // Monitor authentication state
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // Display user details
+                document.getElementById('profile-name').textContent = `Name: ${user.displayName || 'N/A'}`;
+                document.getElementById('profile-email').textContent = `Email: ${user.email}`;
+                document.getElementById('profile-phone').textContent = `Phone: ${user.phoneNumber || 'N/A'}`;
+                document.getElementById('profile-pic').src = user.photoURL || '../images/profile_img.png';
+            } else {
+                // If not logged in, redirect to login page
+                window.location.href = '../pages/login.html';
+            }
+        });
+
+        // Logout function
+        function logout() {
+            signOut(auth).then(() => {
+                window.location.href = '../../homepage.html'; // Redirect to homepage after logout
+            }).catch((error) => {
+                console.error('Error logging out:', error);
+            });
+        }
+
+        // Event listener for logout
+        document.getElementById('logout-btn').addEventListener('click', logout);
+        document.getElementById('logout-link').addEventListener('click', logout);
+    </script>
+    
+</body>
+</html>

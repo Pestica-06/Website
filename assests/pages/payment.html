@@ -223,123 +223,156 @@
     <div id="confirmation-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">Booking Successful!</div>
-            <button class="btn-close" onclick="closeModal()">Close</button>
+            <p>Your booking for <strong id="modal-package-name"></strong> has been confirmed.</p>
+            <p><strong>Duration:</strong> <span id="modal-package-duration"></span></p>
+            <p><strong>Total Price:</strong> <span id="modal-package-price"></span></p>
+            <button class="btn-close" onclick="window.location.href='../pages/mybooking.html';">View My Bookings</button>
         </div>
     </div>
     <script>
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const paymentMethodSelect = document.getElementById("payment-method");
-        const cardInfo = document.getElementById("card-info");
-        const upiInfo = document.getElementById("upi-info");
-        const form = document.getElementById("payment-form");
-        const modal = document.getElementById("confirmation-modal");
-    
-        // Display booking summary if query parameters are present
-        const urlParams = new URLSearchParams(window.location.search);
-        const packageName = urlParams.get("name");
-        const packageDuration = urlParams.get("duration");
-        const packagePrice = urlParams.get("price");
-    
-        if (packageName && packageDuration && packagePrice) {
-            const summaryDiv = document.createElement("div");
-            summaryDiv.innerHTML = `
-                <h3>Booking Summary</h3>
-                <p><strong>Package Name:</strong> ${packageName}</p>
-                <p><strong>Duration:</strong> ${packageDuration}</p>
-                <p><strong>Total Price:</strong> ${packagePrice}</p>
-            `;
-            document.querySelector(".container").prepend(summaryDiv);
-        }
-    
-        // Toggle payment method fields
-        paymentMethodSelect.addEventListener("change", () => {
-            const selectedMethod = paymentMethodSelect.value;
-            cardInfo.style.display = selectedMethod === "card" ? "block" : "none";
-            upiInfo.style.display = selectedMethod === "upi" ? "block" : "none";
-        });
-    
-        // Validate form
-        function validateForm() {
-            let isValid = true;
-    
-            // Validate required fields
-            const fields = [
-                { id: "full-name", errorId: "full-name-error", message: "Full Name is required" },
-                { id: "email", errorId: "email-error", message: "Email is required" },
-                { id: "address", errorId: "address-error", message: "Address is required" },
-                { id: "city", errorId: "city-error", message: "City is required" },
-                { id: "state", errorId: "state-error", message: "State is required" },
-                { id: "zip-code", errorId: "zip-code-error", message: "Zip Code is required" },
-                { id: "payment-method", errorId: "payment-method-error", message: "Payment method is required" },
-            ];
-    
-            fields.forEach(field => {
-                const input = document.getElementById(field.id);
-                const error = document.getElementById(field.errorId);
-    
-                if (!input.value.trim()) {
-                    error.textContent = field.message;
-                    error.style.display = "block";
-                    isValid = false;
-                } else {
-                    error.style.display = "none";
-                }
-            });
-    
-            // Additional validation for card details if payment method is "card"
-            if (paymentMethodSelect.value === "card") {
-                const cardFields = [
-                    { id: "card-number", errorId: "card-number-error", message: "Card Number is required" },
-                    { id: "exp-month", errorId: "exp-month-error", message: "Expiry Month is required" },
-                    { id: "exp-year", errorId: "exp-year-error", message: "Expiry Year is required" },
-                    { id: "cvv", errorId: "cvv-error", message: "CVV is required" },
-                ];
-    
-                cardFields.forEach(field => {
-                    const input = document.getElementById(field.id);
-                    const error = document.getElementById(field.errorId);
-    
-                    if (!input.value.trim()) {
-                        error.textContent = field.message;
-                        error.style.display = "block";
-                        isValid = false;
-                    } else {
-                        error.style.display = "none";
-                    }
-                });
-            }
-    
-            // Additional validation for UPI if payment method is "upi"
-            if (paymentMethodSelect.value === "upi") {
-                const upiInput = document.getElementById("upi-id");
-                const upiError = document.getElementById("upi-id-error");
-    
-                if (!upiInput.value.trim()) {
-                    upiError.textContent = "UPI ID is required";
-                    upiError.style.display = "block";
-                    isValid = false;
-                } else {
-                    upiError.style.display = "none";
-                }
-            }
-    
-            return isValid;
-        }
-    
-        // Handle form submission
-        form.addEventListener("submit", (event) => {
-            event.preventDefault();
-            if (validateForm()) {
-                modal.style.display = "block";
-            }
-        });
-    });
-    
-    function closeModal() {
-        document.getElementById("confirmation-modal").style.display = "none";
+document.addEventListener("DOMContentLoaded", () => {
+    const paymentMethodSelect = document.getElementById("payment-method");
+    const cardInfo = document.getElementById("card-info");
+    const upiInfo = document.getElementById("upi-info");
+    const form = document.getElementById("payment-form");
+    const modal = document.getElementById("confirmation-modal");
+
+    // Display booking summary if query parameters are present
+    const urlParams = new URLSearchParams(window.location.search);
+    const packageName = urlParams.get("name");
+    const packageDuration = urlParams.get("duration");
+    const packagePrice = urlParams.get("price");
+
+    if (packageName && packageDuration && packagePrice) {
+        const summaryDiv = document.createElement("div");
+        summaryDiv.innerHTML = `
+            <h3>Booking Summary</h3>
+            <p><strong>Package Name:</strong> ${packageName}</p>
+            <p><strong>Duration:</strong> ${packageDuration}</p>
+            <p><strong>Total Price:</strong> ${packagePrice}</p>
+        `;
+        document.querySelector(".container").prepend(summaryDiv);
     }
-    
+
+    // Toggle payment method fields
+    paymentMethodSelect.addEventListener("change", () => {
+        const selectedMethod = paymentMethodSelect.value;
+        cardInfo.style.display = selectedMethod === "card" ? "block" : "none";
+        upiInfo.style.display = selectedMethod === "upi" ? "block" : "none";
+    });
+
+    // Handle form submission
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if (validateForm()) {
+            // Populate modal with booking details
+            document.getElementById("modal-package-name").textContent = packageName;
+            document.getElementById("modal-package-duration").textContent = packageDuration;
+            document.getElementById("modal-package-price").textContent = packagePrice;
+
+            // Save user bookings
+            const fullName = document.getElementById("full-name").value.trim();
+            const email = document.getElementById("email").value.trim();
+
+            // Ensure email is provided
+            if (!email) {
+                alert("Email is required to associate bookings with the user.");
+                return;
+            }
+
+            const bookingDetails = {
+                packageName,
+                duration: packageDuration,
+                totalPrice: packagePrice,
+                date: new Date().toLocaleDateString(),
+                user: fullName || email,
+            };
+
+            // Save bookings in localStorage
+            let allBookings = JSON.parse(localStorage.getItem("userBookings")) || {};
+            if (!allBookings[email]) {
+                allBookings[email] = [];
+            }
+            allBookings[email].push(bookingDetails);
+            localStorage.setItem("userBookings", JSON.stringify(allBookings));
+
+            // Show confirmation modal
+            modal.style.display = "block";
+
+            // Redirect to "My Bookings" page
+            setTimeout(() => {
+                window.location.href = "../pages/mybooking.html";
+            }, 2000);
+        }
+    });
+
+    // Form validation
+    function validateForm() {
+        let isValid = true;
+
+        // Full Name validation
+        const fullName = document.getElementById("full-name");
+        const fullNameError = document.getElementById("full-name-error");
+        if (!fullName.value.trim()) {
+            fullNameError.textContent = "Full Name is required.";
+            fullNameError.style.display = "block";
+            isValid = false;
+        } else {
+            fullNameError.style.display = "none";
+        }
+
+        // Email validation
+        const email = document.getElementById("email");
+        const emailError = document.getElementById("email-error");
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.value.trim() || !emailRegex.test(email.value)) {
+            emailError.textContent = "Enter a valid email address.";
+            emailError.style.display = "block";
+            isValid = false;
+        } else {
+            emailError.style.display = "none";
+        }
+
+        // Payment method validation
+        const paymentMethod = paymentMethodSelect.value;
+        const paymentMethodError = document.getElementById("payment-method-error");
+        if (!paymentMethod) {
+            paymentMethodError.textContent = "Select a payment method.";
+            paymentMethodError.style.display = "block";
+            isValid = false;
+        } else {
+            paymentMethodError.style.display = "none";
+
+            if (paymentMethod === "card") {
+                const cardNumber = document.getElementById("card-number").value.trim();
+                const cardNumberError = document.getElementById("card-number-error");
+                if (!cardNumber || !/^\d{16}$/.test(cardNumber)) {
+                    cardNumberError.textContent = "Enter a valid 16-digit card number.";
+                    cardNumberError.style.display = "block";
+                    isValid = false;
+                } else {
+                    cardNumberError.style.display = "none";
+                }
+            } else if (paymentMethod === "upi") {
+                const upiId = document.getElementById("upi-id").value.trim();
+                const upiIdError = document.getElementById("upi-id-error");
+                if (!upiId || !/^\w+@\w+$/.test(upiId)) {
+                    upiIdError.textContent = "Enter a valid UPI ID.";
+                    upiIdError.style.display = "block";
+                    isValid = false;
+                } else {
+                    upiIdError.style.display = "none";
+                }
+            }
+        }
+
+        return isValid;
+    }
+});
+
     </script>
 </body>
 </html>
+

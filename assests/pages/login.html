@@ -159,6 +159,47 @@
   // Clear error messages on input change
   email.addEventListener("input", () => { emailError.textContent = ""; });
   password.addEventListener("input", () => { passwordError.textContent = ""; });
+
+
+
+  document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Normally, here you would validate the credentials with the server
+            const username = document.getElementById("username").value;
+
+            // Assuming the user is successfully authenticated
+            localStorage.setItem("userLoggedIn", "true");
+            localStorage.setItem("username", username);
+
+            // Redirect to the booking page after successful login
+            window.location.href = "../pages/booking.html";
+  });   
+  
+  
+  
+
+
+  myForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    signInWithEmailAndPassword(auth, email.value, password.value)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log("Login successful:", user);
+        // Redirect to the booking page after successful login
+        window.location.href = "booking.html"; // Redirect to booking page
+      })
+      .catch((error) => {
+        console.error("Error logging in:", error.message);
+        alert(error.message);
+      });
+  });
+
+
+
+
+
 </script>
   
 </body>

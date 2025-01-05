@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TravWorld</title>
     <link rel="stylesheet" href="styles.css">
+    
+    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"></script>
+    
 </head>
 <body>
     <!-- Header -->
@@ -27,11 +31,11 @@
             <li><a href="./assests/pages/tour.html" class="tours">Tours</a></li>
         </ul>
         
-            <div class="login-register">
-                <a href="./assests/pages/login.html">
-                    <img src="./assests/images/profile_img.png" alt="Profile Icon">
-                </a>
-            </div>
+        <div class="login-register">
+          <a href="./assests/pages/profile.html" id="profileLink">
+              <img src="./assests/images/profile_img.png" alt="Profile Icon">
+          </a>
+      </div>
             <!-- Mobile Menu Icon -->
             <button class="menu-icon" onclick="toggleMenu()">☰</button>
         </nav>
@@ -55,7 +59,7 @@
 
         </div>
     </main>
-    <h1>Popular Packages</h1>
+    <h1 id="Packages_head">Popular Packages</h1>
     <div id="packages" class="package-container"></div>
   
 

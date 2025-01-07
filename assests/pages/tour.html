@@ -4,110 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travworld - Explore More Destinations</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f4f8;
-        }
-
-        .navbar {
-            background-color:  rgba(0, 102, 112, 0.95);
-            color: white;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 1rem;
-        }
-
-        .nav-links li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-        }
-
-        .search-container {
-            display: flex;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-
-        .search-container input {
-            width: 300px;
-            padding: 0.5rem;
-            font-size: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .search-container button {
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            background-color: #3E7377;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-left: 0.5rem;
-            border-radius: 5px;
-        }
-
-        .destination-section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            padding: 2rem;
-        }
-
-        .destination-card {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            width: 300px;
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .destination-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-        }
-
-        .destination-card h2 {
-            margin: 0;
-            color: rgba(0, 102, 112, 0.95);
-        }
-
-        .destination-card p {
-            font-size: 1rem;
-            color: #555;
-        }
-
-        .destination-card button {
-            background-color: rgba(0, 102, 112, 0.95);
-            color: white;
-            padding: 0.5rem 1rem;
-            border: none;
-            cursor: pointer;
-            margin-top: 1rem;
-            border-radius: 5px;
-        }
-    </style>
+  <link rel="stylesheet" href="../../css/tour.css">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -206,6 +103,29 @@
                 }
             });
         }
+
+        function bookNow(packageName) {
+    // Package-specific details (example: duration and price)
+    const packages = {
+        "India Gate, Delhi": { duration: "2 Days", price: "3000" },
+        "Lotus Temple, Delhi": { duration: "1 Day", price: "2000" },
+        "Fort St. George, Chennai": { duration: "2 Days", price: "2500" },
+        "Marine Drive, Mumbai": { duration: "3 Days", price: "4000" },
+        "Elephanta Caves, Mumbai": { duration: "1 Day", price: "3500" },
+        "Old Goa Churches": { duration: "2 Days", price: "4500" },
+        "Calangute Beach, Goa": { duration: "3 Days", price: "5000" },
+        "Amber Fort, Jaipur": { duration: "1 Day", price: "3000" },
+        "Hawa Mahal, Jaipur": { duration: "1 Day", price: "2800" },
+    };
+
+    // Get package details
+    const packageDetails = packages[packageName];
+
+    // Redirect to the payment page with query parameters
+    const paymentPageUrl = `../pages/payment.html?name=${encodeURIComponent(packageName)}&duration=${encodeURIComponent(packageDetails.duration)}&price=${encodeURIComponent(packageDetails.price)}`;
+    window.location.href = paymentPageUrl;
+}
+
     </script>
 </body>
 </html>

@@ -4,109 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Package Details</title>
-    <style>
-        /* General styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-
-        /* Header styles */
-        .header {
-            background-color:  #3c6e71;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-
-        /* Main content styles */
-        main {
-            padding: 20px;
-        }
-
-        .details-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-        }
-
-        /* Package image */
-        .details-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        /* Headings and text */
-        .details-container h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color:  #3c6e71;
-        }
-
-        .details-container p {
-            font-size: 16px;
-            margin: 10px 0;
-        }
-
-        .details-container h3 {
-            margin-top: 30px;
-            font-size: 20px;
-            color:  #3c6e71;
-        }
-
-        /* Itinerary list */
-        .details-container ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .details-container ul li {
-            padding: 10px;
-            margin-bottom: 8px;
-            background-color: #f0f8ff;
-            border-radius: 4px;
-            font-size: 15px;
-        }
-
-        .details-container ul li strong {
-            color: #3c6e71;
-        }
-
-        /* Book Now button */
-        .details-container button {
-            display: inline-block;
-            padding: 12px 20px;
-            background-color:  #3c6e71;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-
-        .details-container button:hover {
-            background-color:  #3c6e71;
-        }
-
-        /* Footer styles */
-        .footer {
-            text-align: center;
-            padding: 10px;
-            background-color:  #3c6e71;
-            color: white;
-            margin-top: 40px;
-        }
-    </style>
+    <link rel="stylesheet" href="../../css/details.css">
 </head>
 <body>
     <header class="header">
@@ -121,10 +19,12 @@
         <p>&copy; 2024 TravelWorld. All rights reserved.</p>
     </footer>
     <script>
+        // Retrieve package details from localStorage
         const jsonUrl = '../json/packages.json';
         const packageName = localStorage.getItem("packageName");
         const selectedPackageIndex = localStorage.getItem("selectedPackageIndex");
 
+        // Fetch and display the selected package details
         fetch(jsonUrl)
             .then(response => {
                 if (!response.ok) {
@@ -133,6 +33,10 @@
                 return response.json();
             })
             .then(data => {
+                // Ensure the package and index exist in the data
+                if (!data[packageName] || !data[packageName][selectedPackageIndex]) {
+                    throw new Error(`Package not found for name: ${packageName} and index: ${selectedPackageIndex}`);
+                }
                 const selectedPackage = data[packageName][selectedPackageIndex];
                 displayPackageDetails(selectedPackage);
             })
@@ -142,28 +46,39 @@
             });
 
         function displayPackageDetails(pkg) {
+            // Update page title and package name
             document.getElementById("packageName").innerText = pkg.name;
-            document.getElementsByTagName("title")[0].innerText = pkg.name;
+            document.title = pkg.name;
+
+            // Build the package details dynamically
             const detailsContainer = document.getElementById('packageDetails');
             detailsContainer.innerHTML = `
-                <img src="${pkg.image_url}" alt="${pkg.name}">
-                <h1>${pkg.name}</h1>
-                <p><strong>Duration:</strong> ${pkg.duration}</p>
-                <p><strong>Price:</strong> ${pkg.price_per_person}</p>
-                <p>${pkg.description}</p>
+                <div class="package-card">
+                    <img src="${pkg.image_url}" alt="${pkg.name}" class="package-image">
+                    <h2>${pkg.name}</h2>
+                    <p><strong>Duration:</strong> ${pkg.duration}</p>
+                    <p><strong>Price:</strong> ${pkg.price_per_person}</p>
+                    <p>${pkg.description}</p>
+                </div>
                 <h3>Day-wise Itinerary</h3>
-                <ul>
-                    ${Object.entries(pkg.itinerary || {}).map(
-                        ([day, details]) => `<li><strong>${day}:</strong> ${details}</li>`
-                    ).join('')}
+                <ul class="itinerary-list">
+                    ${
+                        pkg.itinerary
+                            ? Object.entries(pkg.itinerary).map(
+                                ([day, details]) => `<li><strong>${day}:</strong> ${details}</li>`
+                              ).join('')
+                            : '<li>No itinerary available for this package.</li>'
+                    }
                 </ul>
-                <button onclick="bookNow(${selectedPackageIndex})">Book Now</button>
+                <button class="book-now-btn" onclick="bookNow(${selectedPackageIndex})" id="hey">Book Now</button>
             `;
+            localStorage.setItem('package',pkg.duration)
+            localStorage.setItem('price',pkg.price_per_person)
+            localStorage.setItem('description',pkg.description)
         }
 
         function bookNow(packageIndex) {
             // Store the selected package details in localStorage to retrieve on the booking page
-            const jsonUrl = '../json/packages.json';
             fetch(jsonUrl)
                 .then(response => response.json())
                 .then(data => {
@@ -176,6 +91,10 @@
                     console.error('Error:', error);
                 });
         }
+        document.getElementById('hey').addEventListener('click',()=>{
+            localStorage.setItem('package',packageDetails);
+
+        })
     </script>
 </body>
 </html>

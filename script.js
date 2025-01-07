@@ -1,4 +1,13 @@
 // Toggle the mobile menu
+const firebaseConfig = {
+  apiKey: "AIzaSyB7ASHWeH7D9uph-jm_DzVYtmgumAtFnq4",
+  authDomain: "travworld-858a6.firebaseapp.com",
+  projectId: "travworld-858a6",
+  storageBucket: "travworld-858a6.firebasestorage.app",
+  messagingSenderId: "850634148926",
+  appId: "1:850634148926:web:2fd42f92d1e846938e156f",
+  measurementId: "G-67LRT5GK62"
+};
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
     navLinks.classList.toggle('show');
@@ -134,15 +143,7 @@ document.getElementById('enquiryForm').addEventListener('submit', function(event
 
 
    // Firebase Configuration
-   const firebaseConfig = {
-    apiKey: "AIzaSyB7ASHWeH7D9uph-jm_DzVYtmgumAtFnq4",
-    authDomain: "travworld-858a6.firebaseapp.com",
-    projectId: "travworld-858a6",
-    storageBucket: "travworld-858a6.firebasestorage.app",
-    messagingSenderId: "850634148926",
-    appId: "1:850634148926:web:2fd42f92d1e846938e156f",
-    measurementId: "G-67LRT5GK62"
-  };
+
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();

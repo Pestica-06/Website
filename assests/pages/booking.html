@@ -1,340 +1,245 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Booking</title>
-    <style>
-        /* General reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Travel Booking</title>
+        <link rel="stylesheet" href="../../css/booking.css">
+    </head>
+    <body>
 
-        /* Page container */
-        body {
-            background-color: #F8F6ED;
-            color: #000;
-        }
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Discover the World with Us</h1>
+            <p>"The world is a book and those who do not travel read only one page."</p>
+        </div>
 
-        /* Header Section */
-        .header {
-            background-color: #2C5558;
-            color: #FFF;
-            text-align: center;
-            padding: 40px 0;
-            font-size: 1.5rem;
-        }
+        <!-- Display Package Details -->
+        <div class="details" id="package-details">
+            <h2 id="package-name">Package Name</h2>
+            <p><strong>Duration:</strong> <span id="package-duration">Loading...</span></p>
+            <p><strong>Price per Person:</strong> <span id="package-price">Loading...</span></p>
+            <p id="package-description">Loading...</p>
+            <p><strong>Food:</strong> <span id="package-food">Included</span></p>
+            <p><strong>Night Stay:</strong> <span id="package-night-stay">Included</span></p>
+            <p><strong>Group Size:</strong> <span id="package-group-size">Minimum 5 people</span></p>
+        </div>
 
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            font-style: italic;
-        }
-
-        /* Package details */
-        .details {
-            background-color: #3E7377;
-            padding: 20px;
-            border-radius: 10px;
-            color: #FFF;
-            max-width: 50%;
-            margin: 20px auto;
-        }
-
-        .details h2 {
-            margin-bottom: 10px;
-        }
-
-        .details p {
-            margin: 5px 0;
-        }
-
-        /* Book Now button */
-        .book-now-btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #2C5558;
-            color: #FFF;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        /* Bottom Section */
-        .bottom-section {
-            background-color: #E6EDEB;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .price-calculator {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .price-box {
-            background-color: #3E7377;
-            color: #FFF;
-            padding: 10px;
-            margin: 10px;
-            border-radius: 5px;
-            min-width: 150px;
-        }
-
-        .action-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .action-buttons button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        .action-buttons .book-btn {
-            background-color: #2C5558;
-            color: #FFF;
-        }
-
-        .action-buttons .cancel-btn {
-            background-color: #D3D3D3;
-        }
-
-        .action-buttons button:hover {
-            opacity: 0.8;
-        }
-
-        /* Inputs */
-        input[type="number"] {
-            width: 50px;
-            padding: 5px;
-            margin: 5px;
-            text-align: center;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: #3E7377;
-            color: #FFF;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        .footer p {
-            margin: 0;
-            font-size: 1rem;
-        }
-
-        .footer a {
-            color: #FFF;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Header Section -->
-    <div class="header">
-        <h1>Discover the World with Us</h1>
-        <p>"The world is a book and those who do not travel read only one page."</p>
-    </div>
-
-    <!-- Display Package Details -->
-    <div class="details" id="package-details">
-        <h2 id="package-name">Package Name</h2>
-        <p><strong>Duration:</strong> <span id="package-duration">Loading...</span></p>
-        <p><strong>Price:</strong> <span id="package-price">Loading...</span></p>
-        <p id="package-description">Loading...</p>
-        <p><strong>Food:</strong> <span id="package-food">Included</span></p>
-        <p><strong>Night Stay:</strong> <span id="package-night-stay">Included</span></p>
-        <p><strong>Group Size:</strong> <span id="package-group-size">Minimum 5 people</span></p>
-    </div>
-
-    <!-- Bottom Section -->
-    <div class="bottom-section" id="booking">
-        <h2>Booking Summary</h2>
-        <div class="price-calculator">
-            <div class="price-box">
-                <p><strong>Adults</strong></p>
-                <input type="number" id="adults" value="0" min="0">
-                <p>Per adult - 2400 Rs</p>
-                <p id="adult-price"><strong>0 Rs.</strong></p>
+        <!-- Bottom Section -->
+        <div class="bottom-section" id="booking">
+            <h2>Booking Summary</h2>
+            <div class="price-calculator">
+                <div class="price-box">
+                    <p><strong>Adults</strong></p>
+                    <input type="number" id="adults" value="0" min="0">
+                    <p id="adult-price"><strong>0 Rs.</strong></p>
+                </div>
+                <div class="price-box">
+                    <p><strong>Kids</strong></p>
+                    <input type="number" id="kids" value="0" min="0">
+                    <p id="kid-price"><strong>0 Rs.</strong></p>
+                </div>
             </div>
-            <div class="price-box">
-                <p><strong>Kids</strong></p>
-                <input type="number" id="kids" value="0" min="0">
-                <p>Per kid - 1200 Rs</p>
-                <p id="kid-price"><strong>0 Rs.</strong></p>
+            <h3>Total: <span id="total-price">0 Rs.</span></h3>
+            <div class="action-buttons">
+                <button class="book-btn" id="bookBtn">Book</button>
+                <!-- <button class="cancel-btn" onclick="cancelBooking()">Cancel</button> -->
             </div>
         </div>
-        <h3>Total: <span id="total-price">0 Rs.</span></h3>
-        <div class="action-buttons">
-            <button class="book-btn" id="bookBtn">Book</button>
-            <button class="cancel-btn" onclick="cancelBooking()">Cancel</button>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2024 Travel Booking. All Rights Reserved.</p>
         </div>
-    </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        <p>&copy; 2024 Travel Booking. All Rights Reserved.</p>
-    </div>
-
-    <!-- Sign-in/Sign-up Section -->
-    <div class="signin-section" id="signin-section">
-        <p>You need to <a href="../pages/login.html">Sign In</a> or <a href="../pages/signup.html">Sign Up</a> to book a package.</p>
-    </div>
-
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyB7ASHWeH7D9uph-jm_DzVYtmgumAtFnq4",
-            authDomain: "travworld-858a6.firebaseapp.com",
-            projectId: "travworld-858a6",
-            storageBucket: "travworld-858a6.firebasestorage.app",
-            messagingSenderId: "850634148926",
-            appId: "1:850634148926:web:2fd42f92d1e846938e156f",
-            measurementId: "G-67LRT5GK62"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-
-        // Check the authentication status
-        onAuthStateChanged(auth, (user) => {
-            const signinSection = document.getElementById("signin-section");
-            if (user) {
-                signinSection.style.display = "none"; // Hide sign-in section
-                alert(`Welcome back, ${user.displayName || user.email}!`); // Greet the user
-            } else {
-                signinSection.style.display = "block"; // Show sign-in section
-            }
-        });
-
-        // Price Constants
-        const adultPrice = 2400;
-        const kidPrice = 1200;
-
-        // Input elements
-        const adultInput = document.getElementById("adults");
-        const kidInput = document.getElementById("kids");
-
-        // Output elements
-        const adultPriceDisplay = document.getElementById("adult-price");
-        const kidPriceDisplay = document.getElementById("kid-price");
-        const totalPriceDisplay = document.getElementById("total-price");
-
-        // Package details display elements
-        const packageNameDisplay = document.getElementById("package-name");
-        const packageDurationDisplay = document.getElementById("package-duration");
-        const packagePriceDisplay = document.getElementById("package-price");
-        const packageDescriptionDisplay = document.getElementById("package-description");
-        const packageFoodDisplay = document.getElementById("package-food");
-        const packageNightStayDisplay = document.getElementById("package-night-stay");
-        const packageGroupSizeDisplay = document.getElementById("package-group-size");
-
-        // Retrieve package details from localStorage
-        const packageDetails = JSON.parse(localStorage.getItem("packageDetails"));
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+            import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
         
-        if (packageDetails) {
-            packageNameDisplay.textContent = packageDetails.name;
-            packageDurationDisplay.textContent = packageDetails.duration;
-            packagePriceDisplay.textContent = packageDetails.price_per_person;
-            packageDescriptionDisplay.textContent = packageDetails.description;
-            packageFoodDisplay.textContent = packageDetails.food || 'Included';
-            packageNightStayDisplay.textContent = packageDetails.night_stay || 'Included';
-            packageGroupSizeDisplay.textContent = packageDetails.group_size || 'Minimum 5 people';
-        } else {
-            alert("No package details found.");
-        }
+            const firebaseConfig = {
+                apiKey: "AIzaSyB7ASHWeH7D9uph-jm_DzVYtmgumAtFnq4",
+                authDomain: "travworld-858a6.firebaseapp.com",
+                projectId: "travworld-858a6",
+                storageBucket: "travworld-858a6.firebasestorage.app",
+                messagingSenderId: "850634148926",
+                appId: "1:850634148926:web:2fd42f92d1e846938e156f",
+                measurementId: "G-67LRT5GK62"
+            };
+        
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+        
+            // Display sign-in status
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    alert(`Welcome back, ${user.displayName || user.email}!`);
+                } else {
+                    alert("Please sign in to book a package.");
+                }
+            });
 
-        // Event Listeners for Input Changes
-        adultInput.addEventListener("input", calculatePrice);
-        kidInput.addEventListener("input", calculatePrice);
 
-        function calculatePrice() {
-    const adults = parseInt(adultInput.value) || 0;
-    const kids = parseInt(kidInput.value) || 0;
+        
+        
+            // Fetch package details from JSON file
+            // async function fetchPackageDetails() {
+            //     try {
+            //         const response = await fetch("../json/packages.json");
+            //         if (!response.ok) {
+            //             throw new Error("Failed to fetch package details");
+            //         }
+            //         const packageDetails = await response.json();
+            //         console.log(packageDetails);
+                    
+            //         displayPackageDetails(packageDetails);
+            //     } catch (error) {
+            //         console.error("Error fetching package details:", error);
+            //         alert("Failed to load package details. Please try again later.");
+            //     }
+            // }
+        
+            // Display package details
+            function displayPackageDetails(packageDetails) {
+                document.getElementById("package-name").textContent = packageDetails.name;
+                document.getElementById("package-duration").textContent = packageDetails.duration;
+                document.getElementById("package-price").textContent = packageDetails.price_per_person;
+                document.getElementById("package-description").textContent = packageDetails.description;
+        
+                // Display itinerary dynamically
+                const itineraryList = document.getElementById("package-itinerary");
+                itineraryList.innerHTML = ""; // Clear existing content
+                for (const [day, details] of Object.entries(packageDetails.itinerary)) {
+                    const listItem = document.createElement("li");
+                    listItem.innerHTML = `<strong>${day}</strong>: ${details}`;
+                    itineraryList.appendChild(listItem);
+                }
+        
+                // setupPriceCalculation(packageDetails);
+            }
+        
+           
+        
+            // Book Button
+            document.getElementById("bookBtn").addEventListener("click", () => {
+                const user = auth.currentUser;
+                if (!user) {
+                    alert("You need to sign in or sign up to book a package.");
+                    window.location.href = "../pages/login.html";
+                    return;
+                }
+        
+                const totalPrice = parseInt(document.getElementById("total-price").textContent.replace(" Rs.", ""), 10) || 0;
+                if (totalPrice < 1000) {
+                    alert("Total price must be at least 1000 Rs.");
+                    return;
+                }
+        
+                const queryParams = new URLSearchParams({
+                    packageName: document.getElementById("package-name").textContent,
+                    totalPrice,
+                }).toString();
+        
+                window.location.href = `../pages/payment.html?${queryParams}`;
+            });
+        
+            // Cancel Booking
+            // document.getElementById("cancelBtn").addEventListener("click", () => {
+            //     document.getElementById("adults").value = 0;
+            //     document.getElementById("kids").value = 0;
+            //     document.getElementById("total-price").textContent = "0 Rs.";
+            //     window.location.href = "homepage.html";
+            // });
+        
+            // Fetch package details when the page loads
+            // fetchPackageDetails();
+console.log(localStorage.getItem('package'));
+document.addEventListener('DOMContentLoaded', () => {
+    const dur = localStorage.getItem('package');
+    const price = localStorage.getItem('price');
+    const description = localStorage.getItem('description');
+    
+    const packageName = localStorage.getItem('packageName');
+    
+    // Populate package details
+    document.getElementById('package-name').textContent = packageName;
+    document.getElementById('package-price').textContent = price;
+    document.getElementById('package-description').textContent = description;
+    document.getElementById('package-duration').textContent = dur;
+    
+    // Set initial price calculation
+    setupPriceCalculation(price);
+});
 
-    const totalAdultPrice = adults * adultPrice;
-    const totalKidPrice = kids * kidPrice;
+// Set up price calculation logic
+function setupPriceCalculation(pricePerPerson) {
+    const adultInput = document.getElementById("adults");
+    const kidInput = document.getElementById("kids");
+    const adultPriceDisplay = document.getElementById("adult-price");
+    const kidPriceDisplay = document.getElementById("kid-price");
+    const totalPriceDisplay = document.getElementById("total-price");
 
-    // Calculate the total number of people
-    const totalPeople = adults + kids;
+    const pricePerPersonInt = parseInt(pricePerPerson.replace(/[^\d]/g, ""), 10);  // Remove Rs. and parse as integer
+    const kidDiscountFactor = 0.5; // 50% discount for kids
 
-    // Calculate the base price for 5 people
-    const basePrice = 5 * (adultPrice + kidPrice); // Price for 5 people (base cost)
+    // Function to calculate price
+    function calculatePrice() {
+        const adults = parseInt(adultInput.value) || 0;
+        const kids = parseInt(kidInput.value) || 0;
 
-    // If the total number of people is less than 5, base price applies
-    // If the total number of people is greater than 5, add the extra amount for additional people
-    let totalPrice;
-    if (totalPeople < 5) {
-        totalPrice = basePrice;  // Base price for 5 people
-    } else {
-        const extraPeople = totalPeople - 5;
-        totalPrice = basePrice + (extraPeople * (adultPrice + kidPrice));
+        // Calculate adult and kid prices
+        const adultPrice = adults * pricePerPersonInt;
+        const kidPrice = kids * (pricePerPersonInt * kidDiscountFactor);
+        const totalPrice = adultPrice + kidPrice;
+
+        // Update price displays
+        adultPriceDisplay.innerHTML = `<strong>${adults} Adults @ ${pricePerPersonInt} Rs. each = ${adultPrice} Rs.</strong>`;
+        kidPriceDisplay.innerHTML = `<strong>${kids} Kids @ ${(pricePerPersonInt * kidDiscountFactor)} Rs. each = ${kidPrice} Rs.</strong>`;
+        totalPriceDisplay.textContent = `${totalPrice} Rs.`;
     }
 
-    // Update the DOM with the calculated prices
-    adultPriceDisplay.innerHTML = `<strong>${totalAdultPrice} Rs.</strong>`;
-    kidPriceDisplay.innerHTML = `<strong>${totalKidPrice} Rs.</strong>`;
-    totalPriceDisplay.textContent = `${totalPrice} Rs.`;  // Final total price
+    // Event listeners for both inputs
+    adultInput.addEventListener("input", calculatePrice);
+    kidInput.addEventListener("input", calculatePrice);
+
+    // Initial calculation (if needed for pre-populated values)
+    calculatePrice();
 }
 
-        document.getElementById("bookBtn").addEventListener("click", function() {
-            const totalPriceElement = document.getElementById("total-price").textContent;
-            const totalPrice = parseInt(totalPriceElement.replace(" Rs.", "")) || 0;
+// Book Button logic
+document.getElementById("bookBtn").addEventListener("click", () => {
+    // Check if the user is logged in
+    const user = auth.currentUser;  // Firebase auth check
+    if (!user) {
+        alert("You need to sign in or sign up to book a package.");
+        window.location.href = "../pages/login.html";  // Redirect to login if not logged in
+        return;
+    }
 
-            // Ensure the user is logged in
-            const user = auth.currentUser;
-            if (!user) {
-                alert("You need to sign in or sign up to book a package.");
-                window.location.href = "../pages/login.html";  // Redirect to login page
-                return;
-            }
+    // Fetch package details
+    const packageName = document.getElementById("package-name").textContent.trim();
+    const packageDuration = document.getElementById("package-duration").textContent.trim();
+    const totalPrice = parseInt(document.getElementById("total-price").textContent.replace(" Rs.", ""), 10) || 0;
 
-            if (totalPrice <= 1000) {
-                alert("Total price must be greater than 1000 Rs to proceed.");
-                return;
-            }
+    // Validate total price
+    if (totalPrice < 1000) {
+        alert("Total price must be at least 1000 Rs.");
+        return;
+    }
 
-            // Proceed to payment page if logged in and price is valid
-            const packageDetails = {
-                name: document.getElementById("package-name").textContent,
-                duration: document.getElementById("package-duration").textContent,
-                price: totalPriceElement,
-            };
+    // Construct query parameters
+    const queryParams = new URLSearchParams({
+        name: packageName,
+        duration: packageDuration,
+        price: totalPrice,
+    }).toString();
 
-            const queryParams = new URLSearchParams(packageDetails).toString();
-            window.location.href = `../pages/payment.html?${queryParams}`;
-        });
+    // Redirect to payment page with details
+    window.location.href = `../pages/payment.html?${queryParams}`;
+});
 
-        function cancelBooking() {
-            // Reset values
-            adultInput.value = 0;
-            kidInput.value = 0;
-            calculatePrice();
-            window.location.href = "homepage.html";
-        }
-    </script>
-
-</body>
-</
+           
+        </script>
+                
+        
+    </body>
+    </html>

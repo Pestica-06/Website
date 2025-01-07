@@ -6,89 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tour Details</title>
-  <style>
-    /* Your existing styles */
-  
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-    }
-
-    .details-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .tour-info {
-      flex: 2;
-    }
-
-    .tour-info img {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .tour-info h1 {
-      color: #333;
-      margin: 10px 0;
-    }
-
-    .details {
-      margin: 10px 0;
-    }
-
-    .details p {
-      margin: 5px 0;
-      color: #555;
-    }
-
-    .enquiry-section {
-      flex: 1;
-      background: #fff;
-      padding: 15px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-    }
-
-    .enquiry-section h2 {
-      color: #333;
-      margin-bottom: 15px;
-    }
-
-    .enquiry-section form label {
-      display: block;
-      margin: 10px 0 5px;
-    }
-
-    .enquiry-section form input,
-    .enquiry-section form button {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-    }
-
-    .enquiry-section form button {
-      background: #ff6f61;
-      color: #fff;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-    }
-
-    .enquiry-section form button:hover {
-      background: #ff4b3a;
-    }
-  </style>
+<link rel="stylesheet" href="../../css/info.css">
 </head>
 <body>
   <div class="details-container">
@@ -168,6 +86,42 @@ fetch('../json/navjson.json')
         console.error('Error fetching tour details:', error);
         document.body.innerHTML = '<h1>Error loading tour details. Please try again later.</h1>';
     });
+
+
+    document.querySelector('form').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    // Get user-provided details from the form
+    const name = document.getElementById('name').value.trim();
+    const city = document.getElementById('city').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const destination = document.getElementById('destination').value.trim();
+    const date = document.getElementById('date').value.trim();
+    const people = document.getElementById('people').value.trim();
+
+    // Get tour details
+    const tourTitle = document.getElementById('tour-title').textContent.trim();
+    const tourLocation = document.getElementById('tour-location').textContent.trim();
+    const tourDuration = document.getElementById('tour-duration').textContent.trim();
+
+    // Construct query parameters
+    const queryParams = new URLSearchParams({
+        name,
+        city,
+        email,
+        phone,
+        destination,
+        date,
+        people,
+        tourTitle,
+        tourLocation,
+        tourDuration,
+    }).toString();
+
+    // Redirect to the payment page with the query parameters
+    window.location.href = `../pages/payment.html?${queryParams}`;
+});
     </script>
 
 </body>  

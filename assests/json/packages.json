@@ -180,7 +180,7 @@
       "duration": "3 Days / 2 Nights",
       "price_per_person": "₹5,000",
       "description": "A fascinating educational tour of Delhi's historical landmarks such as the Red Fort, Qutub Minar, and India Gate.",
-      "image_url": "../images/delhi.jpg",
+      "image_url": "../images/delhi_monuments.jpg",
       "cta": "Learn More",
       "itinerary": {
         "Day 1": "Arrival in Delhi. Visit Red Fort, Jama Masjid, and Chandni Chowk. Evening light and sound show at Red Fort.",
@@ -193,7 +193,7 @@
       "duration": "2 Days / 1 Night",
       "price_per_person": "₹3,500",
       "description": "Explore the wonders of science at the Kolkata Science City and learn about astronomy at the Birla Planetarium.",
-      "image_url": "../images/kolkata.jpg",
+      "image_url": "../images/science_city.jpg",
       "cta": "Book Now",
       "itinerary": {
         "Day 1": "Arrival in Kolkata. Visit Science City and enjoy interactive exhibits and rides. Evening visit to Eco Park.",
@@ -205,7 +205,7 @@
       "duration": "5 Days / 4 Nights",
       "price_per_person": "₹2,000",
       "description": "Discover the architectural marvels of Jaipur and Agra, including the Taj Mahal, Amber Fort, and Hawa Mahal.",
-      "image_url": "../images/jaipur_agra.jpg",
+      "image_url": "../images/jaipur and agra.jpg",
       "cta": "Explore Now",
       "itinerary": {
         "Day 1": "Arrival in Jaipur. Visit City Palace and Jantar Mantar. Stroll through the local bazaars in the evening.",
@@ -220,7 +220,7 @@
       "duration": "4 Days / 3 Nights",
       "price_per_person": "₹1,000",
       "description": "An educational journey to the Birla Science Museum and the world-famous Ramoji Film City in Hyderabad.",
-      "image_url": "../images/hyderabad.jpg",
+      "image_url": "../images/birla_science.jpg",
       "cta": "View Details",
       "itinerary": {
         "Day 1": "Arrival in Hyderabad. Visit the Birla Mandir and enjoy a boat ride at Hussain Sagar Lake.",
@@ -234,7 +234,7 @@
       "duration": "3 Days / 2 Nights",
       "price_per_person": "₹6,500",
       "description": "Visit ISRO's Space Research Center and the Visvesvaraya Industrial and Technological Museum in Bengaluru.",
-      "image_url": "../images/bengaluru.jpg",
+      "image_url": "../images/science_museum.jpg",
       "cta": "Plan Your Visit",
       "itinerary": {
         "Day 1": "Arrival in Bengaluru. Visit ISRO Space Center for an educational session and exhibits.",

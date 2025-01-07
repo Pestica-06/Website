@@ -5,67 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Page</title>
-  <style>
-    /* Your existing styles */
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: white;
-      margin: 0;
-      overflow: hidden; 
-    }
-
-  
-    body{
-      background-image: url("../images/rameswaram-1.webp");
-      background-repeat: no-repeat;
-      background-size: cover;
-      min-height: 100vh;
-    } 
-    .login-container {
-      background: #3c6e71;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-      width: 300px;
-      text-align: center;
-    }
-    h2 {
-      text-align: center;
-    }
-    input {
-      width: 90%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      box-sizing: border-box;
-      text-align: center;
-    }
-    button {
-      width: 130px;
-      padding: 12px;
-      color: black;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      font-size: 16px;
-      margin-top: 10px;
-    }
-    button:hover {
-      color: #3c6e71;
-    }
-    span {
-      display: block;
-      text-align: left;
-      margin-left: 5%;
-      font-size: 12px;
-      color: red;
-      height: 16px;
-    }
-  </style>    
+  <link rel="stylesheet" href="../../css/login.css" >
 </head>
 <body>
   
@@ -84,22 +24,24 @@
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
   import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
- 
-  
+  import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+  // Firebase configuration
   const firebaseConfig = {
-  apiKey: "AIzaSyB7ASHWeH7D9uph-jm_DzVYtmgumAtFnq4",
-  authDomain: "travworld-858a6.firebaseapp.com",
-  projectId: "travworld-858a6",
-  storageBucket: "travworld-858a6.firebasestorage.app",
-  messagingSenderId: "850634148926",
-  appId: "1:850634148926:web:2fd42f92d1e846938e156f",
-  measurementId: "G-67LRT5GK62"
-
-
+    apiKey: "AIzaSyB7ASHWeH7D9uph-jm_DzVYtmgumAtFnq4",
+    authDomain: "travworld-858a6.firebaseapp.com",
+    projectId: "travworld-858a6",
+    storageBucket: "travworld-858a6.firebasestorage.app",
+    messagingSenderId: "850634148926",
+    appId: "1:850634148926:web:2fd42f92d1e846938e156f",
+    measurementId: "G-67LRT5GK62",
+    databaseURL: "https://travworld-858a6-default-rtdb.firebaseio.com/"
   };
-  
+
+  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
+  const db = getDatabase(app);
 
   const validationMessages = {
     emailRequired: "Email is required.",
@@ -144,14 +86,35 @@
       signInWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log("Login successful:", user);
-          alert("Login successful!");
-          window.location.href = "../../index.html"; // Redirect to home page after successful login
+          const userId = user.uid;
+
+          // Retrieve the username from Firebase Realtime Database
+          const userRef = ref(db, `users/${userId}`);
+          get(userRef)
+            .then((snapshot) => {
+              if (snapshot.exists()) {
+                const userData = snapshot.val();
+                const username = userData.username;
+                console.log("Login successful. Username:", username);
+
+                // Store username in localStorage for use on other pages
+                localStorage.setItem("username", username);
+
+                alert(`Login successful! Welcome, ${username}`);
+                window.location.href = "../../homepage.html"; // Redirect to home page
+              } else {
+                console.error("No user data found in database.");
+                passwordError.textContent = "Unable to retrieve username.";
+              }
+            })
+            .catch((error) => {
+              console.error("Error fetching username:", error);
+              passwordError.textContent = "Error fetching user data.";
+            });
         })
         .catch((error) => {
-          const errorMessage = error.message;
-          console.error("Error logging in:", errorMessage);
-          passwordError.textContent = errorMessage;
+          console.error("Error logging in:", error.message);
+          passwordError.textContent = error.message;
         });
     }
   });
@@ -159,48 +122,8 @@
   // Clear error messages on input change
   email.addEventListener("input", () => { emailError.textContent = ""; });
   password.addEventListener("input", () => { passwordError.textContent = ""; });
-
-
-
-  document.getElementById("login-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            // Normally, here you would validate the credentials with the server
-            const username = document.getElementById("username").value;
-
-            // Assuming the user is successfully authenticated
-            localStorage.setItem("userLoggedIn", "true");
-            localStorage.setItem("username", username);
-
-            // Redirect to the booking page after successful login
-            window.location.href = "../pages/booking.html";
-  });   
-  
-  
-  
-
-
-  myForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    signInWithEmailAndPassword(auth, email.value, password.value)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log("Login successful:", user);
-        // Redirect to the booking page after successful login
-        window.location.href = "booking.html"; // Redirect to booking page
-      })
-      .catch((error) => {
-        console.error("Error logging in:", error.message);
-        alert(error.message);
-      });
-  });
-
-
-
-
-
 </script>
+
   
 </body>
 </html>

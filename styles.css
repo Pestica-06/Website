@@ -167,16 +167,20 @@ nav {
   cursor: pointer;
 }
 
+#Packages_head{
+  text-align: center;
+}
+
 /* Popular Packages Section */
 h1 {
   margin-bottom: 50px;
-  margin-left: 510px;
+ 
 }
 
 .package-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
 }
 

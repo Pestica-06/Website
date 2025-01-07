@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    padding: 2rem;
+}
+
+.booking-card {
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.booking-card img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.booking-card h4 {
+    margin: 0 0 0.5rem 0;
+    color: rgba(0, 102, 112, 0.95);
+}
+
+.booking-card p {
+    margin: 0.3rem 0;
+}
+
+.no-bookings {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+}

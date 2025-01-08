@@ -1,12 +1,10 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tour Details</title>
-<link rel="stylesheet" href="../../css/info.css">
+  <link rel="stylesheet" href="../../css/info.css">
 </head>
 <body>
   <div class="details-container">
@@ -25,104 +23,128 @@
       <h2>Stay Connected</h2>
       <p>📞 +91 9344946575</p>
       <p>📧 travelworld@gmail.com</p>
-      <form>
+      <form id="enquiry-form">
         <label for="name">Name *</label>
         <input type="text" id="name" placeholder="Enter your name" required>
+        <span class="error-message" id="name-error"></span>
 
         <label for="city">City of Residence *</label>
         <input type="text" id="city" placeholder="Enter your city" required>
+        <span class="error-message" id="city-error"></span>
 
         <label for="email">Email *</label>
         <input type="email" id="email" placeholder="Enter your email" required>
+        <span class="error-message" id="email-error"></span>
 
         <label for="phone">Phone Number *</label>
         <input type="tel" id="phone" placeholder="Enter your phone number" required>
+        <span class="error-message" id="phone-error"></span>
 
         <label for="destination">Travel Destination *</label>
         <input type="text" id="destination" placeholder="Enter travel destination" required>
+        <span class="error-message" id="destination-error"></span>
 
         <label for="date">Date of Travel *</label>
         <input type="date" id="date" required>
+        <span class="error-message" id="date-error"></span>
 
         <label for="people">No. of People *</label>
         <input type="number" id="people" placeholder="Enter number of people" required>
+        <span class="error-message" id="people-error"></span>
 
         <button type="submit">Submit</button>
       </form>
     </div>
   </div>
   <script>
+    const queryParams = new URLSearchParams(window.location.search);
+    const category = queryParams.get('category');
+    const index = queryParams.get('index');
 
-const queryParams = new URLSearchParams(window.location.search);
-const category = queryParams.get('category');
-const index = queryParams.get('index');
+    fetch('../json/navjson.json')
+        .then(response => response.json())
+        .then(data => {
+            const tours = data[category];
+            if (!tours) {
+                document.body.innerHTML = '<h1>Invalid category selected. Please try again.</h1>';
+                return;
+            }
 
-// Log values for debugging
-console.log('Category:', category);
-console.log('Index:', index);
+            const tour = tours[index];
+            if (tour) {
+                document.getElementById('tour-title').textContent = tour.name;
+                document.getElementById('tour-location').textContent = tour.location?.state || 'Location not available';
+                document.getElementById('tour-duration').textContent = tour.duration || 'Duration not available';
+                document.getElementById('tour-image').src = tour.image_url || 'placeholder.jpg';
+                document.getElementById('tour-image').alt = tour.name || 'Tour image';
+            } else {
+                document.body.innerHTML = '<h1>Tour not found</h1>';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching tour details:', error);
+            document.body.innerHTML = '<h1>Error loading tour details. Please try again later.</h1>';
+        });
 
-// Fetch and display the data
-fetch('../json/navjson.json')
-    .then(response => response.json())
-    .then(data => {
-        const tours = data[category];
-        if (!tours) {
-            document.body.innerHTML = '<h1>Invalid category selected. Please try again.</h1>';
-            return;
-        }
+    const form = document.getElementById('enquiry-form');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission behavior
 
-        const tour = tours[index];
-        if (tour) {
-            document.getElementById('tour-title').textContent = tour.name;
-            document.getElementById('tour-location').textContent = tour.location?.state || 'Location not available';
-            document.getElementById('tour-duration').textContent = tour.duration || 'Duration not available';
-            document.getElementById('tour-image').src = tour.image_url || 'placeholder.jpg';
-            document.getElementById('tour-image').alt = tour.name || 'Tour image';
-        } else {
-            document.body.innerHTML = '<h1>Tour not found</h1>';
-        }
-    })
-    .catch(error => {
-        console.error('Error fetching tour details:', error);
-        document.body.innerHTML = '<h1>Error loading tour details. Please try again later.</h1>';
+        // Validate form
+        let isValid = true;
+
+        const validateField = (id, message) => {
+            const field = document.getElementById(id);
+            const error = document.getElementById(`${id}-error`); // Fixed this line
+            if (!field.value.trim()) {
+                error.textContent = message;
+                error.style.display = 'block';
+                isValid = false;
+            } else {
+                error.style.display = 'none';
+            }
+        };
+
+        validateField('name', 'Name is required.');
+        validateField('city', 'City of Residence is required.');
+        validateField('email', 'Valid email is required.');
+        validateField('phone', 'Phone number is required.');
+        validateField('destination', 'Travel destination is required.');
+        validateField('date', 'Date of travel is required.');
+        validateField('people', 'Number of people is required.');
+
+        if (!isValid) return;
+
+        // Get user-provided details
+        const name = document.getElementById('name').value.trim();
+        const city = document.getElementById('city').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const destination = document.getElementById('destination').value.trim();
+        const date = document.getElementById('date').value.trim();
+        const people = document.getElementById('people').value.trim();
+
+        // Get tour details
+        const tourTitle = document.getElementById('tour-title').textContent.trim();
+        const tourLocation = document.getElementById('tour-location').textContent.trim();
+        const tourDuration = document.getElementById('tour-duration').textContent.trim();
+
+        const queryParams = new URLSearchParams({
+    name,
+    city,
+    email,
+    phone,
+    destination,
+    date,
+    people,
+    tourTitle,
+    tourLocation,
+    tourDuration,
+}).toString();
+
+// Redirect to the payment page with the correct parameters
+window.location.href = `../pages/payment.html?${queryParams}`;
     });
-
-
-    document.querySelector('form').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent default form submission behavior
-
-    // Get user-provided details from the form
-    const name = document.getElementById('name').value.trim();
-    const city = document.getElementById('city').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const destination = document.getElementById('destination').value.trim();
-    const date = document.getElementById('date').value.trim();
-    const people = document.getElementById('people').value.trim();
-
-    // Get tour details
-    const tourTitle = document.getElementById('tour-title').textContent.trim();
-    const tourLocation = document.getElementById('tour-location').textContent.trim();
-    const tourDuration = document.getElementById('tour-duration').textContent.trim();
-
-    // Construct query parameters
-    const queryParams = new URLSearchParams({
-        name,
-        city,
-        email,
-        phone,
-        destination,
-        date,
-        people,
-        tourTitle,
-        tourLocation,
-        tourDuration,
-    }).toString();
-
-    // Redirect to the payment page with the query parameters
-    window.location.href = `../pages/payment.html?${queryParams}`;
-});
-    </script>
-
-</body>  
+  </script>
+</body>
 </html>

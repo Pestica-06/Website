@@ -78,8 +78,10 @@
                 }
             });
 
-
-        
+       
+            let placeName = localStorage.getItem('placeName')
+            console.log(placeName);
+           
         
             // Fetch package details from JSON file
             // async function fetchPackageDetails() {
@@ -100,7 +102,8 @@
         
             // Display package details
             function displayPackageDetails(packageDetails) {
-                document.getElementById("package-name").textContent = packageDetails.name;
+                
+                document.getElementById("package-name").textContent = placeName;
                 document.getElementById("package-duration").textContent = packageDetails.duration;
                 document.getElementById("package-price").textContent = packageDetails.price_per_person;
                 document.getElementById("package-description").textContent = packageDetails.description;
@@ -161,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const packageName = localStorage.getItem('packageName');
     
     // Populate package details
-    document.getElementById('package-name').textContent = packageName;
+    document.getElementById('package-name').textContent = placeName;
     document.getElementById('package-price').textContent = price;
     document.getElementById('package-description').textContent = description;
     document.getElementById('package-duration').textContent = dur;

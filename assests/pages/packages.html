@@ -48,6 +48,8 @@
             document.getElementById("packageName").innerText = packageName;
             document.title = packageName;
 
+            
+            
             const container = document.getElementById('tourPackages');
             container.innerHTML = ''; // Clear existing content if any
 
@@ -69,6 +71,7 @@
         function viewDetails(packageIndex) {
             // Store the selected package index in localStorage for use on the details page
             localStorage.setItem("selectedPackageIndex", packageIndex);
+            
             // Redirect to the details page
             window.location.href = '../pages/details.html';
         }

@@ -23,6 +23,9 @@
         const jsonUrl = '../json/packages.json';
         const packageName = localStorage.getItem("packageName");
         const selectedPackageIndex = localStorage.getItem("selectedPackageIndex");
+        let placeName = localStorage.getItem('placeName')
+        
+        
 
         // Fetch and display the selected package details
         fetch(jsonUrl)
@@ -48,8 +51,10 @@
         function displayPackageDetails(pkg) {
             // Update page title and package name
             document.getElementById("packageName").innerText = pkg.name;
+            
             document.title = pkg.name;
-
+            localStorage.setItem('placeName', pkg.name)
+            
             // Build the package details dynamically
             const detailsContainer = document.getElementById('packageDetails');
             detailsContainer.innerHTML = `

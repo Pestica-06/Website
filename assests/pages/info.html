@@ -12,7 +12,6 @@
       <h1 id="tour-title">Loading...</h1>
       <p id="tour-location"></p>
       <div class="details">
-        <p><strong>Duration:</strong> <span id="tour-duration"></span></p>
         <p><strong>Tour Type:</strong> Daily Tour</p>
         <p><strong>Group Size:</strong> Unlimited</p>
         <p><strong>Languages:</strong> English</p>
@@ -74,7 +73,6 @@
             if (tour) {
                 document.getElementById('tour-title').textContent = tour.name;
                 document.getElementById('tour-location').textContent = tour.location?.state || 'Location not available';
-                document.getElementById('tour-duration').textContent = tour.duration || 'Duration not available';
                 document.getElementById('tour-image').src = tour.image_url || 'placeholder.jpg';
                 document.getElementById('tour-image').alt = tour.name || 'Tour image';
             } else {

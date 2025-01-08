@@ -3,19 +3,19 @@
     {
       "title": "South India Tour Packages",
       "count": 5,
-      "image": "./assests/images/taj mahal.jpg",
+      "image": "./assests/images/south_india2.webp",
       "link": "../assests/pages/south_india.html"
     },
     {
       "title": "East India Tour Packages",
       "count": 4,
-      "image": "./assests/images/wonders.webp",
+      "image": "./assests/images/east_india.jpg",
       "link": "../assests/pages/east_india.html"
     },
     {
       "title": "North India Packages",
       "count": 5,
-      "image": "./assests/images/kerala_place.jpg",
+      "image": "./assests/images/north_india.jpg",
       "link": "../assests/pages/north_india.html"
     },
     {

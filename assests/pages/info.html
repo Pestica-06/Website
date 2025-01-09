@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tour Details</title>
   <link rel="stylesheet" href="../../css/info.css">
+  <style>
+    .error-message {
+      color: red;
+      font-size: 0.9em;
+      display: none; /* Hide error messages by default */
+    }
+  </style>
 </head>
 <body>
   <div class="details-container">
@@ -56,6 +63,7 @@
     </div>
   </div>
   <script>
+    // Fetching tour details based on query parameters
     const queryParams = new URLSearchParams(window.location.search);
     const category = queryParams.get('category');
     const index = queryParams.get('index');
@@ -84,32 +92,49 @@
             document.body.innerHTML = '<h1>Error loading tour details. Please try again later.</h1>';
         });
 
+    // Form validation logic
     const form = document.getElementById('enquiry-form');
     form.addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent default form submission behavior
 
-        // Validate form
         let isValid = true;
 
-        const validateField = (id, message) => {
+        const validateField = (id, message, condition) => {
             const field = document.getElementById(id);
-            const error = document.getElementById(`${id}-error`); // Fixed this line
-            if (!field.value.trim()) {
+            const error = document.getElementById(`${id}-error`);
+            if (condition(field.value)) {
                 error.textContent = message;
-                error.style.display = 'block';
+                error.style.display = 'block'; // Show the error message
                 isValid = false;
             } else {
-                error.style.display = 'none';
+                error.style.display = 'none'; // Hide the error message
             }
         };
 
-        validateField('name', 'Name is required.');
-        validateField('city', 'City of Residence is required.');
-        validateField('email', 'Valid email is required.');
-        validateField('phone', 'Phone number is required.');
-        validateField('destination', 'Travel destination is required.');
-        validateField('date', 'Date of travel is required.');
-        validateField('people', 'Number of people is required.');
+        // Name Validation: At least 3 characters
+        validateField('name', 'Give a valid name.', value => value.trim().length < 3);
+
+        // City Validation: Minimum 3 characters, maximum 50 characters
+        validateField('city', 'City is invalid.', value => value.trim().length < 3 || value.trim().length > 50);
+
+        // Email Validation: Should not exceed 50 characters
+        validateField('email', 'Email is too long.', value => value.trim().length > 20);
+
+        // Phone Validation: Must be 10 digits without spaces or hyphens
+        validateField(
+            'phone',
+            'Invalid number.',
+            value => !/^\d{10}$/.test(value.trim())
+        );
+
+        // Destination Validation: Required
+        validateField('destination', 'Travel destination is required.', value => value.trim() === '');
+
+        // Date Validation: Required
+        validateField('date', 'Date of travel is required.', value => value.trim() === '');
+
+        // Number of People Validation: Required
+        validateField('people', 'Number of people is required.', value => value.trim() === '');
 
         if (!isValid) return;
 
@@ -125,23 +150,21 @@
         // Get tour details
         const tourTitle = document.getElementById('tour-title').textContent.trim();
         const tourLocation = document.getElementById('tour-location').textContent.trim();
-        const tourDuration = document.getElementById('tour-duration').textContent.trim();
 
         const queryParams = new URLSearchParams({
-    name,
-    city,
-    email,
-    phone,
-    destination,
-    date,
-    people,
-    tourTitle,
-    tourLocation,
-    tourDuration,
-}).toString();
+            name,
+            city,
+            email,
+            phone,
+            destination,
+            date,
+            people,
+            tourTitle,
+            tourLocation
+        }).toString();
 
-// Redirect to the payment page with the correct parameters
-window.location.href = `../pages/payment.html?${queryParams}`;
+        // Redirect to the payment page with the correct parameters
+        window.location.href = `../pages/payment.html?${queryParams}`;
     });
   </script>
 </body>

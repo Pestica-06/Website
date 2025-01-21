@@ -54,8 +54,8 @@
         <input type="date" id="date" required>
         <span class="error-message" id="date-error"></span>
 
-        <label for="people">No. of People *</label>
-        <input type="number" id="people" placeholder="Enter number of people" required>
+        <label for="people">packageDuration *</label>
+        <input type="number" id="packageDuration" placeholder="Enter packageDuration" required>
         <span class="error-message" id="people-error"></span>
 
         <button type="submit">Submit</button>
@@ -67,7 +67,10 @@
     const queryParams = new URLSearchParams(window.location.search);
     const category = queryParams.get('category');
     const index = queryParams.get('index');
-
+  
+  console.log(category);
+  
+    
     fetch('../json/navjson.json')
         .then(response => response.json())
         .then(data => {
@@ -79,8 +82,11 @@
 
             const tour = tours[index];
             if (tour) {
-                document.getElementById('tour-title').textContent = tour.name;
-                document.getElementById('tour-location').textContent = tour.location?.state || 'Location not available';
+          let packageName= document.getElementById('tour-title').textContent = tour.name;
+             localStorage.setItem("packageName",packageName)
+              
+                
+           document.getElementById('tour-location').textContent = tour.location?.state || 'Location not available';
                 document.getElementById('tour-image').src = tour.image_url || 'placeholder.jpg';
                 document.getElementById('tour-image').alt = tour.name || 'Tour image';
             } else {
@@ -92,80 +98,78 @@
             document.body.innerHTML = '<h1>Error loading tour details. Please try again later.</h1>';
         });
 
-    // Form validation logic
-    const form = document.getElementById('enquiry-form');
-    form.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent default form submission behavior
+      
+        // Form validation logic
+const form = document.getElementById('enquiry-form');
+form.addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent default form submission behavior
 
-        let isValid = true;
+    let isValid = true;
 
-        const validateField = (id, message, condition) => {
-            const field = document.getElementById(id);
-            const error = document.getElementById(`${id}-error`);
-            if (condition(field.value)) {
-                error.textContent = message;
-                error.style.display = 'block'; // Show the error message
-                isValid = false;
-            } else {
-                error.style.display = 'none'; // Hide the error message
-            }
-        };
+    // const validateField = (id, message, condition) => {
+    //     const field = document.getElementById(id);
+    //     const error = document.getElementById(`${id}-error`);
+    //     if (condition(field.value)) {
+    //         error.textContent = message;
+    //         error.style.display = 'block'; // Show the error message
+    //         isValid = false;
+    //     } else {
+    //         error.style.display = 'none'; // Hide the error message
+    //     }
+    // };
 
-        // Name Validation: At least 3 characters
-        validateField('name', 'Give a valid name.', value => value.trim().length < 3);
+    // // Name Validation: At least 3 characters
+    // validateField('name', 'Give a valid name.', value => value.trim().length < 3);
 
-        // City Validation: Minimum 3 characters, maximum 50 characters
-        validateField('city', 'City is invalid.', value => value.trim().length < 3 || value.trim().length > 50);
+    // // City Validation: Minimum 3 characters, maximum 50 characters
+    // validateField('city', 'City is invalid.', value => value.trim().length < 3 || value.trim().length > 50);
 
-        // Email Validation: Should not exceed 50 characters
-        validateField('email', 'Email is too long.', value => value.trim().length > 20);
+    // // Email Validation: Should not exceed 50 characters
+    // validateField('email', 'Email is too long.', value => value.trim().length > 40);
 
-        // Phone Validation: Must be 10 digits without spaces or hyphens
-        validateField(
-            'phone',
-            'Invalid number.',
-            value => !/^\d{10}$/.test(value.trim())
-        );
+    // // Phone Validation: Must be 10 digits without spaces or hyphens
+    // validateField(
+    //     'phone',
+    //     'Invalid number.',
+    //     value => !/^\d{10}$/.test(value.trim())
+    // );
 
-        // Destination Validation: Required
-        validateField('destination', 'Travel destination is required.', value => value.trim() === '');
+    // // Destination Validation: Required
+    // validateField('destination', 'Travel destination is required.', value => value.trim() === '');
 
-        // Date Validation: Required
-        validateField('date', 'Date of travel is required.', value => value.trim() === '');
+    // // Date Validation: Required
+    // validateField('date', 'Date of travel is required.', value => value.trim() === '');
 
-        // Number of People Validation: Required
-        validateField('people', 'Number of people is required.', value => value.trim() === '');
+    // // Package Duration Validation: Required
+    // validateField('packageDuration', 'Travel packageDuration is required.', value => value.trim() === '');
 
-        if (!isValid) return;
+    if (!isValid) return;
 
-        // Get user-provided details
-        const name = document.getElementById('name').value.trim();
-        const city = document.getElementById('city').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const destination = document.getElementById('destination').value.trim();
-        const date = document.getElementById('date').value.trim();
-        const people = document.getElementById('people').value.trim();
+    // Get user-provided details
+    const name = document.getElementById('name').value.trim();
+    const city = document.getElementById('city').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const travelDate = document.getElementById('date').value.trim();
+    const packageDuration = document.getElementById('packageDuration').value.trim();
 
-        // Get tour details
-        const tourTitle = document.getElementById('tour-title').textContent.trim();
-        const tourLocation = document.getElementById('tour-location').textContent.trim();
+    // Get tour details
+    const tourTitle = document.getElementById('tour-title').textContent.trim();
+    console.log(tourTitle);
 
-        const queryParams = new URLSearchParams({
-            name,
-            city,
-            email,
-            phone,
-            destination,
-            date,
-            people,
-            tourTitle,
-            tourLocation
-        }).toString();
+    const tourLocation = document.getElementById('tour-location').textContent.trim();
 
-        // Redirect to the payment page with the correct parameters
-        window.location.href = `../pages/payment.html?${queryParams}`;
-    });
+    let packageName = localStorage.getItem("packageName");
+    console.log(packageName);
+    let totalPrice = 2000;
+    const queryParams = new URLSearchParams({
+        name: packageName,
+        duration: packageDuration,
+        price: totalPrice,
+        date: travelDate,
+    }).toString();
+    window.location.href = `../pages/payment.html?${queryParams}`;
+});
   </script>
 </body>
 </html>

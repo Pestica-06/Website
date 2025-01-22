@@ -1,203 +1,234 @@
-
-  {
-    "popular_beaches": [
-      {
-        "name": "Baga Beach",
-        "category": "Popular Beach",
-        "location": {
-          "state": "Goa",
-          "district": "North Goa",
-          "latitude": 15.5583,
-          "longitude": 73.7631
-        },
-        "description": "Known for vibrant nightlife, water sports, and lively beach shacks.",
-        "activities": ["Water sports", "Beach shacks", "Nightlife"],
-        "best_time_to_visit": ["November", "December", "January", "February"],
-        "image_url": "../images/baga beach.jpg"
+{
+  "popular_beaches": [
+    {
+      "name": "Baga Beach",
+      "category": "Popular Beach",
+      "location": {
+        "state": "Goa",
+        "district": "North Goa",
+        "latitude": 15.5583,
+        "longitude": 73.7631
       },
-      {
-        "name": "Marina Beach",
-        "category": "Popular Beach",
-        "location": {
-          "state": "Tamil Nadu",
-          "district": "Chennai",
-          "latitude": 13.0537,
-          "longitude": 80.2824
-        },
-        "description": "The longest urban beach in India, famous for its sunrise views and cultural landmarks.",
-        "activities": ["Walking", "Horse riding", "Street food"],
-        "best_time_to_visit": ["November", "December", "January", "February"],
-        "image_url": "../images/marina beach.jpg"
+      "description": "Known for vibrant nightlife, water sports, and lively beach shacks.",
+      "activities": ["Water sports", "Beach shacks", "Nightlife"],
+      "best_time_to_visit": ["November", "December", "January", "February"],
+      "image_url": "../images/baga beach.jpg",
+      "price": "500-2000 INR",
+      "duration": "2-4 hours"
+    },
+    {
+      "name": "Marina Beach",
+      "category": "Popular Beach",
+      "location": {
+        "state": "Tamil Nadu",
+        "district": "Chennai",
+        "latitude": 13.0537,
+        "longitude": 80.2824
       },
-      {
-        "name": "Radhanagar Beach",
-        "category": "Popular Beach",
-        "location": {
-          "state": "Andaman and Nicobar Islands",
-          "district": "Havelock Island",
-          "latitude": 11.9836,
-          "longitude": 92.9783
-        },
-        "description": "Renowned for its pristine beauty, turquoise waters, and white sands.",
-        "activities": ["Swimming", "Snorkeling", "Photography"],
-        "best_time_to_visit": ["November", "December", "January", "February", "March"],
-        "image_url": "../images/radhanagar beach.jpg"
+      "description": "The longest urban beach in India, famous for its sunrise views and cultural landmarks.",
+      "activities": ["Walking", "Horse riding", "Street food"],
+      "best_time_to_visit": ["November", "December", "January", "February"],
+      "image_url": "../images/marina beach.jpg",
+      "price": "Free entry",
+      "duration": "1-3 hours"
+    },
+    {
+      "name": "Radhanagar Beach",
+      "category": "Popular Beach",
+      "location": {
+        "state": "Andaman and Nicobar Islands",
+        "district": "Havelock Island",
+        "latitude": 11.9836,
+        "longitude": 92.9783
       },
-      {
-        "name": "Kovalam Beach",
-        "category": "Popular Beach",
-        "location": {
-          "state": "Kerala",
-          "district": "Thiruvananthapuram",
-          "latitude": 8.4003,
-          "longitude": 76.9786
-        },
-        "description": "A popular beach destination in Kerala, known for its crescent-shaped coastline.",
-        "activities": ["Surfing", "Ayurvedic treatments", "Sunbathing"],
-        "best_time_to_visit": ["September", "October", "November", "December", "January", "February"],
-        "image_url": "../images/kovalam beach.jpg"
+      "description": "Renowned for its pristine beauty, turquoise waters, and white sands.",
+      "activities": ["Swimming", "Snorkeling", "Photography"],
+      "best_time_to_visit": ["November", "December", "January", "February", "March"],
+      "image_url": "../images/radhanagar beach.jpg",
+      "price": "100-500 INR",
+      "duration": "3-5 hours"
+    },
+    {
+      "name": "Kovalam Beach",
+      "category": "Popular Beach",
+      "location": {
+        "state": "Kerala",
+        "district": "Thiruvananthapuram",
+        "latitude": 8.4003,
+        "longitude": 76.9786
       },
-      {
-        "name": "Gokarna Beach",
-        "category": "Popular Beach",
-        "location": {
-          "state": "Karnataka",
-          "district": "Uttara Kannada",
-          "latitude": 14.5503,
-          "longitude": 74.3186
-        },
-        "description": "A serene beach town famous for its temples and laid-back atmosphere.",
-        "activities": ["Yoga retreats", "Hiking", "Beach camping"],
-        "best_time_to_visit": ["October", "November", "December", "January", "February"],
-        "image_url": "../images/gokarna page.jpg"
-      }
-    ]
+      "description": "A popular beach destination in Kerala, known for its crescent-shaped coastline.",
+      "activities": ["Surfing", "Ayurvedic treatments", "Sunbathing"],
+      "best_time_to_visit": ["September", "October", "November", "December", "January", "February"],
+      "image_url": "../images/kovalam beach.jpg",
+      "price": "500-1500 INR",
+      "duration": "2-6 hours"
+    },
+    {
+      "name": "Gokarna Beach",
+      "category": "Popular Beach",
+      "location": {
+        "state": "Karnataka",
+        "district": "Uttara Kannada",
+        "latitude": 14.5503,
+        "longitude": 74.3186
+      },
+      "description": "A serene beach town famous for its temples and laid-back atmosphere.",
+      "activities": ["Yoga retreats", "Hiking", "Beach camping"],
+      "best_time_to_visit": ["October", "November", "December", "January", "February"],
+      "image_url": "../images/gokarna page.jpg",
+      "price": "300-1000 INR",
+      "duration": "4-8 hours"
+    }
+  ]
   ,
   "mountains": [
-  {
-    "name": "Kanchenjunga",
-    "category": "mountains",
-    "height_meters": 8586,
-    "height_feet": 28169,
-    "location": "Sikkim",
-    "significance": "The third-highest mountain in the world and revered as a sacred mountain by the people of Sikkim.",
-    "image_url": "../images/kanjenjunga.jpg",
-    "know_more": "",
-    "description": "Kanchenjunga is a majestic peak located in the Himalayan range of Sikkim. Its towering height and spiritual significance make it a mesmerizing destination for mountaineers and pilgrims."
-  },
-  {
-    "name": "Nanda Devi",
-    "category": "mountains",
-    "height_meters": 7816,
-    "height_feet": 25643,
-    "location": "Uttarakhand",
-    "significance": "The second-highest peak in India, part of the UNESCO World Heritage Nanda Devi and Valley of Flowers National Parks.",
-    "image_url": "../images/nanda devi mountain.jpg",
-    "know_more": "",
-    "description": "Nanda Devi, surrounded by enchanting valleys and wildlife, stands as a sentinel in the Garhwal Himalayas, symbolizing both natural beauty and spiritual reverence."
-  },
-  {
-    "name": "Mount Trishul",
-    "category": "mountains",
-    "height_meters": 7120,
-    "height_feet": 23359,
-    "location": "Uttarakhand",
-    "significance": "Known for its resemblance to Lord Shiva’s trident and popular among trekkers.",
-    "image_url": "../images/mount trisul.jpg",
-    "know_more": "",
-    "description": "Mount Trishul, named after Lord Shiva's weapon, is a trekker's paradise offering breathtaking views and challenging routes."
-  },
-  {
-    "name": "Kangto",
-    "category": "mountains",
-    "height_meters": 7060,
-    "height_feet": 23163,
-    "location": "Arunachal Pradesh",
-    "significance": "The highest peak in Arunachal Pradesh, located in the Eastern Himalayas.",
-    "image_url": "../images/kangto.jpg",
-    "know_more": "",
-    "description": "Kangto dominates the Eastern Himalayas with its rugged beauty, drawing adventure seekers to Arunachal Pradesh."
-  },
-  {
-    "name": "Stok Kangri",
-    "category": "mountains",
-    "height_meters": 6153,
-    "height_feet": 20187,
-    "location": "Ladakh",
-    "significance": "A popular trekking peak offering stunning views of Ladakh.",
-    "image_url": "../images/stock kangri.jpg",
-    "know_more": "",
-    "description": "Stok Kangri is a challenging yet rewarding trek, offering panoramic views of the mesmerizing Ladakh region."
-  },
-  {
-    "name": "Kedarnath Peak",
-    "category": "mountains",
-    "height_meters": 6940,
-    "height_feet": 22769,
-    "location": "Uttarakhand",
-    "significance": "Located near the Kedarnath temple and a favorite for experienced mountaineers.",
-    "image_url": "../images/kedarnath.jpg",
-    "know_more": "",
-    "description": "Kedarnath Peak is not only a mountaineer's dream but also a spiritually significant site near the iconic Kedarnath Temple."
-  },
-  {
-    "name": "Shivling Peak",
-    "category": "mountains",
-    "height_meters": 6543,
-    "height_feet": 21466,
-    "location": "Uttarakhand",
-    "significance": "Known as the ‘Matterhorn of the Himalayas,’ it’s sacred to Hindus and a challenging climb.",
-    "image_url": "../images/shivling.jpg",
-    "know_more": "",
-    "description": "Shivling Peak stands tall as a sacred site and a technical challenge for climbers, resembling a towering spire in the Himalayas."
-  },
-  {
-    "name": "Aravalli Hills",
-    "category": "mountains",
-    "highest_peak": {
-      "name": "Guru Shikhar",
-      "height_meters": 1722,
-      "height_feet": 5650
+    {
+      "name": "Kanchenjunga",
+      "category": "mountains",
+      "height_meters": 8586,
+      "height_feet": 28169,
+      "location": "Sikkim",
+      "significance": "The third-highest mountain in the world and revered as a sacred mountain by the people of Sikkim.",
+      "image_url": "../images/kanjenjunga.jpg",
+      "know_more": "",
+      "description": "Kanchenjunga is a majestic peak located in the Himalayan range of Sikkim. Its towering height and spiritual significance make it a mesmerizing destination for mountaineers and pilgrims.",
+      "price_range": "$500 - $2000",
+      "duration": "10-15 days"
     },
-    "location": "Rajasthan",
-    "significance": "One of the oldest mountain ranges in the world with historical and cultural importance.",
-    "image_url": "../images/aravalli.jpg",
-    "know_more": "",
-    "description": "The Aravalli Hills, an ancient range, are a blend of geological significance and cultural history, with Guru Shikhar as their crown jewel."
-  },
-  {
-    "name": "Anamudi",
-    "category": "mountains",
-    "height_meters": 2695,
-    "height_feet": 8842,
-    "location": "Kerala",
-    "significance": "The highest peak in South India, located in the Western Ghats.",
-    "image_url": "../images/anamudi.jpg",
-    "know_more": "",
-    "description": "Anamudi, meaning 'elephant's forehead,' offers stunning vistas and is the pride of the Western Ghats in Kerala."
-  },
-  {
-    "name": "Sandakphu",
-    "category": "mountains",
-    "height_meters": 3636,
-    "height_feet": 11929,
-    "location": "West Bengal",
-    "significance": "Offers panoramic views of Kanchenjunga and other high peaks.",
-    "image_url": "../images/sadankpu.jpg",
-    "know_more": "",
-    "description": "Sandakphu is a trekker’s dream, renowned for its sweeping views of some of the world's highest peaks, including Kanchenjunga."
-  }
-]
+    {
+      "name": "Nanda Devi",
+      "category": "mountains",
+      "height_meters": 7816,
+      "height_feet": 25643,
+      "location": "Uttarakhand",
+      "significance": "The second-highest peak in India, part of the UNESCO World Heritage Nanda Devi and Valley of Flowers National Parks.",
+      "image_url": "../images/nanda devi mountain.jpg",
+      "know_more": "",
+      "description": "Nanda Devi, surrounded by enchanting valleys and wildlife, stands as a sentinel in the Garhwal Himalayas, symbolizing both natural beauty and spiritual reverence.",
+      "price_range": "$400 - $1500",
+      "duration": "7-12 days"
+    },
+    {
+      "name": "Mount Trishul",
+      "category": "mountains",
+      "height_meters": 7120,
+      "height_feet": 23359,
+      "location": "Uttarakhand",
+      "significance": "Known for its resemblance to Lord Shiva’s trident and popular among trekkers.",
+      "image_url": "../images/mount trisul.jpg",
+      "know_more": "",
+      "description": "Mount Trishul, named after Lord Shiva's weapon, is a trekker's paradise offering breathtaking views and challenging routes.",
+      "price_range": "$300 - $1200",
+      "duration": "5-10 days"
+    },
+    {
+      "name": "Kangto",
+      "category": "mountains",
+      "height_meters": 7060,
+      "height_feet": 23163,
+      "location": "Arunachal Pradesh",
+      "significance": "The highest peak in Arunachal Pradesh, located in the Eastern Himalayas.",
+      "image_url": "../images/kangto.jpg",
+      "know_more": "",
+      "description": "Kangto dominates the Eastern Himalayas with its rugged beauty, drawing adventure seekers to Arunachal Pradesh.",
+      "price_range": "$500 - $1800",
+      "duration": "8-14 days"
+    },
+    {
+      "name": "Stok Kangri",
+      "category": "mountains",
+      "height_meters": 6153,
+      "height_feet": 20187,
+      "location": "Ladakh",
+      "significance": "A popular trekking peak offering stunning views of Ladakh.",
+      "image_url": "../images/stock kangri.jpg",
+      "know_more": "",
+      "description": "Stok Kangri is a challenging yet rewarding trek, offering panoramic views of the mesmerizing Ladakh region.",
+      "price_range": "$400 - $1300",
+      "duration": "6-12 days"
+    },
+    {
+      "name": "Kedarnath Peak",
+      "category": "mountains",
+      "height_meters": 6940,
+      "height_feet": 22769,
+      "location": "Uttarakhand",
+      "significance": "Located near the Kedarnath temple and a favorite for experienced mountaineers.",
+      "image_url": "../images/kedarnath.jpg",
+      "know_more": "",
+      "description": "Kedarnath Peak is not only a mountaineer's dream but also a spiritually significant site near the iconic Kedarnath Temple.",
+      "price_range": "$500 - $1700",
+      "duration": "9-14 days"
+    },
+    {
+      "name": "Shivling Peak",
+      "category": "mountains",
+      "height_meters": 6543,
+      "height_feet": 21466,
+      "location": "Uttarakhand",
+      "significance": "Known as the ‘Matterhorn of the Himalayas,’ it’s sacred to Hindus and a challenging climb.",
+      "image_url": "../images/shivling.jpg",
+      "know_more": "",
+      "description": "Shivling Peak stands tall as a sacred site and a technical challenge for climbers, resembling a towering spire in the Himalayas.",
+      "price_range": "$450 - $1500",
+      "duration": "7-12 days"
+    },
+    {
+      "name": "Aravalli Hills",
+      "category": "mountains",
+      "highest_peak": {
+        "name": "Guru Shikhar",
+        "height_meters": 1722,
+        "height_feet": 5650
+      },
+      "location": "Rajasthan",
+      "significance": "One of the oldest mountain ranges in the world with historical and cultural importance.",
+      "image_url": "../images/aravalli.jpg",
+      "know_more": "",
+      "description": "The Aravalli Hills, an ancient range, are a blend of geological significance and cultural history, with Guru Shikhar as their crown jewel.",
+      "price_range": "$100 - $500",
+      "duration": "3-7 days"
+    },
+    {
+      "name": "Anamudi",
+      "category": "mountains",
+      "height_meters": 2695,
+      "height_feet": 8842,
+      "location": "Kerala",
+      "significance": "The highest peak in South India, located in the Western Ghats.",
+      "image_url": "../images/anamudi.jpg",
+      "know_more": "",
+      "description": "Anamudi, meaning 'elephant's forehead,' offers stunning vistas and is the pride of the Western Ghats in Kerala.",
+      "price_range": "$200 - $700",
+      "duration": "4-8 days"
+    },
+    {
+      "name": "Sandakphu",
+      "category": "mountains",
+      "height_meters": 3636,
+      "height_feet": 11929,
+      "location": "West Bengal",
+      "significance": "Offers panoramic views of Kanchenjunga and other high peaks.",
+      "image_url": "../images/sadankpu.jpg",
+      "know_more": "",
+      "description": "Sandakphu is a trekker’s dream, renowned for its sweeping views of some of the world's highest peaks, including Kanchenjunga.",
+      "price_range": "$300 - $1000",
+      "duration": "5-10 days"
+    }
+  ]
 
   ,
-  "adventures": [
+ "adventures": [
     {
       "name": "Rishikesh",
       "category": "Adventures",
       "state": "Uttarakhand",
       "activities": ["White-water rafting", "Bungee jumping", "Cliff jumping", "Trekking"],
       "description": "Known as the 'Adventure Capital of India,' offering adrenaline-pumping activities amid the serene beauty of the Himalayas.",
-      "image_url":  "../images/risikesh.jpg"
+      "image_url": "../images/risikesh.jpg",
+      "price_range": "$50 - $150",
+      "duration": "1-3 days"
     },
     {
       "name": "Manali",
@@ -205,7 +236,9 @@
       "state": "Himachal Pradesh",
       "activities": ["Paragliding", "Skiing", "Zorbing", "Trekking"],
       "description": "A hub for adventure sports, especially known for skiing in Solang Valley and Rohtang Pass.",
-      "image_url":  "../images/manali.jpg"
+      "image_url": "../images/manali.jpg",
+      "price_range": "$100 - $300",
+      "duration": "2-4 days"
     },
     {
       "name": "Leh-Ladakh",
@@ -213,14 +246,18 @@
       "state": "Jammu & Kashmir",
       "activities": ["Motorcycle expeditions", "Trekking", "River rafting", "Mountain biking"],
       "description": "Offers high-altitude adventure with breathtaking landscapes and the thrill of riding through the highest motorable roads.",
-      "image_url":  "../images/ladakh.jpg"
+      "image_url": "../images/ladakh.jpg",
+      "price_range": "$300 - $800",
+      "duration": "7-12 days"
     },
     {
       "name": "Andaman and Nicobar Islands",
       "category": "Adventures",
       "activities": ["Scuba diving", "Snorkeling", "Sea walking", "Kayaking"],
       "description": "Famous for crystal-clear waters and vibrant coral reefs, ideal for underwater adventures on Havelock Island.",
-      "image_url":  "../images/andaman.jpg"
+      "image_url": "../images/andaman.jpg",
+      "price_range": "$200 - $500",
+      "duration": "3-5 days"
     },
     {
       "name": "Goa",
@@ -228,7 +265,9 @@
       "state": "Goa",
       "activities": ["Parasailing", "Jet skiing", "Windsurfing", "Scuba diving"],
       "description": "Beyond its beaches and nightlife, Goa offers adrenaline-packed water sports along its scenic coastline.",
-      "image_url":  "../images/goa beach.jpg"
+      "image_url": "../images/goa beach.jpg",
+      "price_range": "$50 - $200",
+      "duration": "1-3 days"
     },
     {
       "name": "Meghalaya",
@@ -236,7 +275,9 @@
       "state": "Meghalaya",
       "activities": ["Caving", "Trekking", "River canyoning"],
       "description": "Explore mysterious caves like Mawsmai and trek to the unique Living Root Bridges in Cherrapunji.",
-      "image_url":  "../images/meghalaya.jpg"
+      "image_url": "../images/meghalaya.jpg",
+      "price_range": "$150 - $400",
+      "duration": "3-6 days"
     },
     {
       "name": "Spiti Valley",
@@ -244,7 +285,9 @@
       "state": "Himachal Pradesh",
       "activities": ["High-altitude trekking", "Mountain biking", "Camping"],
       "description": "Offers raw adventure in a stark desert landscape with ancient monasteries and challenging terrain.",
-      "image_url":  "../images/himachal pradesh.jpg"
+      "image_url": "../images/himachal pradesh.jpg",
+      "price_range": "$250 - $600",
+      "duration": "5-7 days"
     },
     {
       "name": "Auli",
@@ -252,7 +295,9 @@
       "state": "Uttarakhand",
       "activities": ["Skiing", "Snowboarding", "Trekking"],
       "description": "India’s premier skiing destination, perfect for winter sports enthusiasts.",
-       "image_url": "../images/auli.jpg"
+      "image_url": "../images/auli.jpg",
+      "price_range": "$100 - $300",
+      "duration": "2-5 days"
     },
     {
       "name": "Sikkim",
@@ -260,7 +305,9 @@
       "state": "Sikkim",
       "activities": ["High-altitude trekking", "River rafting", "Paragliding"],
       "description": "Famous for the Goechala Trek and Dzongri Trek, offering rugged Himalayan beauty and adventure.",
-      "image_url":  "../images/sikkim.jpg"
+      "image_url": "../images/sikkim.jpg",
+      "price_range": "$200 - $600",
+      "duration": "4-8 days"
     },
     {
       "name": "Coorg",
@@ -268,79 +315,101 @@
       "state": "Karnataka",
       "activities": ["River rafting", "Trekking", "Microlight flying"],
       "description": "Known as the 'Scotland of India,' Coorg is perfect for nature lovers and adventure seekers.",
-      "image_url":  "../images/coorg.jpg"
+      "image_url": "../images/coorg.jpg",
+      "price_range": "$150 - $400",
+      "duration": "3-6 days"
     }
   ],
-  "historical":[
+  "historical": [
     {
       "name": "Taj Mahal",
       "category": "Historical",
       "location": "Agra",
-      "image_url":  "../images/taj mahal.jpg",
-      "description": "A UNESCO World Heritage site and a symbol of love."
+      "image_url": "../images/taj mahal.jpg",
+      "description": "A UNESCO World Heritage site and a symbol of love.",
+      "price_range": "$5 - $20",
+      "duration": "2-3 hours"
     },
     {
       "name": "Red Fort",
       "category": "Historical",
       "location": "Delhi",
-      "image_url":  "../images/red fort.jpg",
-      "description": "A historic fort and a prime example of Mughal architecture."
+      "image_url": "../images/red fort.jpg",
+      "description": "A historic fort and a prime example of Mughal architecture.",
+      "price_range": "$5 - $15",
+      "duration": "2-3 hours"
     },
     {
       "name": "Hampi",
       "category": "Historical",
       "location": "Karnataka",
-      "image_url":  "../images/hampi.jpg",
-      "description": "Ancient ruins of the Vijayanagara Empire, a UNESCO site."
+      "image_url": "../images/hampi.jpg",
+      "description": "Ancient ruins of the Vijayanagara Empire, a UNESCO site.",
+      "price_range": "$10 - $30",
+      "duration": "1-2 days"
     },
     {
       "name": "Qutub Minar",
       "category": "Historical",
       "location": "Delhi",
-      "image_url":  "../images/qutub-minar.jpg",
-      "description": "A towering minaret and the tallest brick minaret in the world."
+      "image_url": "../images/qutub-minar.jpg",
+      "description": "A towering minaret and the tallest brick minaret in the world.",
+      "price_range": "$5 - $15",
+      "duration": "1-2 hours"
     },
     {
       "name": "Amber Fort",
       "category": "Historical",
       "location": "Jaipur",
-      "image_url":  "../images/amber fort.jpg",
-      "description": "A majestic fort built with red sandstone and marble."
+      "image_url": "../images/amber fort.jpg",
+      "description": "A majestic fort built with red sandstone and marble.",
+      "price_range": "$5 - $15",
+      "duration": "2-4 hours"
     },
     {
       "name": "Khajuraho Temples",
       "category": "Historical",
       "location": "Madhya Pradesh",
-      "image_url":  "../images/khajuraho temple.jpg",
-      "description": "Famous for their intricate erotic sculptures."
+      "image_url": "../images/khajuraho temple.jpg",
+      "description": "Famous for their intricate erotic sculptures.",
+      "price_range": "$10 - $20",
+      "duration": "2-4 hours"
     },
     {
       "name": "Fatehpur Sikri",
       "category": "Historical",
       "location": "Uttar Pradesh",
-      "image_url":  "../images/fatehpur.jpg",
-      "description": "A ghost town built by Emperor Akbar, now a UNESCO site."
+      "image_url": "../images/fatehpur.jpg",
+      "description": "A ghost town built by Emperor Akbar, now a UNESCO site.",
+      "price_range": "$5 - $15",
+      "duration": "2-4 hours"
     },
     {
       "name": "Sanchi Stupa",
       "category": "Historical",
       "location": "Madhya Pradesh",
       "image_url": "../images/stanchi stupa.jpg",
-      "description": "A Buddhist complex famous for its Great Stupa."
+      "description": "A Buddhist complex famous for its Great Stupa.",
+      "price_range": "$5 - $15",
+      "duration": "1-2 hours"
     },
     {
       "name": "Golkonda Fort",
       "category": "Historical",
       "location": "Hyderabad",
-      "image_url":  "../images/golkonda.jpg",
-      "description": "A historic fort known for its impressive architecture and acoustics."
+      "image_url": "../images/golkonda.jpg",
+      "description": "A historic fort known for its impressive architecture and acoustics.",
+      "price_range": "$5 - $20",
+      "duration": "2-4 hours"
     },
     {
       "name": "Victoria Memorial",
       "category": "Historical",
       "location": "Kolkata",
-      "image_url":  "../images/victoria.jpg",
-      "description": "A grand marble building dedicated to Queen Victoria."
+      "image_url": "../images/victoria.jpg",
+      "description": "A grand marble building dedicated to Queen Victoria.",
+      "price_range": "$5 - $10",
+      "duration": "1-2 hours"
     }
   ]
 }

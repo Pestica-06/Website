@@ -54,6 +54,15 @@
         <input type="date" id="date" required>
         <span class="error-message" id="date-error"></span>
 
+        <label for="adults">Number of Adults *</label>
+        <input type="number" id="adults" min="1" placeholder="Enter number of adults" required>
+        <span class="error-message" id="adults-error"></span>
+      
+        <label for="kids">Number of Kids</label>
+        <input type="number" id="kids" min="0" placeholder="Enter number of kids">
+        <span class="error-message" id="kids-error"></span>
+      
+
         <label for="people">packageDuration *</label>
         <input type="number" id="packageDuration" placeholder="Enter packageDuration" required>
         <span class="error-message" id="people-error"></span>
@@ -100,75 +109,47 @@
 
       
         // Form validation logic
+// Form submission logic on the info page
 const form = document.getElementById('enquiry-form');
 form.addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent default form submission behavior
+  event.preventDefault();
 
-    let isValid = true;
+  let isValid = true;
+  const adults = document.getElementById('adults').value.trim();
+  const kids = document.getElementById('kids').value.trim();
 
-    // const validateField = (id, message, condition) => {
-    //     const field = document.getElementById(id);
-    //     const error = document.getElementById(`${id}-error`);
-    //     if (condition(field.value)) {
-    //         error.textContent = message;
-    //         error.style.display = 'block'; // Show the error message
-    //         isValid = false;
-    //     } else {
-    //         error.style.display = 'none'; // Hide the error message
-    //     }
-    // };
+  if (!adults || adults <= 0) {
+    document.getElementById('adults-error').textContent = 'Enter at least 1 adult.';
+    document.getElementById('adults-error').style.display = 'block';
+    isValid = false;
+  } else {
+    document.getElementById('adults-error').style.display = 'none';
+  }
 
-    // // Name Validation: At least 3 characters
-    // validateField('name', 'Give a valid name.', value => value.trim().length < 3);
+  if (isValid) {
+    // Store user's info in localStorage
+    const userInfo = {
+      name: document.getElementById('name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      city: document.getElementById('city').value.trim(),
+    };
 
-    // // City Validation: Minimum 3 characters, maximum 50 characters
-    // validateField('city', 'City is invalid.', value => value.trim().length < 3 || value.trim().length > 50);
+    localStorage.setItem('userInfo', JSON.stringify(userInfo));
 
-    // // Email Validation: Should not exceed 50 characters
-    // validateField('email', 'Email is too long.', value => value.trim().length > 40);
-
-    // // Phone Validation: Must be 10 digits without spaces or hyphens
-    // validateField(
-    //     'phone',
-    //     'Invalid number.',
-    //     value => !/^\d{10}$/.test(value.trim())
-    // );
-
-    // // Destination Validation: Required
-    // validateField('destination', 'Travel destination is required.', value => value.trim() === '');
-
-    // // Date Validation: Required
-    // validateField('date', 'Date of travel is required.', value => value.trim() === '');
-
-    // // Package Duration Validation: Required
-    // validateField('packageDuration', 'Travel packageDuration is required.', value => value.trim() === '');
-
-    if (!isValid) return;
-
-    // Get user-provided details
-    const name = document.getElementById('name').value.trim();
-    const city = document.getElementById('city').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
+    const packageName = localStorage.getItem("packageName");
     const travelDate = document.getElementById('date').value.trim();
     const packageDuration = document.getElementById('packageDuration').value.trim();
 
-    // Get tour details
-    const tourTitle = document.getElementById('tour-title').textContent.trim();
-    console.log(tourTitle);
-
-    const tourLocation = document.getElementById('tour-location').textContent.trim();
-
-    let packageName = localStorage.getItem("packageName");
-    console.log(packageName);
-    let totalPrice = 2000;
     const queryParams = new URLSearchParams({
-        name: packageName,
-        duration: packageDuration,
-        price: totalPrice,
-        date: travelDate,
+      name: packageName,
+      duration: packageDuration,
+      date: travelDate,
+      adults,
+      kids,
     }).toString();
+
     window.location.href = `../pages/payment.html?${queryParams}`;
+  }
 });
   </script>
 </body>

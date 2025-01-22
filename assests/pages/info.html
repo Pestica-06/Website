@@ -76,7 +76,7 @@
     const queryParams = new URLSearchParams(window.location.search);
     const category = queryParams.get('category');
     const index = queryParams.get('index');
-  
+    let tour;
   console.log(category);
   
     
@@ -89,7 +89,7 @@
                 return;
             }
 
-            const tour = tours[index];
+             tour = tours[index];
             if (tour) {
           let packageName= document.getElementById('tour-title').textContent = tour.name;
              localStorage.setItem("packageName",packageName)
@@ -139,6 +139,10 @@ form.addEventListener('submit', function (event) {
     const packageName = localStorage.getItem("packageName");
     const travelDate = document.getElementById('date').value.trim();
     const packageDuration = document.getElementById('packageDuration').value.trim();
+ 
+    
+
+    let price=(Number(adults)*Number(tour.price))+ (Number(kids)*(Number(tour.price)/2))
 
     const queryParams = new URLSearchParams({
       name: packageName,
@@ -146,7 +150,12 @@ form.addEventListener('submit', function (event) {
       date: travelDate,
       adults,
       kids,
+      price,
+      
     }).toString();
+    
+    console.log(queryParams);
+    
 
     window.location.href = `../pages/payment.html?${queryParams}`;
   }

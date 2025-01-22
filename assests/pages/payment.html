@@ -180,8 +180,20 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 2000);
         }
     });
+            // Display booking summary if query parameters are present
+const urlParams = new URLSearchParams(window.location.search);
+const packageName = urlParams.get("name");
+const packageDuration = urlParams.get("duration");
+const packagePrice = urlParams.get("price");
+console.log(packageName);
+
+console.log(packageDuration);
+console.log(packagePrice);
+
+
     
-    if (packageName && packageDuration && packagePrice) {
+    if (packageName && packageDuration &&packagePrice) {
+
         const summaryDiv = document.createElement("div");
         summaryDiv.innerHTML = `
             <h3>Booking Summary</h3>
@@ -189,6 +201,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <p><strong>Duration:</strong> ${packageDuration}</p>
             <p><strong>Total Price:</strong> ${packagePrice}</p>
         `;
+        console.log(summaryDiv);
+        
         document.querySelector(".container").prepend(summaryDiv);
     }
     
@@ -269,11 +283,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// Display booking summary if query parameters are present
-const urlParams = new URLSearchParams(window.location.search);
-const packageName = urlParams.get("name");
-const packageDuration = urlParams.get("duration");
-const packagePrice = urlParams.get("price");
 
  </script>
 </body>

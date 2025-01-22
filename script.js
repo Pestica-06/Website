@@ -1,13 +1,4 @@
-// Toggle the mobile menu
-const firebaseConfig = {
-  apiKey: "AIzaSyB7ASHWeH7D9uph-jm_DzVYtmgumAtFnq4",
-  authDomain: "travworld-858a6.firebaseapp.com",
-  projectId: "travworld-858a6",
-  storageBucket: "travworld-858a6.firebasestorage.app",
-  messagingSenderId: "850634148926",
-  appId: "1:850634148926:web:2fd42f92d1e846938e156f",
-  measurementId: "G-67LRT5GK62"
-};
+
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
     navLinks.classList.toggle('show');
@@ -105,8 +96,8 @@ document.getElementById('enquiryForm').addEventListener('submit', function(event
             const message = document.getElementById('message').value.trim();
 
             // Name validation
-            if (name.length < 2) {
-                alert("Please enter a valid name (at least 2 characters).");
+            if (name.length < 3) {
+                alert("Please enter a valid name (at least 3 characters).");
                 return;
             }
 
@@ -141,20 +132,3 @@ document.getElementById('enquiryForm').addEventListener('submit', function(event
       }
 
 
-
-   // Firebase Configuration
-
-// Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-
-firebase.auth().onAuthStateChanged((user) => {
-    const profileLink = document.getElementById('profileLink');
-    if (user) {
-        profileLink.setAttribute('href', './assets/pages/profile.html');
-    } else {
-        profileLink.setAttribute('href', './assets/pages/login.html');
-    }
-});
-
-      

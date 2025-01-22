@@ -75,9 +75,13 @@
                             : '<li>No itinerary available for this package.</li>'
                     }
                 </ul>
-                <button class="book-now-btn" onclick="bookNow(${selectedPackageIndex})" id="hey">Book Now</button>
+                <button class="book-now-btn" onclick="bookNow(${selectedPackageIndex})" id="book">Book Now</button>
             `;
-            localStorage.setItem('package',pkg.duration)
+            console.log(pkg.duration);
+            
+        localStorage.setItem('package',pkg.duration)
+           
+
             localStorage.setItem('price',pkg.price_per_person)
             localStorage.setItem('description',pkg.description)
         }
@@ -90,16 +94,20 @@
                     const packageDetails = data[packageName][packageIndex];
                     localStorage.setItem('packageDetails', JSON.stringify(packageDetails));
                     // Redirect to the booking page
+                localStorage.setItem('package',packageDetails);
+                localStorage.setItem('duration', packageDetails.duration);
+
                     window.location.href = '../pages/booking.html';
                 })
                 .catch(error => {
                     console.error('Error:', error);
                 });
-        }
-        document.getElementById('hey').addEventListener('click',()=>{
-            localStorage.setItem('package',packageDetails);
 
-        })
+        }
+       
+          
+
+
     </script>
 </body>
 </html>

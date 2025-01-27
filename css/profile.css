@@ -1,42 +1,66 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #E6F7F8, #A7D9D5);
     margin: 0;
     padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
 }
 
+/* Header Section */
 header {
-    background-color: #333;
+    background-color: #3E7377;
     color: #fff;
-    padding: 10px 0;
+    padding: 15px 0;
     text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 header nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 header nav ul li {
     display: inline-block;
-    margin: 0 15px;
 }
 
 header nav ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 16px;
-    padding: 5px 15px;
+    padding: 10px 20px;
+    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 5px;
 }
 
+header nav ul li a:hover {
+    background-color: #2C5558;
+    transform: scale(1.1);
+}
+
+/* Profile Container */
 .profile-container {
     background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    margin: 50px auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    margin-top: 50px;
     text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 .profile-container img {
@@ -45,31 +69,43 @@ header nav ul li a {
     height: 150px;
     object-fit: cover;
     margin-bottom: 20px;
+    border: 5px solid #E6F7F8;
 }
 
 .profile-container h2 {
-    font-size: 22px;
+    font-size: 24px;
+    color: #3E7377;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .profile-container p {
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    color: #666;
 }
 
+/* Logout Button */
 .logout-button {
-    background-color: #f44336;
+    background: linear-gradient(135deg, #F44336, #D32F2F);
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 25px;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 25px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(244, 67, 54, 0.3);
 }
 
 .logout-button:hover {
-    background-color: #d32f2f;
+    background: #D32F2F;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(244, 67, 54, 0.4);
 }
 
+/* Links Section */
 .links {
     margin-top: 20px;
     font-size: 16px;
@@ -77,10 +113,26 @@ header nav ul li a {
 
 .links a {
     text-decoration: none;
-    color: #333;
-    padding: 10px;
+    color: #3E7377;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .links a:hover {
-    color: #007BFF;
+    background-color: #3E7377;
+    color: #fff;
+}
+
+/* Background Enhancement */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/cubes.png') repeat;
+    opacity: 0.1;
+    z-index: -1;
 }

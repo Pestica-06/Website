@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travworld - Explore More Destinations</title>
-  <link rel="stylesheet" href="../../css/tour.css">
+    <link rel="stylesheet" href="../../css/tour.css">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -19,78 +19,33 @@
     </div>
 
     <!-- Destinations Section -->
-    <div class="destination-section" id="destinations">
-        <!-- Delhi -->
-        <div class="destination-card" data-place="delhi">
-            <img src="../images/india gate.jpg" alt="India Gate, Delhi">
-            <h2>India Gate, Delhi</h2>
-            <p>Iconic war memorial dedicated to Indian soldiers.</p>
-            <button onclick="bookNow('India Gate, Delhi')">Book Now</button>
-        </div>
+    <div class="destination-section" id="destinations"></div>
 
-        <div class="destination-card" data-place="delhi">
-            <img src="../images/lotus temple.avif" alt="Lotus Temple, Delhi">
-            <h2>Lotus Temple, Delhi</h2>
-            <p>A Baháʼí House of Worship known for its stunning architecture.</p>
-            <button onclick="bookNow('Lotus Temple, Delhi')">Book Now</button>
-        </div>
-
-        <!-- Chennai -->
-        <div class="destination-card" data-place="chennai">
-            <img src="../images/st.george.jpg" alt="Fort St. George, Chennai">
-            <h2>Fort St. George, Chennai</h2>
-            <p>Historic fort and the first British fortress in India.</p>
-            <button onclick="bookNow('Fort St. George, Chennai')">Book Now</button>
-        </div>
-
-        <!-- Mumbai -->
-        <div class="destination-card" data-place="mumbai">
-            <img src="../images/marine drive.jpg" alt="Marine Drive, Mumbai">
-            <h2>Marine Drive, Mumbai</h2>
-            <p>A picturesque promenade known as the Queen’s Necklace.</p>
-            <button onclick="bookNow('Marine Drive, Mumbai')">Book Now</button>
-        </div>
-
-        <div class="destination-card" data-place="mumbai">
-            <img src="../images/elephantcave.jpg" alt="Elephanta Caves, Mumbai">
-            <h2>Elephanta Caves, Mumbai</h2>
-            <p>UNESCO World Heritage site featuring ancient rock-cut temples.</p>
-            <button onclick="bookNow('Elephanta Caves, Mumbai')">Book Now</button>
-        </div>
-
-        <!-- Goa -->
-        <div class="destination-card" data-place="goa">
-            <img src="../images/goa beach.jpg" alt="Old Goa Churches">
-            <h2>Old Goa Churches</h2>
-            <p>Explore the Basilica of Bom Jesus, a UNESCO World Heritage site.</p>
-            <button onclick="bookNow('Old Goa Churches')">Book Now</button>
-        </div>
-
-        <div class="destination-card" data-place="goa">
-            <img src="../images/baga beach.jpg" alt="Calangute Beach, Goa">
-            <h2>Calangute Beach, Goa</h2>
-            <p>The largest beach in Goa, known for its lively atmosphere.</p>
-            <button onclick="bookNow('Calangute Beach, Goa')">Book Now</button>
-        </div>
-
-        <!-- Jaipur -->
-        <div class="destination-card" data-place="jaipur">
-            <img src="../images/jaipur and agra.jpg" alt="Amber Fort, Jaipur">
-            <h2>Amber Fort, Jaipur</h2>
-            <p>A magnificent hilltop fort known for its artistic Hindu architecture.</p>
-            <button onclick="bookNow('Amber Fort, Jaipur')">Book Now</button>
-        </div>
-
-        <div class="destination-card" data-place="jaipur">
-            <img src="../images/coorg.jpg" alt="Hawa Mahal, Jaipur">
-            <h2>Hawa Mahal, Jaipur</h2>
-            <p>The Palace of Winds with its intricate facade of 953 windows.</p>
-            <button onclick="bookNow('Hawa Mahal, Jaipur')">Book Now</button>
-        </div>
-    </div>
-
-    <!-- JavaScript for Search and Booking -->
+    <!-- JavaScript for Fetching Data and Booking -->
     <script>
+        // Fetch and display destinations from JSON
+        fetch('../json/tour.json')
+            .then(response => response.json())
+            .then(data => {
+                const destinationsContainer = document.getElementById('destinations');
+                destinationsContainer.innerHTML = '';
+                
+                Object.keys(data).forEach(key => {
+                    const destination = data[key];
+                    const destinationCard = `
+                        <div class="destination-card" data-place="${destination.state.toLowerCase()}">
+                            <img src="${destination.image_url}" alt="${key}">
+                            <h2>${key}</h2>
+                            <p>${destination.description}</p>
+                            <button onclick="bookNow('${key}')">Book Now</button>
+                        </div>
+                    `;
+                    destinationsContainer.innerHTML += destinationCard;
+                });
+            })
+            .catch(error => console.error('Error fetching destinations:', error));
+
+        // Search function
         function searchDestinations() {
             const searchValue = document.getElementById('searchBar').value.toLowerCase();
             const destinations = document.querySelectorAll('.destination-card');
@@ -104,28 +59,22 @@
             });
         }
 
+        // Booking function
         function bookNow(packageName) {
-    // Package-specific details (example: duration and price)
-    const packages = {
-        "India Gate, Delhi": { duration: "2 Days", price: "3000" },
-        "Lotus Temple, Delhi": { duration: "1 Day", price: "2000" },
-        "Fort St. George, Chennai": { duration: "2 Days", price: "2500" },
-        "Marine Drive, Mumbai": { duration: "3 Days", price: "4000" },
-        "Elephanta Caves, Mumbai": { duration: "1 Day", price: "3500" },
-        "Old Goa Churches": { duration: "2 Days", price: "4500" },
-        "Calangute Beach, Goa": { duration: "3 Days", price: "5000" },
-        "Amber Fort, Jaipur": { duration: "1 Day", price: "3000" },
-        "Hawa Mahal, Jaipur": { duration: "1 Day", price: "2800" },
-    };
+            fetch('../../assests/json/tour.json')
+                .then(response => response.json())
+                .then(data => {
+                    const packageInfo = data[packageName];
+                    if (!packageInfo) {
+                        alert('Package details not found.');
+                        return;
+                    }
 
-    // Get package details
-    const packageDetails = packages[packageName];
-
-    // Redirect to the payment page with query parameters
-    const paymentPageUrl = `../pages/payment.html?name=${encodeURIComponent(packageName)}&duration=${encodeURIComponent(packageDetails.duration)}&price=${encodeURIComponent(packageDetails.price)}`;
-    window.location.href = paymentPageUrl;
-}
-
+                    const paymentPageUrl = `../pages/payment.html?name=${encodeURIComponent(packageName)}&duration=${encodeURIComponent(packageInfo.duration)}&price=${encodeURIComponent(packageInfo.price_range)}`;
+                    window.location.href = paymentPageUrl;
+                })
+                .catch(error => console.error('Error fetching package details:', error));
+        }
     </script>
 </body>
 </html>

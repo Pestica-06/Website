@@ -1,0 +1,84 @@
+{
+    "India Gate, Delhi": {
+      "category": "Historical",
+      "state": "Delhi",
+      "activities": ["Sightseeing", "Photography"],
+      "description": "Iconic war memorial dedicated to Indian soldiers.",
+      "image_url": "../images/india gate.jpg",
+      "price_range": 3000,
+      "duration": "2 Days"
+    },
+    "Lotus Temple, Delhi": {
+      "category": "Religious & Architecture",
+      "state": "Delhi",
+      "activities": ["Spiritual visit", "Architecture tour"],
+      "description": "A Baháʼí House of Worship known for its stunning architecture.",
+      "image_url": "../images/lotus temple.avif",
+      "price_range": 2000,
+      "duration": "1 Day"
+    },
+    "Fort St. George, Chennai": {
+      "category": "Historical",
+      "state": "Tamil Nadu",
+      "activities": ["Museum visit", "Heritage walk"],
+      "description": "Historic fort and the first British fortress in India.",
+      "image_url": "../images/st.george.jpg",
+      "price_range": 2500,
+      "duration": "2 Days"
+    },
+    "Marine Drive, Mumbai": {
+      "category": "Scenic",
+      "state": "Maharashtra",
+      "activities": ["Walking", "Sunset views"],
+      "description": "A picturesque promenade known as the Queen’s Necklace.",
+      "image_url": "../images/marine drive.jpg",
+      "price_range": 4000,
+      "duration": "3 Days"
+    },
+    "Elephanta Caves, Mumbai": {
+      "category": "Cultural & Heritage",
+      "state": "Maharashtra",
+      "activities": ["Boat ride", "Cave exploration"],
+      "description": "UNESCO World Heritage site featuring ancient rock-cut temples.",
+      "image_url": "../images/elephantcave.jpg",
+      "price_range": 3500,
+      "duration": "1 Day"
+    },
+    "Old Goa Churches": {
+      "category": "Religious & Heritage",
+      "state": "Goa",
+      "activities": ["Church visit", "Heritage walk"],
+      "description": "Explore the Basilica of Bom Jesus, a UNESCO World Heritage site.",
+      "image_url": "../images/goa beach.jpg",
+      "price_range": 4500,
+      "duration": "2 Days"
+    },
+    "Calangute Beach, Goa": {
+      "category": "Beach & Leisure",
+      "state": "Goa",
+      "activities": ["Swimming", "Water sports"],
+      "description": "The largest beach in Goa, known for its lively atmosphere.",
+      "image_url": "../images/beach.jpg",
+      "price_range": 5000,
+      "duration": "3 Days"
+    },
+    "Amber Fort, Jaipur": {
+      "category": "Historical",
+      "state": "Rajasthan",
+      "activities": ["Sightseeing", "Photography"],
+      "description": "A magnificent hilltop fort known for its artistic Hindu architecture.",
+      "image_url": "../images/amber fort.jpg",
+      "price_range": 3000,
+      "duration": "1 Day"
+    },
+    "Hawa Mahal, Jaipur": {
+      "category": "Architecture & Heritage",
+      "state": "Rajasthan",
+      "activities": ["Photography", "Sightseeing"],
+      "description": "The Palace of Winds with its intricate facade of 953 windows.",
+      "image_url": "../images/rajastan.jpg",
+      "price_range": 2800,
+      "duration": "1 Day"
+    }
+  }
+  

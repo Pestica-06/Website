@@ -9,7 +9,7 @@
     .error-message {
       color: red;
       font-size: 0.9em;
-      display: none; /* Hide error messages by default */
+      display: none;
     }
   </style>
 </head>
@@ -26,17 +26,14 @@
       <img id="tour-image" alt="Tour Image">
     </div>
     <div class="enquiry-section">
-      <h2>Stay Connected</h2>
+      <h2>Book Your Trip</h2>
       <p>📞 +91 9344946575</p>
       <p>📧 travelworld@gmail.com</p>
       <form id="enquiry-form">
-        <label for="name">Name *</label>
-        <input type="text" id="name" placeholder="Enter your name" required>
+        
+        <label for="name">Full Name *</label>
+        <input type="text" id="name" placeholder="Enter your full name" required>
         <span class="error-message" id="name-error"></span>
-
-        <label for="city">City of Residence *</label>
-        <input type="text" id="city" placeholder="Enter your city" required>
-        <span class="error-message" id="city-error"></span>
 
         <label for="email">Email *</label>
         <input type="email" id="email" placeholder="Enter your email" required>
@@ -50,24 +47,30 @@
         <input type="text" id="destination" placeholder="Enter travel destination" required>
         <span class="error-message" id="destination-error"></span>
 
-        <label for="date">Date of Travel *</label>
+        <label for="date">Travel Date *</label>
         <input type="date" id="date" required>
         <span class="error-message" id="date-error"></span>
+
+        <label for="duration">Trip Duration (in days) *</label>
+        <input type="number" id="duration" min="1" placeholder="Enter number of days" required>
+        <span class="error-message" id="duration-error"></span>
 
         <label for="adults">Number of Adults *</label>
         <input type="number" id="adults" min="1" placeholder="Enter number of adults" required>
         <span class="error-message" id="adults-error"></span>
-      
-        <label for="kids">Number of Kids</label>
-        <input type="number" id="kids" min="0" placeholder="Enter number of kids">
+
+        <label for="kids">Number of Children (5-12 years)</label>
+        <input type="number" id="kids" min="0" placeholder="Enter number of children">
         <span class="error-message" id="kids-error"></span>
-      
 
-        <label for="people">package Duration *</label>
-        <input type="number" id="packageDuration" placeholder="Enter package Duration" required>
-        <span class="error-message" id="people-error"></span>
+        <label for="infants">Number of Infants (Under 5 years)</label>
+        <input type="number" id="infants" min="0" placeholder="Enter number of infants">
+        <span class="error-message" id="infants-error"></span>
 
-        <button type="submit">Submit</button>
+        <label for="requests">Additional Requests</label>
+        <textarea id="requests" placeholder="Any special requests or preferences"></textarea>
+
+        <button type="submit">Proceed to Payment</button>
       </form>
     </div>
   </div>
@@ -77,9 +80,7 @@
     const category = queryParams.get('category');
     const index = queryParams.get('index');
     let tour;
-  console.log(category);
   
-    
     fetch('../json/navjson.json')
         .then(response => response.json())
         .then(data => {
@@ -89,13 +90,12 @@
                 return;
             }
 
-             tour = tours[index];
+            tour = tours[index];
             if (tour) {
-          let packageName= document.getElementById('tour-title').textContent = tour.name;
-             localStorage.setItem("packageName",packageName)
+                let packageName = document.getElementById('tour-title').textContent = tour.name;
+                localStorage.setItem("packageName", packageName);
               
-                
-           document.getElementById('tour-location').textContent = tour.location?.state || 'Location not available';
+                document.getElementById('tour-location').textContent = tour.location?.state || 'Location not available';
                 document.getElementById('tour-image').src = tour.image_url || 'placeholder.jpg';
                 document.getElementById('tour-image').alt = tour.name || 'Tour image';
             } else {
@@ -107,60 +107,55 @@
             document.body.innerHTML = '<h1>Error loading tour details. Please try again later.</h1>';
         });
 
+    // Form validation logic
+    const form = document.getElementById('enquiry-form');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
       
-        // Form validation logic
-// Form submission logic on the info page
-const form = document.getElementById('enquiry-form');
-form.addEventListener('submit', function (event) {
-  event.preventDefault();
+        let isValid = true;
+        const adults = document.getElementById('adults').value.trim();
+        const kids = document.getElementById('kids').value.trim();
+        const infants = document.getElementById('infants').value.trim();
 
-  let isValid = true;
-  const adults = document.getElementById('adults').value.trim();
-  const kids = document.getElementById('kids').value.trim();
+        if (!adults || adults <= 0) {
+            document.getElementById('adults-error').textContent = 'Enter at least 1 adult.';
+            document.getElementById('adults-error').style.display = 'block';
+            isValid = false;
+        } else {
+            document.getElementById('adults-error').style.display = 'none';
+        }
 
-  if (!adults || adults <= 0) {
-    document.getElementById('adults-error').textContent = 'Enter at least 1 adult.';
-    document.getElementById('adults-error').style.display = 'block';
-    isValid = false;
-  } else {
-    document.getElementById('adults-error').style.display = 'none';
-  }
+        if (isValid) {
+            // Store user details in localStorage
+            const userInfo = {
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+            };
 
-  if (isValid) {
-    // Store user's info in localStorage
-    const userInfo = {
-      name: document.getElementById('name').value.trim(),
-      email: document.getElementById('email').value.trim(),
-      city: document.getElementById('city').value.trim(),
-    };
+            localStorage.setItem('userInfo', JSON.stringify(userInfo));
 
-    localStorage.setItem('userInfo', JSON.stringify(userInfo));
+            const packageName = localStorage.getItem("packageName");
+            const travelDate = document.getElementById('date').value.trim();
+            const duration = document.getElementById('duration').value.trim();
+          
+            let price = (Number(adults) * Number(tour.price)) + 
+                        (Number(kids) * (Number(tour.price) / 2)) +
+                        (Number(infants) * 0); // Infants travel for free
 
-    const packageName = localStorage.getItem("packageName");
-    const travelDate = document.getElementById('date').value.trim();
-    const packageDuration = document.getElementById('packageDuration').value.trim();
- 
-    
+            const queryParams = new URLSearchParams({
+                name: packageName,
+                duration,
+                date: travelDate,
+                adults,
+                kids,
+                infants,
+                price,
+            }).toString();
 
-    let price=(Number(adults)*Number(tour.price))+ (Number(kids)*(Number(tour.price)/2))
-
- 
-    const queryParams = new URLSearchParams({
-      name: packageName,
-      duration: packageDuration,
-      date: travelDate,
-      adults,
-      kids,
-      price,
-      
-    }).toString();
-    
-    console.log(queryParams);
-    
-
-    window.location.href = `../pages/payment.html?${queryParams}`;
-  }
-});
+            window.location.href = `../pages/payment.html?${queryParams}`;
+        }
+    });
   </script>
 </body>
 </html>

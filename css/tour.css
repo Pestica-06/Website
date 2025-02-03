@@ -2,11 +2,11 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f4f8;
+    background-color: #eef3f7;
 }
 
 .navbar {
-    background-color:  rgba(0, 102, 112, 0.95);
+    background-color: #3c6e71;
     color: white;
     padding: 1rem;
     display: flex;
@@ -15,20 +15,26 @@ body {
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
 .nav-links li a {
     color: white;
     text-decoration: none;
     font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #A7FFEB;
 }
 
 .search-container {
@@ -38,22 +44,27 @@ body {
 }
 
 .search-container input {
-    width: 300px;
-    padding: 0.5rem;
+    width: 320px;
+    padding: 0.6rem;
     font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
 
 .search-container button {
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     font-size: 1rem;
-    background-color: #3E7377;
+    background-color: #3c6e71;
     color: white;
     border: none;
     cursor: pointer;
-    margin-left: 0.5rem;
-    border-radius: 5px;
+    margin-left: 0.7rem;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.search-container button:hover {
+    background-color: #3c6e71;
 }
 
 .destination-section {
@@ -66,37 +77,48 @@ body {
 
 .destination-card {
     background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 320px;
     padding: 1.5rem;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.destination-card:hover {
+    transform: translateY(-5px);
 }
 
 .destination-card img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-bottom: 1rem;
 }
 
 .destination-card h2 {
     margin: 0;
-    color: rgba(0, 102, 112, 0.95);
+    color: #004D40;
 }
 
 .destination-card p {
     font-size: 1rem;
-    color: #555;
+    color: #444;
 }
 
 .destination-card button {
-    background-color: rgba(0, 102, 112, 0.95);
+    background-color:#3c6e71;
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     border: none;
     cursor: pointer;
     margin-top: 1rem;
-    border-radius: 5px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.destination-card button:hover {
+    background-color: #3c6e71;
 }

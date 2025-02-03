@@ -1,142 +1,70 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 15px 0;
+  font-size: 24px;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
 .enquiry-form-container {
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    width: 500px;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-top: 120px;
+  background: white;
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Form Heading */
-.enquiry-form-container h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-    font-family: Arial, sans-serif;
-}
-
-/* Form Group Styling */
 .form-group {
-    margin-bottom: 15px;
-    text-align: left;
+  margin-bottom: 15px;
+  text-align: left;
 }
 
-.form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #555;
+label {
+  font-weight: bold;
 }
 
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-    transition: border-color 0.3s ease;
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: #3E7377;
-}
-
-/* Button Styling */
 .submit-btn {
-    display: inline-block;
-    background-color:rgba(0, 102, 112, 0.85);
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background-color:  #3c6e71;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
 }
 
 .submit-btn:hover {
-    background-color: #3E7377;
+  background-color:  #3c6e71;
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-    .enquiry-form-container {
-        padding: 15px;
-    }
-    .submit-btn {
-        width: 100%;
-    }
-}
-.experience{
-  margin:80px 30px;
-  width:95%;
-}
-
-.experience h1{
-  font-size: 35px;
-}
-.experience p{
- font-size: 15px;
- width:95%;
-
-}
-
-/* Slideshow container */
-.slideshow-container {
-  position: relative;
-  max-width: 100%;
-  margin: auto;
-  overflow: hidden;
-}
-
-/* Slide styling */
-.slide {
-  display: none;
-}
-
-.slide img {
-  width: 100%;
-  height: auto;
-}
-
-/* Arrow styles */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
+#success-message {
+  margin-top: 15px;
   font-weight: bold;
-  font-size: 24px;
-  border-radius: 0 3px 3px 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  text-decoration: none;
-  user-select: none;
-}
-
-.prev {
-  left: 10px;
-  border-radius: 3px 0 0 3px;
-}
-
-.next {
-  right: 10px;
-  border-radius: 3px 0 0 3px;
-}
-
-/* Fading animation */
-.fade {
-  animation: fadeEffect 1.5s ease;
-}
-
-@keyframes fadeEffect {
-  from {opacity: 0.4;} 
-  to {opacity: 1;}
+  color: green;
 }

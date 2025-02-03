@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-   <linl rel="stylesheet" href="../../css/contactus.css"></linl>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="../../css/contactus.css">
+    
 </head>
 <body>
+    <header>
+        <h1>Contact Us</h1>
+    </header>
+    
     <div class="enquiry-form-container">
         <h2>Enquire with Us</h2>
-        <form action="#" method="post">
+        <form id="enquiry-form" onsubmit="validateForm(event)">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="Enter your full name" required>
@@ -28,7 +33,48 @@
             </div>
             <button type="submit" class="submit-btn">Send Message</button>
         </form>
+        <p id="success-message" style="display: none; color: green;">You have successfully submitted the form!</p>
     </div>
     
+    <footer>
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+    </footer>
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+            let message = document.getElementById("message").value.trim();
+            let errorMessage = "";
+            
+            if (name === "") {
+                errorMessage += "Name is required.\n";
+            }
+            
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                errorMessage += "Enter a valid email address.\n";
+            }
+            
+            let phonePattern = /^\d{10}$/;
+            if (phone !== "" && !phonePattern.test(phone)) {
+                errorMessage += "Enter a valid 10-digit phone number.\n";
+            }
+            
+            if (message === "") {
+                errorMessage += "Message cannot be empty.\n";
+            }
+            
+            if (errorMessage !== "") {
+                alert(errorMessage);
+                return false;
+            }
+            
+            document.getElementById("success-message").style.display = "block";
+            document.getElementById("enquiry-form").reset();
+        }
+    </script>
 </body>
 </html>

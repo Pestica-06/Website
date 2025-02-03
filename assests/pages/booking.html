@@ -135,6 +135,17 @@
             calculatePrice();
         }
 
+        // Validate Date Selection
+        function isFutureDate(dateString) {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const selectedDate = new Date(dateString);
+            return selectedDate > today;
+        }
+
+        
+
+
         // Book Button logic
         document.getElementById("bookBtn").addEventListener("click", () => {
             const user = auth.currentUser;
@@ -145,7 +156,7 @@
             }
 
             const travelDate = document.getElementById("travel-date").value;
-            if (!travelDate) {
+            if (!travelDate || !isFutureDate(travelDate)) {
                 document.getElementById("date-error").style.display = "block";
                 return;
             }

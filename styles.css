@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 body {
@@ -235,22 +236,46 @@ h1 {
 /* Features Section */
 .features {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+  justify-content: center;
+  gap: 20px;
   background-color: #f9f9f9;
   padding: 20px;
 }
 
+/* Feature Box */
 .feature {
   text-align: center;
   width: 30%;
+  min-width: 250px; 
+  max-width: 320px; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 20px;
+  background: white;
 }
 
+/* Feature Image */
 .feature img {
   width: 50px;
   margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .features {
+    justify-content: center;
+  }
+
+  .feature {
+    width: 45%; /* Allows two features per row on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .feature {
+    width: 100%; /* Features stack in a single column on small screens */
+  }
 }
 
 /* Experience Section */
@@ -260,15 +285,52 @@ h1 {
   padding: 40px;
   text-align: center;
   border-radius: 7px;
+  max-width: 90%;
+  margin: auto;
 }
 
+/* Title styling */
 .experience h1 {
   margin-bottom: 20px;
+  font-size: 2rem;
 }
 
+/* Paragraph styling */
 .experience p {
   line-height: 1.8;
   color: white;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .experience {
+    padding: 30px;
+    border-radius: 5px;
+  }
+
+  .experience h1 {
+    font-size: 1.75rem;
+  }
+
+  .experience p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience {
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .experience h1 {
+    font-size: 1.5rem;
+  }
+
+  .experience p {
+    font-size: 0.95rem;
+  }
 }
 
 /* Enquiry Form */
@@ -276,29 +338,34 @@ h1 {
   background-color: #f8f9fa;
   padding: 20px;
   border-radius: 8px;
-  width: 500px;
+  width: 90%;
+  max-width: 500px;
   margin: 20px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
+/* Title Styling */
 .enquiry-form-container h2 {
   margin-bottom: 20px;
   font-size: 24px;
   color: #333;
 }
 
+/* Form Group */
 .form-group {
   margin-bottom: 15px;
   text-align: left;
 }
 
+/* Labels */
 .form-group label {
   font-weight: bold;
   margin-bottom: 5px;
   color: #555;
 }
 
+/* Input Fields & Textarea */
 .form-group input,
 .form-group textarea {
   width: 100%;
@@ -307,6 +374,7 @@ h1 {
   border-radius: 4px;
   outline: none;
   transition: border-color 0.3s;
+  font-size: 1rem;
 }
 
 .form-group input:focus,
@@ -314,20 +382,67 @@ h1 {
   border-color: #ffc107;
 }
 
+/* Submit Button */
 .submit-btn {
   background-color: rgba(0, 102, 112, 0.95);
   color: white;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-size: 1rem;
 }
 
 .submit-btn:hover {
   background-color: #ffc107;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  .enquiry-form-container {
+    padding: 15px;
+    width: 95%;
+  }
+
+  .enquiry-form-container h2 {
+    font-size: 22px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.95rem;
+  }
+
+  .submit-btn {
+    padding: 10px 15px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .enquiry-form-container {
+    padding: 10px;
+    width: 100%;
+    border-radius: 6px;
+  }
+
+  .enquiry-form-container h2 {
+    font-size: 20px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .submit-btn {
+    padding: 10px;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+}
 /* Footer */
 footer {
   background-color: rgba(0, 102, 112, 0.95);

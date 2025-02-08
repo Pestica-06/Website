@@ -1,185 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Travel Booking</title>
-    <link rel="stylesheet" href="../../css/booking.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="../../css/booking.css" />
+  </head>
+  <body>
     <!-- Header Section -->
     <div class="header">
-        <h1>Discover the World with Us</h1>
-        <p>"The world is a book and those who do not travel read only one page."</p>
+      <h1>Discover the World with Us</h1>
+      <p>
+        "The world is a book and those who do not travel read only one page."
+      </p>
     </div>
 
     <!-- Display Package Details -->
     <div class="details" id="package-details">
-        <h2 id="package-name">Package Name</h2>
-        <p><strong>Duration:</strong> <span id="package-duration">Loading...</span></p>
-        <p><strong>Price per Person:</strong> <span id="package-price">Loading...</span></p>
-        <p id="package-description">Loading...</p>
-        <p><strong>Food:</strong> <span id="package-food">Included</span></p>
-        <p><strong>Night Stay:</strong> <span id="package-night-stay">Included</span></p>
-        <p><strong>Group Size:</strong> <span id="package-group-size">Minimum 5 people</span></p>
+      <h2 id="package-name">Package Name</h2>
+      <p>
+        <strong>Duration:</strong> <span id="package-duration">Loading...</span>
+      </p>
+      <p>
+        <strong>Price per Person:</strong>
+        <span id="package-price">Loading...</span>
+      </p>
+      <p id="package-description">Loading...</p>
+      <p><strong>Food:</strong> <span id="package-food">Included</span></p>
+      <p>
+        <strong>Night Stay:</strong>
+        <span id="package-night-stay">Included</span>
+      </p>
+      <p>
+        <strong>Group Size:</strong>
+        <span id="package-group-size">Minimum 5 people</span>
+      </p>
     </div>
 
     <!-- Bottom Section -->
     <div class="bottom-section" id="booking">
-        <h2>Booking Summary</h2>
-        <div class="price-calculator">
-            <div class="price-box">
-                <p><strong>Adults</strong></p>
-                <input type="number" id="adults" value="0" min="0">
-                <p id="adult-price"><strong>0 Rs.</strong></p>
-            </div>
-            <div class="price-box">
-                <p><strong>Kids</strong></p>
-                <input type="number" id="kids" value="0" min="0">
-                <p id="kid-price"><strong>0 Rs.</strong></p>
-            </div>
+      <h2>Booking Summary</h2>
+      <div class="price-calculator">
+        <div class="price-box">
+          <p><strong>Adults</strong></p>
+          <input type="number" id="adults" value="0" min="0" />
+          <p id="adult-price"><strong>0 Rs.</strong></p>
         </div>
+        <div class="price-box">
+          <p><strong>Kids</strong></p>
+          <input type="number" id="kids" value="0" min="0" />
+          <p id="kid-price"><strong>0 Rs.</strong></p>
+        </div>
+      </div>
 
-        <!-- Date Selection -->
-        <div class="date-selection">
-            <p><strong>Select Travel Date:</strong></p>
-            <input type="date" id="travel-date">
-            <p id="date-error" style="color: red; font-size: 0.9em; display: none;">Please select a valid travel date.</p>
-        </div>
+      <!-- Date Selection -->
+      <div class="date-selection">
+        <p><strong>Select Travel Date:</strong></p>
+        <input type="date" id="travel-date" />
+        <p id="date-error" style="color: red; font-size: 0.9em; display: none">
+          Please select a valid travel date.
+        </p>
+      </div>
 
-        <h3>Total: <span id="total-price">0 Rs.</span></h3>
-        <div class="action-buttons">
-            <button class="book-btn" id="bookBtn">Book</button>
-        </div>
+      <h3>Total: <span id="total-price">0 Rs.</span></h3>
+      <div class="action-buttons">
+        <button class="book-btn" id="bookBtn">Book</button>
+      </div>
     </div>
 
     <!-- Footer -->
     <div class="footer">
-        <p>&copy; 2024 Travel Booking. All Rights Reserved.</p>
+      <p>&copy; 2024 Travel Booking. All Rights Reserved.</p>
     </div>
 
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+      import {
+        getAuth,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
-        // Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyB7ASHWeH7D9uph-jm_DzVYtmgumAtFnq4",
-    authDomain: "travworld-858a6.firebaseapp.com",
-    projectId: "travworld-858a6",
-    storageBucket: "travworld-858a6.firebasestorage.app",
-    messagingSenderId: "850634148926",
-    appId: "1:850634148926:web:2fd42f92d1e846938e156f",
-    measurementId: "G-67LRT5GK62",
-    databaseURL: "https://travworld-858a6-default-rtdb.firebaseio.com/"
-  };
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyB7ASHWeH7D9uph-jm_DzVYtmgumAtFnq4",
+        authDomain: "travworld-858a6.firebaseapp.com",
+        projectId: "travworld-858a6",
+        storageBucket: "travworld-858a6.firebasestorage.app",
+        messagingSenderId: "850634148926",
+        appId: "1:850634148926:web:2fd42f92d1e846938e156f",
+        measurementId: "G-67LRT5GK62",
+        databaseURL: "https://travworld-858a6-default-rtdb.firebaseio.com/",
+      };
 
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
 
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
+      // Display sign-in status
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          alert(`Welcome back, ${user.displayName || user.email}!`);
+        } else {
+          alert("Please sign in to book a package.");
+        }
+      });
 
-        // Display sign-in status
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                alert(`Welcome back, ${user.displayName || user.email}!`);
-            } else {
-                alert("Please sign in to book a package.");
-            }
-        });
+      // Fetch and display package details
+      document.addEventListener("DOMContentLoaded", () => {
+        const dur = localStorage.getItem("duration");
+        const price = localStorage.getItem("price");
+        const description = localStorage.getItem("description");
+        const placeName = localStorage.getItem("placeName");
 
-        // Fetch and display package details
-        document.addEventListener('DOMContentLoaded', () => {
-            const dur = localStorage.getItem('duration');
-    
-            
-            const price = localStorage.getItem('price');
-            const description = localStorage.getItem('description');
-            const placeName = localStorage.getItem('placeName');
+        // Populate package details
+        document.getElementById("package-name").textContent = placeName;
+        document.getElementById("package-price").textContent = price;
+        document.getElementById("package-description").textContent =
+          description;
+        document.getElementById("package-duration").textContent = dur;
 
-            // Populate package details
-            document.getElementById('package-name').textContent = placeName;
-            document.getElementById('package-price').textContent = price;
-            document.getElementById('package-description').textContent = description;
-            document.getElementById('package-duration').textContent = dur;
+        setupPriceCalculation(price);
+      });
 
-            setupPriceCalculation(price);
-        });
+      // Set up price calculation logic
+      function setupPriceCalculation(pricePerPerson) {
+        const adultInput = document.getElementById("adults");
+        const kidInput = document.getElementById("kids");
+        const adultPriceDisplay = document.getElementById("adult-price");
+        const kidPriceDisplay = document.getElementById("kid-price");
+        const totalPriceDisplay = document.getElementById("total-price");
 
-        // Set up price calculation logic
-        function setupPriceCalculation(pricePerPerson) {
-            const adultInput = document.getElementById("adults");
-            const kidInput = document.getElementById("kids");
-            const adultPriceDisplay = document.getElementById("adult-price");
-            const kidPriceDisplay = document.getElementById("kid-price");
-            const totalPriceDisplay = document.getElementById("total-price");
+        const pricePerPersonInt = parseInt(
+          pricePerPerson.replace(/[^\d]/g, ""),
+          10
+        );
+        const kidDiscountFactor = 0.5;
 
-            const pricePerPersonInt = parseInt(pricePerPerson.replace(/[^\d]/g, ""), 10);
-            const kidDiscountFactor = 0.5;
+        function calculatePrice() {
+          const adults = parseInt(adultInput.value) || 0;
+          const kids = parseInt(kidInput.value) || 0;
 
-            function calculatePrice() {
-                const adults = parseInt(adultInput.value) || 0;
-                const kids = parseInt(kidInput.value) || 0;
+          const adultPrice = adults * pricePerPersonInt;
+          const kidPrice = kids * (pricePerPersonInt * kidDiscountFactor);
+          const totalPrice = adultPrice + kidPrice;
 
-                const adultPrice = adults * pricePerPersonInt;
-                const kidPrice = kids * (pricePerPersonInt * kidDiscountFactor);
-                const totalPrice = adultPrice + kidPrice;
-
-                adultPriceDisplay.innerHTML = `<strong>${adults} Adults @ ${pricePerPersonInt} Rs. each = ${adultPrice} Rs.</strong>`;
-                kidPriceDisplay.innerHTML = `<strong>${kids} Kids @ ${(pricePerPersonInt * kidDiscountFactor)} Rs. each = ${kidPrice} Rs.</strong>`;
-                totalPriceDisplay.textContent = `${totalPrice} Rs.`;
-            }
-
-            adultInput.addEventListener("input", calculatePrice);
-            kidInput.addEventListener("input", calculatePrice);
-            calculatePrice();
+          adultPriceDisplay.innerHTML = `<strong>${adults} Adults @ ${pricePerPersonInt} Rs. each = ${adultPrice} Rs.</strong>`;
+          kidPriceDisplay.innerHTML = `<strong>${kids} Kids @ ${
+            pricePerPersonInt * kidDiscountFactor
+          } Rs. each = ${kidPrice} Rs.</strong>`;
+          totalPriceDisplay.textContent = `${totalPrice} Rs.`;
         }
 
-        // Validate Date Selection
-        function isFutureDate(dateString) {
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
-            const selectedDate = new Date(dateString);
-            return selectedDate > today;
+        adultInput.addEventListener("input", calculatePrice);
+        kidInput.addEventListener("input", calculatePrice);
+        calculatePrice();
+      }
+
+      // Validate Date Selection
+      function isFutureDate(dateString) {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const selectedDate = new Date(dateString);
+        return selectedDate > today;
+      }
+
+      // Book Button logic
+      document.getElementById("bookBtn").addEventListener("click", () => {
+        const user = auth.currentUser;
+        if (!user) {
+          alert("You need to sign in or sign up to book a package.");
+          window.location.href = "../pages/login.html";
+          return;
         }
 
-        
+        const travelDate = document.getElementById("travel-date").value;
+        if (!travelDate || !isFutureDate(travelDate)) {
+          document.getElementById("date-error").style.display = "block";
+          return;
+        }
+        document.getElementById("date-error").style.display = "none";
 
+        const packageName = document
+          .getElementById("package-name")
+          .textContent.trim();
+        const packageDuration = document
+          .getElementById("package-duration")
+          .textContent.trim();
+        const totalPrice =
+          parseInt(
+            document
+              .getElementById("total-price")
+              .textContent.replace(" Rs.", ""),
+            10
+          ) || 0;
 
-        // Book Button logic
-        document.getElementById("bookBtn").addEventListener("click", () => {
-            const user = auth.currentUser;
-            if (!user) {
-                alert("You need to sign in or sign up to book a package.");
-                window.location.href = "../pages/login.html";
-                return;
-            }
+        if (totalPrice < 1000) {
+          alert("Total price must be at least 1000 Rs.");
+          return;
+        }
 
-            const travelDate = document.getElementById("travel-date").value;
-            if (!travelDate || !isFutureDate(travelDate)) {
-                document.getElementById("date-error").style.display = "block";
-                return;
-            }
-            document.getElementById("date-error").style.display = "none";
+        let setPackages = {
+          Name: packageName,
+          Duration: packageDuration,
+          Price: totalPrice,
+          Date: travelDate,
+        };
 
-            const packageName = document.getElementById("package-name").textContent.trim();
-            const packageDuration = document.getElementById("package-duration").textContent.trim();
-            const totalPrice = parseInt(document.getElementById("total-price").textContent.replace(" Rs.", ""), 10) || 0;
+        // Store the object as a JSON string in localStorage
+        localStorage.setItem("setPackages", JSON.stringify(setPackages));
 
-            if (totalPrice < 1000) {
-                alert("Total price must be at least 1000 Rs.");
-                return;
-            }
-
-            const queryParams = new URLSearchParams({
-                name: packageName,
-                duration: packageDuration,
-                price: totalPrice,
-                date: travelDate,
-            }).toString();
-
-            window.location.href = `../pages/payment.html?${queryParams}`;
-        });
+        window.location.href='../pages/payment.html'
+      });
     </script>
-</body>
-</html>=
+  </body>
+</html>
+=

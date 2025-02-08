@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Travworld - Explore More Destinations</title>
-    <link rel="stylesheet" href="../../css/tour.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../../css/tour.css" />
+  </head>
+  <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="logo">Travworld</div>
+      <div class="logo">Travworld</div>
     </nav>
 
     <!-- Search Bar -->
     <div class="search-container">
-        <input type="text" id="searchBar" placeholder="Search for places...">
-        <button onclick="searchDestinations()">Search</button>
+      <input type="text" id="searchBar" placeholder="Search for places..." />
+      <button onclick="searchDestinations()">Search</button>
     </div>
 
     <!-- Destinations Section -->
@@ -23,16 +23,16 @@
 
     <!-- JavaScript for Fetching Data and Booking -->
     <script>
-        // Fetch and display destinations from JSON
-        fetch('../json/tour.json')
-            .then(response => response.json())
-            .then(data => {
-                const destinationsContainer = document.getElementById('destinations');
-                destinationsContainer.innerHTML = '';
-                
-                Object.keys(data).forEach(key => {
-                    const destination = data[key];
-                    const destinationCard = `
+      // Fetch and display destinations from JSON
+      fetch("../json/tour.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const destinationsContainer = document.getElementById("destinations");
+          destinationsContainer.innerHTML = "";
+
+          Object.keys(data).forEach((key) => {
+            const destination = data[key];
+            const destinationCard = `
                         <div class="destination-card" data-place="${destination.state.toLowerCase()}">
                             <img src="${destination.image_url}" alt="${key}">
                             <h2>${key}</h2>
@@ -40,41 +40,62 @@
                             <button onclick="bookNow('${key}')">Book Now</button>
                         </div>
                     `;
-                    destinationsContainer.innerHTML += destinationCard;
-                });
-            })
-            .catch(error => console.error('Error fetching destinations:', error));
+            destinationsContainer.innerHTML += destinationCard;
+          });
+        })
+        .catch((error) => console.error("Error fetching destinations:", error));
 
-        // Search function
-        function searchDestinations() {
-            const searchValue = document.getElementById('searchBar').value.toLowerCase();
-            const destinations = document.querySelectorAll('.destination-card');
-            destinations.forEach(destination => {
-                const place = destination.getAttribute('data-place');
-                if (place.includes(searchValue) || searchValue === '') {
-                    destination.style.display = 'block';
-                } else {
-                    destination.style.display = 'none';
-                }
-            });
-        }
+      // Search function
+      function searchDestinations() {
+        const searchValue = document
+          .getElementById("searchBar")
+          .value.toLowerCase();
+        const destinations = document.querySelectorAll(".destination-card");
+        destinations.forEach((destination) => {
+          const place = destination.getAttribute("data-place");
+          if (place.includes(searchValue) || searchValue === "") {
+            destination.style.display = "block";
+          } else {
+            destination.style.display = "none";
+          }
+        });
+      }
 
-        // Booking function
-        function bookNow(packageName) {
-            fetch('../../assests/json/tour.json')
-                .then(response => response.json())
-                .then(data => {
-                    const packageInfo = data[packageName];
-                    if (!packageInfo) {
-                        alert('Package details not found.');
-                        return;
-                    }
+      // Booking function
+      function bookNow(packageName) {
+        fetch("../../assests/json/tour.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const packageInfo = data[packageName];
+            if (!packageInfo) {
+              alert("Package details not found.");
+              return;
+            }
+            console.log(
+              packageName,
+              packageInfo.duration,
+              packageInfo.price_range
+            );
+            let setPackages = {
+              Name: packageName,
+              Duration: packageInfo.duration,
+              Price: packageInfo.price_range,
+            };
 
-                    const paymentPageUrl = `../pages/payment.html?name=${encodeURIComponent(packageName)}&duration=${encodeURIComponent(packageInfo.duration)}&price=${encodeURIComponent(packageInfo.price_range)}`;
-                    window.location.href = paymentPageUrl;
-                })
-                .catch(error => console.error('Error fetching package details:', error));
-        }
+            // Store the object as a JSON string in localStorage
+            localStorage.setItem("setPackages", JSON.stringify(setPackages));
+
+            // const paymentPageUrl = `../pages/payment.html?name=${encodeURIComponent(
+            //   packageName
+            // )}&duration=${encodeURIComponent(
+            //   packageInfo.duration
+            // )}&price=${encodeURIComponent(packageInfo.price_range)}`;
+            window.location.href = '../pages/payment.html';
+          })
+          .catch((error) =>
+            console.error("Error fetching package details:", error)
+          );
+      }
     </script>
-</body>
+  </body>
 </html>

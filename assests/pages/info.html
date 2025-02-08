@@ -1,161 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tour Details</title>
-  <link rel="stylesheet" href="../../css/info.css">
-  <style>
-    .error-message {
-      color: red;
-      font-size: 0.9em;
-      display: none;
-    }
-  </style>
-</head>
-<body>
-  <div class="details-container">
-    <div class="tour-info">
-      <h1 id="tour-title">Loading...</h1>
-      <p id="tour-location"></p>
-      <div class="details">
-        <p><strong>Tour Type:</strong> Daily Tour</p>
-        <p><strong>Group Size:</strong> Unlimited</p>
-        <p><strong>Languages:</strong> English</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tour Details</title>
+    <link rel="stylesheet" href="../../css/info.css" />
+    <style>
+      .error-message {
+        color: red;
+        font-size: 0.9em;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="details-container">
+      <div class="tour-info">
+        <h1 id="tour-title">Loading...</h1>
+        <p id="tour-location"></p>
+        <div class="details">
+          <p><strong>Tour Type:</strong> Daily Tour</p>
+          <p><strong>Group Size:</strong> Unlimited</p>
+          <p><strong>Languages:</strong> English</p>
+        </div>
+        <img id="tour-image" alt="Tour Image" />
       </div>
-      <img id="tour-image" alt="Tour Image">
+      <div class="enquiry-section">
+        <h2>Book Your Trip</h2>
+        <p>📞 +91 9344946575</p>
+        <p>📧 travelworld@gmail.com</p>
+        <form id="enquiry-form">
+          <label for="name">Full Name *</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your full name"
+            required
+          />
+          <span class="error-message" id="name-error"></span>
+
+          <label for="email">Email *</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
+          <span class="error-message" id="email-error"></span>
+
+          <label for="phone">Phone Number *</label>
+          <input
+            type="tel"
+            id="phone"
+            placeholder="Enter your phone number"
+            required
+          />
+          <span class="error-message" id="phone-error"></span>
+
+          <label for="destination">Travel Destination *</label>
+          <input
+            type="text"
+            id="destination"
+            placeholder="Enter travel destination"
+            required
+          />
+          <span class="error-message" id="destination-error"></span>
+
+          <label for="date">Travel Date *</label>
+          <input type="date" id="date" required />
+          <span class="error-message" id="date-error"></span>
+
+          <label for="duration">Trip Duration (in days) *</label>
+          <input
+            type="number"
+            id="duration"
+            min="1"
+            placeholder="Enter number of days"
+            required
+          />
+          <span class="error-message" id="duration-error"></span>
+
+          <label for="adults">Number of Adults *</label>
+          <input
+            type="number"
+            id="adults"
+            min="1"
+            placeholder="Enter number of adults"
+            required
+          />
+          <span class="error-message" id="adults-error"></span>
+
+          <label for="kids">Number of Children (5-12 years)</label>
+          <input
+            type="number"
+            id="kids"
+            min="0"
+            placeholder="Enter number of children"
+          />
+          <span class="error-message" id="kids-error"></span>
+
+          <label for="infants">Number of Infants (Under 5 years)</label>
+          <input
+            type="number"
+            id="infants"
+            min="0"
+            placeholder="Enter number of infants"
+          />
+          <span class="error-message" id="infants-error"></span>
+
+          <label for="requests">Additional Requests</label>
+          <textarea
+            id="requests"
+            placeholder="Any special requests or preferences"
+          ></textarea>
+
+          <button type="submit">Proceed to Payment</button>
+        </form>
+      </div>
     </div>
-    <div class="enquiry-section">
-      <h2>Book Your Trip</h2>
-      <p>📞 +91 9344946575</p>
-      <p>📧 travelworld@gmail.com</p>
-      <form id="enquiry-form">
-        
-        <label for="name">Full Name *</label>
-        <input type="text" id="name" placeholder="Enter your full name" required>
-        <span class="error-message" id="name-error"></span>
+    <script>
+      // Fetching tour details based on query parameters
+      const queryParams = new URLSearchParams(window.location.search);
+      const category = queryParams.get("category");
+      const index = queryParams.get("index");
+      let tour;
 
-        <label for="email">Email *</label>
-        <input type="email" id="email" placeholder="Enter your email" required>
-        <span class="error-message" id="email-error"></span>
+      fetch("../json/navjson.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const tours = data[category];
+          if (!tours) {
+            document.body.innerHTML =
+              "<h1>Invalid category selected. Please try again.</h1>";
+            return;
+          }
 
-        <label for="phone">Phone Number *</label>
-        <input type="tel" id="phone" placeholder="Enter your phone number" required>
-        <span class="error-message" id="phone-error"></span>
+          tour = tours[index];
+          if (tour) {
+            let packageName = (document.getElementById(
+              "tour-title"
+            ).textContent = tour.name);
+            localStorage.setItem("packageName", packageName);
 
-        <label for="destination">Travel Destination *</label>
-        <input type="text" id="destination" placeholder="Enter travel destination" required>
-        <span class="error-message" id="destination-error"></span>
-
-        <label for="date">Travel Date *</label>
-        <input type="date" id="date" required>
-        <span class="error-message" id="date-error"></span>
-
-        <label for="duration">Trip Duration (in days) *</label>
-        <input type="number" id="duration" min="1" placeholder="Enter number of days" required>
-        <span class="error-message" id="duration-error"></span>
-
-        <label for="adults">Number of Adults *</label>
-        <input type="number" id="adults" min="1" placeholder="Enter number of adults" required>
-        <span class="error-message" id="adults-error"></span>
-
-        <label for="kids">Number of Children (5-12 years)</label>
-        <input type="number" id="kids" min="0" placeholder="Enter number of children">
-        <span class="error-message" id="kids-error"></span>
-
-        <label for="infants">Number of Infants (Under 5 years)</label>
-        <input type="number" id="infants" min="0" placeholder="Enter number of infants">
-        <span class="error-message" id="infants-error"></span>
-
-        <label for="requests">Additional Requests</label>
-        <textarea id="requests" placeholder="Any special requests or preferences"></textarea>
-
-        <button type="submit">Proceed to Payment</button>
-      </form>
-    </div>
-  </div>
-  <script>
-    // Fetching tour details based on query parameters
-    const queryParams = new URLSearchParams(window.location.search);
-    const category = queryParams.get('category');
-    const index = queryParams.get('index');
-    let tour;
-  
-    fetch('../json/navjson.json')
-        .then(response => response.json())
-        .then(data => {
-            const tours = data[category];
-            if (!tours) {
-                document.body.innerHTML = '<h1>Invalid category selected. Please try again.</h1>';
-                return;
-            }
-
-            tour = tours[index];
-            if (tour) {
-                let packageName = document.getElementById('tour-title').textContent = tour.name;
-                localStorage.setItem("packageName", packageName);
-              
-                document.getElementById('tour-location').textContent = tour.location?.state || 'Location not available';
-                document.getElementById('tour-image').src = tour.image_url || 'placeholder.jpg';
-                document.getElementById('tour-image').alt = tour.name || 'Tour image';
-            } else {
-                document.body.innerHTML = '<h1>Tour not found</h1>';
-            }
+            document.getElementById("tour-location").textContent =
+              tour.location?.state || "Location not available";
+            document.getElementById("tour-image").src =
+              tour.image_url || "placeholder.jpg";
+            document.getElementById("tour-image").alt =
+              tour.name || "Tour image";
+          } else {
+            document.body.innerHTML = "<h1>Tour not found</h1>";
+          }
         })
-        .catch(error => {
-            console.error('Error fetching tour details:', error);
-            document.body.innerHTML = '<h1>Error loading tour details. Please try again later.</h1>';
+        .catch((error) => {
+          console.error("Error fetching tour details:", error);
+          document.body.innerHTML =
+            "<h1>Error loading tour details. Please try again later.</h1>";
         });
 
-    // Form validation logic
-    const form = document.getElementById('enquiry-form');
-    form.addEventListener('submit', function (event) {
+      // Form validation logic
+      const form = document.getElementById("enquiry-form");
+      form.addEventListener("submit", function (event) {
         event.preventDefault();
-      
+
         let isValid = true;
-        const adults = document.getElementById('adults').value.trim();
-        const kids = document.getElementById('kids').value.trim();
-        const infants = document.getElementById('infants').value.trim();
+        const adults = document.getElementById("adults").value.trim();
+        const kids = document.getElementById("kids").value.trim();
+        const infants = document.getElementById("infants").value.trim();
 
         if (!adults || adults <= 0) {
-            document.getElementById('adults-error').textContent = 'Enter at least 1 adult.';
-            document.getElementById('adults-error').style.display = 'block';
-            isValid = false;
+          document.getElementById("adults-error").textContent =
+            "Enter at least 1 adult.";
+          document.getElementById("adults-error").style.display = "block";
+          isValid = false;
         } else {
-            document.getElementById('adults-error').style.display = 'none';
+          document.getElementById("adults-error").style.display = "none";
         }
 
         if (isValid) {
-            // Store user details in localStorage
-            const userInfo = {
-                name: document.getElementById('name').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                phone: document.getElementById('phone').value.trim(),
-            };
+          // Store user details in localStorage
+          const userInfo = {
+            name: document.getElementById("name").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            phone: document.getElementById("phone").value.trim(),
+          };
 
-            localStorage.setItem('userInfo', JSON.stringify(userInfo));
+          localStorage.setItem("userInfo", JSON.stringify(userInfo));
 
-            const packageName = localStorage.getItem("packageName");
-            const travelDate = document.getElementById('date').value.trim();
-            const duration = document.getElementById('duration').value.trim();
-          
-            let price = (Number(adults) * Number(tour.price)) + 
-                        (Number(kids) * (Number(tour.price) / 2)) +
-                        (Number(infants) * 0); // Infants travel for free
+          const packageName = localStorage.getItem("packageName");
+          const travelDate = document.getElementById("date").value.trim();
+          const duration = document.getElementById("duration").value.trim();
 
-            const queryParams = new URLSearchParams({
-                name: packageName,
-                duration,
-                date: travelDate,
-                adults,
-                kids,
-                infants,
-                price,
-            }).toString();
+          let price =
+            Number(adults) * Number(tour.price) +
+            Number(kids) * (Number(tour.price) / 2) +
+            Number(infants) * 0; // Infants travel for free
 
-            window.location.href = `../pages/payment.html?${queryParams}`;
+          // const queryParams = new URLSearchParams({
+          //     name: packageName,
+          //     duration,
+          //     date: travelDate,
+          //     adults,
+          //     kids,
+          //     infants,
+          //     price,
+          // }).toString();
+
+          let setPackages = {
+            Name: packageName,
+            Duration: duration,
+            Price: price,
+            Date: travelDate,
+          };
+
+          // Store the object as a JSON string in localStorage
+          localStorage.setItem("setPackages", JSON.stringify(setPackages));
+
+          window.location.href = `../pages/payment.html`;
         }
-    });
-  </script>
-</body>
+      });
+    </script>
+  </body>
 </html>

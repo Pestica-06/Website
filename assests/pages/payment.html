@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <form id="payment-form">
+        <form id="payment-form" >
             <div class="row">
                 <div class="col">
                     <div class="inputBox">
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const paymentMethodSelect = document.getElementById("payment-method");
     const cardInfo = document.getElementById("card-info");
     const upiInfo = document.getElementById("upi-info");
-    const form = document.getElementById("payment-form");
+    const form = document.querySelector("#payment-form");
     const modal = document.getElementById("confirmation-modal");
 
     // Toggle payment method fields
@@ -138,13 +138,20 @@ document.addEventListener("DOMContentLoaded", () => {
     // Handle form submission
     form.addEventListener("submit", (event) => {
         event.preventDefault();
+        
+     let setPackages=localStorage.getItem("setPackages.Name ")
+     console.log(setPackages);
+
+     validateForm()
 
         if (validateForm()) {
             // Populate modal with booking details
-            document.getElementById("modal-package-name").textContent = packageName;
-            document.getElementById("modal-package-duration").textContent = packageDuration;
-            document.getElementById("modal-package-price").textContent = packagePrice;
+          let packageName  = document.getElementById("modal-package-name").textContent =getPackages.Name ;
+          let duration=  document.getElementById("modal-package-duration").textContent = getPackages.Duration;
+         let totalPrice=   document.getElementById("modal-package-price").textContent = getPackages.Price;
+           let date=getPackages.Date 
 
+              let  setPackages
             // Save user bookings
             const fullName = document.getElementById("full-name").value.trim();
             const email = document.getElementById("email").value.trim();
@@ -157,14 +164,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const bookingDetails = {
                 packageName,
-                duration: packageDuration,
-                totalPrice: packagePrice,
+                duration,
+                totalPrice, 
                 date: new Date().toLocaleDateString(),
                 user: fullName || email,
             };
 
             // Save bookings in localStorage
-            let allBookings = JSON.parse(localStorage.getItem("userBookings")) || {};
+            let allBookings = JSON.parse(localStorage.getItem("setPackages")) || {};
             if (!allBookings[email]) {
                 allBookings[email] = [];
             }
@@ -174,24 +181,24 @@ document.addEventListener("DOMContentLoaded", () => {
             // Show confirmation modal
             modal.style.display = "block";
 
+
             // Redirect to "My Bookings" page
             setTimeout(() => {
                 window.location.href = "../pages/mybooking.html";
             }, 2000);
         }
     });
-            // Display booking summary if query parameters are present
+            // Display booking summary
+            //  if query parameters are present
+            
 // const urlParams = new URLSearchParams(window.location.search);
 // const packageName = urlParams.get("name");
 // const packageDuration = urlParams.get("duration");
 // const packagePrice = urlParams.get("price");
 
 let getPackages = JSON.parse(localStorage.getItem("setPackages"));
-console.log(getPackages);
 
-console.log(getPackages.Name);
-console.log(getPackages.Duration);
-console.log(getPackages.Price);
+
 
 
 

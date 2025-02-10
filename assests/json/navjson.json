@@ -88,7 +88,12 @@
       "category": "mountains",
       "height_meters": 8586,
       "height_feet": 28169,
-      "location": "Sikkim",
+      "location": {
+        "state": "Sikkim",
+        "district": "North Sikkim",
+        "latitude": 27.7025,
+        "longitude": 88.1475
+      },
       "significance": "The third-highest mountain in the world and revered as a sacred mountain by the people of Sikkim.",
       "image_url": "../images/kanjenjunga.jpg",
       "know_more": "",
@@ -101,7 +106,12 @@
       "category": "mountains",
       "height_meters": 7816,
       "height_feet": 25643,
-      "location": "Uttarakhand",
+      "location": {
+        "state": "Uttarakhand",
+        "district": "Chamoli",
+        "latitude": 30.3752,
+        "longitude": 79.9717
+      },
       "significance": "The second-highest peak in India, part of the UNESCO World Heritage Nanda Devi and Valley of Flowers National Parks.",
       "image_url": "../images/nanda devi mountain.jpg",
       "know_more": "",
@@ -114,12 +124,17 @@
       "category": "mountains",
       "height_meters": 7120,
       "height_feet": 23359,
-      "location": "Uttarakhand",
+      "location": {
+        "state": "Uttarakhand",
+        "district": "Bageshwar",
+        "latitude": 30.3047,
+        "longitude": 79.9172
+      },
       "significance": "Known for its resemblance to Lord Shiva’s trident and popular among trekkers.",
       "image_url": "../images/mount trisul.jpg",
       "know_more": "",
       "description": "Mount Trishul, named after Lord Shiva's weapon, is a trekker's paradise offering breathtaking views and challenging routes.",
-      "price_range": "2000",
+      "price_range": 2000,
       "duration": "5-10 days"
     },
     {
@@ -127,7 +142,12 @@
       "category": "mountains",
       "height_meters": 7060,
       "height_feet": 23163,
-      "location": "Arunachal Pradesh",
+      "location": {
+        "state": "Arunachal Pradesh",
+        "district": "West Kameng",
+        "latitude": 27.9667,
+        "longitude": 92.3333
+      },
       "significance": "The highest peak in Arunachal Pradesh, located in the Eastern Himalayas.",
       "image_url": "../images/kangto.jpg",
       "know_more": "",
@@ -140,81 +160,18 @@
       "category": "mountains",
       "height_meters": 6153,
       "height_feet": 20187,
-      "location": "Ladakh",
+      "location": {
+        "state": "Ladakh",
+        "district": "Leh",
+        "latitude": 34.0566,
+        "longitude": 77.4622
+      },
       "significance": "A popular trekking peak offering stunning views of Ladakh.",
       "image_url": "../images/stock kangri.jpg",
       "know_more": "",
       "description": "Stok Kangri is a challenging yet rewarding trek, offering panoramic views of the mesmerizing Ladakh region.",
       "price_range": 1000,
       "duration": "6-12 days"
-    },
-    {
-      "name": "Kedarnath Peak",
-      "category": "mountains",
-      "height_meters": 6940,
-      "height_feet": 22769,
-      "location": "Uttarakhand",
-      "significance": "Located near the Kedarnath temple and a favorite for experienced mountaineers.",
-      "image_url": "../images/kedarnath.jpg",
-      "know_more": "",
-      "description": "Kedarnath Peak is not only a mountaineer's dream but also a spiritually significant site near the iconic Kedarnath Temple.",
-      "price_range": 1700,
-      "duration": "9-14 days"
-    },
-    {
-      "name": "Shivling Peak",
-      "category": "mountains",
-      "height_meters": 6543,
-      "height_feet": 21466,
-      "location": "Uttarakhand",
-      "significance": "Known as the ‘Matterhorn of the Himalayas,’ it’s sacred to Hindus and a challenging climb.",
-      "image_url": "../images/shivling.jpg",
-      "know_more": "",
-      "description": "Shivling Peak stands tall as a sacred site and a technical challenge for climbers, resembling a towering spire in the Himalayas.",
-      "price_range": 1500,
-      "duration": "7-12 days"
-    },
-    {
-      "name": "Aravalli Hills",
-      "category": "mountains",
-      "highest_peak": {
-        "name": "Guru Shikhar",
-        "height_meters": 1722,
-        "height_feet": 5650
-      },
-      "location": "Rajasthan",
-      "significance": "One of the oldest mountain ranges in the world with historical and cultural importance.",
-      "image_url": "../images/aravalli.jpg",
-      "know_more": "",
-      "description": "The Aravalli Hills, an ancient range, are a blend of geological significance and cultural history, with Guru Shikhar as their crown jewel.",
-      "price_range": 1000,
-      "duration": "3-7 days"
-    },
-    {
-      "name": "Anamudi",
-      "category": "mountains",
-      "height_meters": 2695,
-      "height_feet": 8842,
-      "location": "Kerala",
-      "significance": "The highest peak in South India, located in the Western Ghats.",
-      "image_url": "../images/anamudi.jpg",
-      "know_more": "",
-      "description": "Anamudi, meaning 'elephant's forehead,' offers stunning vistas and is the pride of the Western Ghats in Kerala.",
-      "price_range": 2500,
-      "duration": "4-8 days"
-    },
-    {
-      "name": "Sandakphu",
-      "category": "mountains",
-      "height_meters": 3636,
-      "height_feet": 11929,
-      "location": "West Bengal",
-      "significance": "Offers panoramic views of Kanchenjunga and other high peaks.",
-      "image_url": "../images/sadankpu.jpg",
-      "know_more": "",
-      "description": "Sandakphu is a trekker’s dream, renowned for its sweeping views of some of the world's highest peaks, including Kanchenjunga.",
-      "price_range":1000,
-      "duration": "5-10 days"
     }
   ]
 
@@ -228,7 +185,13 @@
       "description": "Known as the 'Adventure Capital of India,' offering adrenaline-pumping activities amid the serene beauty of the Himalayas.",
       "image_url": "../images/risikesh.jpg",
       "price_range": 1500,
-      "duration": "1-3 days"
+      "duration": "1-3 days",
+      "location": {
+        "state": "Uttarakhand",
+        "district": "Dehradun",
+        "latitude": 30.0864,
+        "longitude": 78.2676
+      }
     },
     {
       "name": "Manali",
@@ -238,7 +201,13 @@
       "description": "A hub for adventure sports, especially known for skiing in Solang Valley and Rohtang Pass.",
       "image_url": "../images/manali.jpg",
       "price_range": 1000,
-      "duration": "2-4 days"
+      "duration": "2-4 days",
+      "location": {
+        "state": "Himachal Pradesh",
+        "district": "Kullu",
+        "latitude": 32.2396,
+        "longitude": 77.1887
+      }
     },
     {
       "name": "Leh-Ladakh",
@@ -248,7 +217,13 @@
       "description": "Offers high-altitude adventure with breathtaking landscapes and the thrill of riding through the highest motorable roads.",
       "image_url": "../images/ladakh.jpg",
       "price_range": 3000,
-      "duration": "7-12 days"
+      "duration": "7-12 days",
+      "location": {
+        "state": "Ladakh",
+        "district": "Leh",
+        "latitude": 34.1526,
+        "longitude": 77.5771
+      }
     },
     {
       "name": "Andaman and Nicobar Islands",
@@ -256,8 +231,14 @@
       "activities": ["Scuba diving", "Snorkeling", "Sea walking", "Kayaking"],
       "description": "Famous for crystal-clear waters and vibrant coral reefs, ideal for underwater adventures on Havelock Island.",
       "image_url": "../images/andaman.jpg",
-      "price_range":2000,
-      "duration": "3-5 days"
+      "price_range": 2000,
+      "duration": "3-5 days",
+      "location": {
+        "state": "Andaman and Nicobar Islands",
+        "district": "South Andaman",
+        "latitude": 11.6089,
+        "longitude": 92.7265
+      }
     },
     {
       "name": "Goa",
@@ -266,8 +247,14 @@
       "activities": ["Parasailing", "Jet skiing", "Windsurfing", "Scuba diving"],
       "description": "Beyond its beaches and nightlife, Goa offers adrenaline-packed water sports along its scenic coastline.",
       "image_url": "../images/goa beach.jpg",
-      "price_range":2000,
-      "duration": "1-3 days"
+      "price_range": 2000,
+      "duration": "1-3 days",
+      "location": {
+        "state": "Goa",
+        "district": "North Goa",
+        "latitude": 15.2993,
+        "longitude": 74.1240
+      }
     },
     {
       "name": "Meghalaya",
@@ -277,7 +264,13 @@
       "description": "Explore mysterious caves like Mawsmai and trek to the unique Living Root Bridges in Cherrapunji.",
       "image_url": "../images/meghalaya.jpg",
       "price_range": 1500,
-      "duration": "3-6 days"
+      "duration": "3-6 days",
+      "location": {
+        "state": "Meghalaya",
+        "district": "East Khasi Hills",
+        "latitude": 25.5670,
+        "longitude": 91.8831
+      }
     },
     {
       "name": "Spiti Valley",
@@ -287,7 +280,13 @@
       "description": "Offers raw adventure in a stark desert landscape with ancient monasteries and challenging terrain.",
       "image_url": "../images/himachal pradesh.jpg",
       "price_range": 3000,
-      "duration": "5-7 days"
+      "duration": "5-7 days",
+      "location": {
+        "state": "Himachal Pradesh",
+        "district": "Lahaul and Spiti",
+        "latitude": 32.2466,
+        "longitude": 78.0172
+      }
     },
     {
       "name": "Auli",
@@ -297,7 +296,13 @@
       "description": "India’s premier skiing destination, perfect for winter sports enthusiasts.",
       "image_url": "../images/auli.jpg",
       "price_range": 1000,
-      "duration": "2-5 days"
+      "duration": "2-5 days",
+      "location": {
+        "state": "Uttarakhand",
+        "district": "Chamoli",
+        "latitude": 30.3752,
+        "longitude": 79.9717
+      }
     },
     {
       "name": "Sikkim",
@@ -307,7 +312,13 @@
       "description": "Famous for the Goechala Trek and Dzongri Trek, offering rugged Himalayan beauty and adventure.",
       "image_url": "../images/sikkim.jpg",
       "price_range": 2000,
-      "duration": "4-8 days"
+      "duration": "4-8 days",
+      "location": {
+        "state": "Sikkim",
+        "district": "West Sikkim",
+        "latitude": 27.3201,
+        "longitude": 88.6138
+      }
     },
     {
       "name": "Coorg",
@@ -317,14 +328,25 @@
       "description": "Known as the 'Scotland of India,' Coorg is perfect for nature lovers and adventure seekers.",
       "image_url": "../images/coorg.jpg",
       "price_range": 1500,
-      "duration": "3-6 days"
+      "duration": "3-6 days",
+      "location": {
+        "state": "Karnataka",
+        "district": "Kodagu",
+        "latitude": 12.3375,
+        "longitude": 75.8069
+      }
     }
   ],
-  "historical": [
+ "historical": [
     {
       "name": "Taj Mahal",
       "category": "Historical",
-      "location": "Agra",
+      "location": {
+        "state": "Uttar Pradesh",
+        "district": "Agra",
+        "latitude": 27.1751,
+        "longitude": 78.0421
+      },
       "image_url": "../images/taj mahal.jpg",
       "description": "A UNESCO World Heritage site and a symbol of love.",
       "price_range": 1000,
@@ -333,7 +355,12 @@
     {
       "name": "Red Fort",
       "category": "Historical",
-      "location": "Delhi",
+      "location": {
+        "state": "Delhi",
+        "district": "Central Delhi",
+        "latitude": 28.6562,
+        "longitude": 77.2410
+      },
       "image_url": "../images/red fort.jpg",
       "description": "A historic fort and a prime example of Mughal architecture.",
       "price_range": 1500,
@@ -342,7 +369,12 @@
     {
       "name": "Hampi",
       "category": "Historical",
-      "location": "Karnataka",
+      "location": {
+        "state": "Karnataka",
+        "district": "Ballari",
+        "latitude": 15.3350,
+        "longitude": 76.4600
+      },
       "image_url": "../images/hampi.jpg",
       "description": "Ancient ruins of the Vijayanagara Empire, a UNESCO site.",
       "price_range": 3000,
@@ -351,16 +383,26 @@
     {
       "name": "Qutub Minar",
       "category": "Historical",
-      "location": "Delhi",
+      "location": {
+        "state": "Delhi",
+        "district": "South Delhi",
+        "latitude": 28.5245,
+        "longitude": 77.1855
+      },
       "image_url": "../images/qutub-minar.jpg",
       "description": "A towering minaret and the tallest brick minaret in the world.",
-      "price_range":1000,
+      "price_range": 1000,
       "duration": "1-2 hours"
     },
     {
       "name": "Amber Fort",
       "category": "Historical",
-      "location": "Jaipur",
+      "location": {
+        "state": "Rajasthan",
+        "district": "Jaipur",
+        "latitude": 26.9855,
+        "longitude": 75.8513
+      },
       "image_url": "../images/amber fort.jpg",
       "description": "A majestic fort built with red sandstone and marble.",
       "price_range": 1000,
@@ -369,7 +411,12 @@
     {
       "name": "Khajuraho Temples",
       "category": "Historical",
-      "location": "Madhya Pradesh",
+      "location": {
+        "state": "Madhya Pradesh",
+        "district": "Chhatarpur",
+        "latitude": 24.8520,
+        "longitude": 79.9199
+      },
       "image_url": "../images/khajuraho temple.jpg",
       "description": "Famous for their intricate erotic sculptures.",
       "price_range": 1500,
@@ -378,7 +425,12 @@
     {
       "name": "Fatehpur Sikri",
       "category": "Historical",
-      "location": "Uttar Pradesh",
+      "location": {
+        "state": "Uttar Pradesh",
+        "district": "Agra",
+        "latitude": 27.0914,
+        "longitude": 77.6610
+      },
       "image_url": "../images/fatehpur.jpg",
       "description": "A ghost town built by Emperor Akbar, now a UNESCO site.",
       "price_range": 2000,
@@ -387,7 +439,12 @@
     {
       "name": "Sanchi Stupa",
       "category": "Historical",
-      "location": "Madhya Pradesh",
+      "location": {
+        "state": "Madhya Pradesh",
+        "district": "Raisen",
+        "latitude": 23.4794,
+        "longitude": 77.7399
+      },
       "image_url": "../images/stanchi stupa.jpg",
       "description": "A Buddhist complex famous for its Great Stupa.",
       "price_range": 1000,
@@ -396,7 +453,12 @@
     {
       "name": "Golkonda Fort",
       "category": "Historical",
-      "location": "Hyderabad",
+      "location": {
+        "state": "Telangana",
+        "district": "Hyderabad",
+        "latitude": 17.3833,
+        "longitude": 78.4011
+      },
       "image_url": "../images/golkonda.jpg",
       "description": "A historic fort known for its impressive architecture and acoustics.",
       "price_range": 1500,
@@ -405,11 +467,17 @@
     {
       "name": "Victoria Memorial",
       "category": "Historical",
-      "location": "Kolkata",
+      "location": {
+        "state": "West Bengal",
+        "district": "Kolkata",
+        "latitude": 22.5448,
+        "longitude": 88.3426
+      },
       "image_url": "../images/victoria.jpg",
       "description": "A grand marble building dedicated to Queen Victoria.",
-      "price_range":2000,
+      "price_range": 2000,
       "duration": "1-2 hours"
     }
   ]
 }
+

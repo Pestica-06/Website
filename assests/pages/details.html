@@ -1,65 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Package Details</title>
-    <link rel="stylesheet" href="../../css/details.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../../css/details.css" />
+  </head>
+  <body>
     <header class="header">
-        <h1 id="packageName">Loading...</h1>
+      <h1 id="packageName">Loading...</h1>
     </header>
     <main>
-        <div id="packageDetails" class="details-container">
-            <!-- Package details will be dynamically inserted here -->
-        </div>
+      <div id="packageDetails" class="details-container">
+        <!-- Package details will be dynamically inserted here -->
+      </div>
     </main>
     <footer class="footer">
-        <p>&copy; 2024 TravelWorld. All rights reserved.</p>
+      <p>&copy; 2024 TravelWorld. All rights reserved.</p>
     </footer>
     <script>
-        // Retrieve package details from localStorage
-        const jsonUrl = '../json/packages.json';
-        const packageName = localStorage.getItem("packageName");
-        const selectedPackageIndex = localStorage.getItem("selectedPackageIndex");
-        let placeName = localStorage.getItem('placeName')
-        
-        
+      // Retrieve package details from localStorage
+      const jsonUrl = "../json/packages.json";
+      const packageName = localStorage.getItem("packageName");
+      const selectedPackageIndex = localStorage.getItem("selectedPackageIndex");
+      let placeName = localStorage.getItem("placeName");
 
-        // Fetch and display the selected package details
-        fetch(jsonUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Error loading packages: ${response.statusText}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Ensure the package and index exist in the data
-                if (!data[packageName] || !data[packageName][selectedPackageIndex]) {
-                    throw new Error(`Package not found for name: ${packageName} and index: ${selectedPackageIndex}`);
-                }
-                const selectedPackage = data[packageName][selectedPackageIndex];
-                displayPackageDetails(selectedPackage);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById('packageDetails').innerHTML = '<p>Unable to load package details. Please try again later.</p>';
-            });
+      // Fetch and display the selected package details
+      fetch(jsonUrl)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Error loading packages: ${response.statusText}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          // Ensure the package and index exist in the data
+          if (!data[packageName] || !data[packageName][selectedPackageIndex]) {
+            throw new Error(
+              `Package not found for name: ${packageName} and index: ${selectedPackageIndex}`
+            );
+          }
+          const selectedPackage = data[packageName][selectedPackageIndex];
+          displayPackageDetails(selectedPackage);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          document.getElementById("packageDetails").innerHTML =
+            "<p>Unable to load package details. Please try again later.</p>";
+        });
 
-        function displayPackageDetails(pkg) {
-            // Update page title and package name
-            document.getElementById("packageName").innerText = pkg.name;
-            
-            document.title = pkg.name;
-            localStorage.setItem('placeName', pkg.name)
-            
-            // Build the package details dynamically
-            const detailsContainer = document.getElementById('packageDetails');
-            detailsContainer.innerHTML = `
+      function displayPackageDetails(pkg) {
+        // Update page title and package name
+        document.getElementById("packageName").innerText = pkg.name;
+
+        document.title = pkg.name;
+        localStorage.setItem("placeName", pkg.name);
+
+        // Build the package details dynamically
+        const detailsContainer = document.getElementById("packageDetails");
+        detailsContainer.innerHTML = `
                 <div class="package-card">
-                    <img src="${pkg.image_url}" alt="${pkg.name}" class="package-image">
+                    <img src="${pkg.image_url}" alt="${
+          pkg.name
+        }" class="package-image">
                     <h2>${pkg.name}</h2>
                     <p><strong>Duration:</strong> ${pkg.duration}</p>
                     <p><strong>Price:</strong> ${pkg.price_per_person}</p>
@@ -68,46 +71,46 @@
                 <h3>Day-wise Itinerary</h3>
                 <ul class="itinerary-list">
                     ${
-                        pkg.itinerary
-                            ? Object.entries(pkg.itinerary).map(
-                                ([day, details]) => `<li><strong>${day}:</strong> ${details}</li>`
-                              ).join('')
-                            : '<li>No itinerary available for this package.</li>'
+                      pkg.itinerary
+                        ? Object.entries(pkg.itinerary)
+                            .map(
+                              ([day, details]) =>
+                                `<li><strong>${day}:</strong> ${details}</li>`
+                            )
+                            .join("")
+                        : "<li>No itinerary available for this package.</li>"
                     }
                 </ul>
                 <button class="book-now-btn" onclick="bookNow(${selectedPackageIndex})" id="book">Book Now</button>
             `;
-            console.log(pkg.duration);
-            
-        localStorage.setItem('package',pkg.duration)
-           
+        console.log(pkg.duration);
 
-            localStorage.setItem('price',pkg.price_per_person)
-            localStorage.setItem('description',pkg.description)
-        }
+        localStorage.setItem("package", pkg.duration);
 
-        function bookNow(packageIndex) {
-            // Store the selected package details in localStorage to retrieve on the booking page
-            fetch(jsonUrl)
-                .then(response => response.json())
-                .then(data => {
-                    const packageDetails = data[packageName][packageIndex];
-                    localStorage.setItem('packageDetails', JSON.stringify(packageDetails));
-                    // Redirect to the booking page
-                localStorage.setItem('package',packageDetails);
-                localStorage.setItem('duration', packageDetails.duration);
+        localStorage.setItem("price", pkg.price_per_person);
+        localStorage.setItem("description", pkg.description);
+      }
 
-                    window.location.href = '../pages/booking.html';
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+      function bookNow(packageIndex) {
+        // Store the selected package details in localStorage to retrieve on the booking page
+        fetch(jsonUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            const packageDetails = data[packageName][packageIndex];
+            localStorage.setItem(
+              "packageDetails",
+              JSON.stringify(packageDetails)
+            );
+            // Redirect to the booking page
+            localStorage.setItem("package", packageDetails);
+            localStorage.setItem("duration", packageDetails.duration);
 
-        }
-       
-          
-
-
+            window.location.href = "../pages/booking.html";
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
     </script>
-</body>
+  </body>
 </html>

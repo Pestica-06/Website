@@ -1,165 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Explore India</title>
-  <style>
-    /* Add your existing styles */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
-    }
-    header {
-      background-color: #4a4a4a;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    main {
-      padding: 20px;
-    }
-    .search-container {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .search-input {
-      padding: 10px;
-      width: 80%;
-      max-width: 400px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1em;
-    }
-    .destination-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .destination {
-      background-color: white;
-      width: 300px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      text-align: center;
-    }
-    .destination img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    .destination h3 {
-      margin: 0;
-      padding: 10px;
-      font-size: 1.5em;
-      color: #333;
-    }
-    .destination p {
-      padding: 0 15px 10px;
-      color: #666;
-    }
-    .book-btn {
-      background-color: rgba(0, 102, 112, 0.85);
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-bottom: 15px;
-    }
-    .book-btn:hover {
-      background-color: rgba(0, 102, 112, 0.95);
-    }
-    footer {
-      background-color: #4a4a4a;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      margin-top: 20px;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Explore India's Destinations</h1>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore India</title>
+    <style>
+      /* Add your existing styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+      header {
+        background-color: #4a4a4a;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+      main {
+        padding: 20px;
+      }
+      .search-container {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .search-input {
+        padding: 10px;
+        width: 80%;
+        max-width: 400px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1em;
+      }
+      .destination-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+      .destination {
+        background-color: white;
+        width: 300px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: center;
+      }
+      .destination img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .destination h3 {
+        margin: 0;
+        padding: 10px;
+        font-size: 1.5em;
+        color: #333;
+      }
+      .destination p {
+        padding: 0 15px 10px;
+        color: #666;
+      }
+      .book-btn {
+        background-color: rgba(0, 102, 112, 0.85);
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 15px;
+      }
+      .book-btn:hover {
+        background-color: rgba(0, 102, 112, 0.95);
+      }
+      footer {
+        background-color: #4a4a4a;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Explore India's Destinations</h1>
+    </header>
 
-  <main>
-    <div class="search-container">
-      <input
-        type="text"
-        id="searchInput"
-        class="search-input"
-        placeholder="Search destinations..."
-        oninput="filterDestinations()">
-    </div>
-    <div class="destination-container" id="destinationContainer"></div>
-  </main>
+    <main>
+      <div class="search-container">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="Search destinations..."
+          oninput="filterDestinations()"
+        />
+      </div>
+      <div class="destination-container" id="destinationContainer"></div>
+    </main>
 
-  <footer>
-    <p>&copy; 2024 Travworld | Discover Incredible India</p>
-  </footer>
+    <footer>
+      <p>&copy; 2024 Travworld | Discover Incredible India</p>
+    </footer>
 
-  <script>
-    let destinationsData = {}; // Holds the JSON data globally
-  
-    // Fetch the JSON data on page load
-    fetch('../json/navjson.json') // Adjust the file path as needed
-      .then(response => response.json())
-      .then(data => {
-        destinationsData = data;
-        const queryParams = new URLSearchParams(window.location.search);
-        const category = queryParams.get('category') || 'popular_beaches'; // Default category on load
-        displayDestinations(category);
-      })
-      .catch(error => console.error('Error fetching destinations:', error));
-  
-    // Function to display destinations based on category
-    function displayDestinations(category) {
-      const container = document.getElementById('destinationContainer') || document.getElementById('packages');
-      container.innerHTML = '';
-  
-      if (destinationsData[category] && destinationsData[category].length > 0) {
-        destinationsData[category].forEach((place, index) => {
-          const card = document.createElement('div');
-          card.classList.add('destination', 'package-card'); // Use combined class names for consistent styling
-          card.innerHTML = `
-            <img src="${place.image_url || place.image || 'placeholder.jpg'}" alt="${place.name}">
-            <h3>${place.name}, ${place.location?.state || place.state || 'Unknown Location'}</h3>
-            <p>${place.description?.slice(0, 100) || 'No description available'}...</p>
+    <script>
+      let destinationsData = {};
+
+      // Fetch the JSON data on page load
+      fetch("../json/navjson.json")
+        .then((response) => response.json())
+        .then((data) => {
+          destinationsData = data;
+          const queryParams = new URLSearchParams(window.location.search);
+          const category = queryParams.get("category") || "popular_beaches";
+          displayDestinations(category);
+        })
+        .catch((error) => console.error("Error fetching destinations:", error));
+
+      // Function to display destinations based on category
+      function displayDestinations(category) {
+        const container =
+          document.getElementById("destinationContainer") ||
+          document.getElementById("packages");
+        container.innerHTML = "";
+
+        if (
+          destinationsData[category] &&
+          destinationsData[category].length > 0
+        ) {
+          destinationsData[category].forEach((place, index) => {
+            const card = document.createElement("div");
+            card.classList.add("destination", "package-card");
+            card.innerHTML = `
+            <img src="${
+              place.image_url || place.image || "placeholder.jpg"
+            }" alt="${place.name}">
+            <h3>${place.name}, ${
+              place.location?.state || place.state || "Unknown Location"
+            }</h3>
+            <p>${
+              place.description?.slice(0, 100) || "No description available"
+            }...</p>
             <button class="book-btn" onclick="goToDetailsPage('${category}', ${index})">Know More</button>
           `;
-          container.appendChild(card);
-        });
-      } else {
-        container.innerHTML = '<p>No destinations available for this category.</p>';
-      }
-    }
-  
-    // Handle clicks on navigation list
-    document.querySelectorAll('.nav-item').forEach(navItem => {
-      navItem.addEventListener('click', event => {
-        const category = event.target.dataset.category; // Get category from data attribute
-        if (category) {
-          displayDestinations(category);
+            container.appendChild(card);
+          });
+        } else {
+          container.innerHTML =
+            "<p>No destinations available for this category.</p>";
         }
+      }
+
+      // Handle clicks on navigation list
+      document.querySelectorAll(".nav-item").forEach((navItem) => {
+        navItem.addEventListener("click", (event) => {
+          const category = event.target.dataset.category;
+          if (category) {
+            displayDestinations(category);
+          }
+        });
       });
-    });
-  
-    // Navigate to details page
-    function goToDetailsPage(category, index) {
-      window.location.href = `../pages/info.html?category=${encodeURIComponent(category)}&index=${encodeURIComponent(index)}`;
-    }
-  </script>
-  
-  
-</body>
+
+      function goToDetailsPage(category, index) {
+        window.location.href = `../pages/info.html?category=${encodeURIComponent(
+          category
+        )}&index=${encodeURIComponent(index)}`;
+      }
+    </script>
+  </body>
 </html>

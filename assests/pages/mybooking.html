@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Bookings</title>
-    <link rel="stylesheet" href="../../css/mybookings.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../../css/mybookings.css" />
+  </head>
+  <body>
     <div id="bookings-container">
-        <!-- Booking details will be dynamically injected here -->
+      <!-- Booking details will be dynamically injected here -->
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const bookingsContainer = document.getElementById("bookings-container");
+      document.addEventListener("DOMContentLoaded", () => {
+        const bookingsContainer = document.getElementById("bookings-container");
 
-            // Get all bookings from localStorage
-            const allBookings = JSON.parse(localStorage.getItem("userBookings")) || {};
-            const userEmail = prompt("Enter your email to view bookings:");
+        // Get all bookings from localStorage
+        const allBookings =
+          JSON.parse(localStorage.getItem("userBookings")) || {};
+        const userEmail = prompt("Enter your email to view bookings:");
 
-            if (userEmail && allBookings[userEmail]) {
-                const bookings = allBookings[userEmail];
-                bookings.forEach((booking) => {
-                    const bookingCard = document.createElement("div");
-                    bookingCard.classList.add("booking-card");
-                    bookingCard.innerHTML = `
+        if (userEmail && allBookings[userEmail]) {
+          const bookings = allBookings[userEmail];
+          bookings.forEach((booking) => {
+            const bookingCard = document.createElement("div");
+            bookingCard.classList.add("booking-card");
+            bookingCard.innerHTML = `
 
                         <h4>Package Name: ${booking.packageName}</h4>
                         <p>Duration: ${booking.duration}</p>
                         <p>Total Price: ${booking.totalPrice}</p>
                         <p>Date: ${booking.date}</p>
                     `;
-                    bookingsContainer.appendChild(bookingCard);
-                });
-            } else {
-                bookingsContainer.innerHTML = "<p class='no-bookings'>No bookings found for this email.</p>";
-            }
-        });
+            bookingsContainer.appendChild(bookingCard);
+          });
+        } else {
+          bookingsContainer.innerHTML =
+            "<p class='no-bookings'>No bookings found for this email.</p>";
+        }
+      });
     </script>
-</body>
+  </body>
 </html>

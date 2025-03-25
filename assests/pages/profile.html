@@ -1,90 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Profile</title>
-    <link rel="stylesheet" href="../../css/profile.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../../css/profile.css" />
+  </head>
+  <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="../../homepage.html">Home</a></li>
-                <li><a href="#" id="logout-link">Logout</a></li>
-                <li><a href="../pages/mybooking.html">My bookings</a></li>
-            </ul>
-        </nav>
+      <nav>
+        <ul>
+          <li><a href="../../homepage.html">Home</a></li>
+          <li><a href="#" id="logout-link">Logout</a></li>
+          <li><a href="../pages/mybooking.html">My bookings</a></li>
+        </ul>
+      </nav>
     </header>
-    
+
     <div class="profile-container">
-        <img id="profile-pic" src="../images/profile_img.png" alt="Profile Picture">
-        <h2 id="profile-name">Name: </h2>
-        <p id="profile-email">Email: </p>
-        <button class="logout-button" id="logout-btn">Logout</button>
+      <img
+        id="profile-pic"
+        src="../images/profile_img.png"
+        alt="Profile Picture"
+      />
+      <h2 id="profile-name">Name:</h2>
+      <p id="profile-email">Email:</p>
+      <button class="logout-button" id="logout-btn">Logout</button>
     </div>
 
     <script type="module">
-        // Import Firebase modules
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-        import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+      // Import Firebase modules
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+      import {
+        getAuth,
+        onAuthStateChanged,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+      import {
+        getDatabase,
+        ref,
+        get,
+      } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 
-        // Firebase Configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyB7ASHWeH7D9uph-jm_DzVYtmgumAtFnq4",
-            authDomain: "travworld-858a6.firebaseapp.com",
-            projectId: "travworld-858a6",
-            storageBucket: "travworld-858a6.appspot.com",
-            messagingSenderId: "850634148926",
-            appId: "1:850634148926:web:2fd42f92d1e846938e156f",
-            measurementId: "G-67LRT5GK62",
-            databaseURL: "https://travworld-858a6-default-rtdb.firebaseio.com/" // Update with your correct URL
-        };
+      // Firebase Configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyB7ASHWeH7D9uph-jm_DzVYtmgumAtFnq4",
+        authDomain: "travworld-858a6.firebaseapp.com",
+        projectId: "travworld-858a6",
+        storageBucket: "travworld-858a6.appspot.com",
+        messagingSenderId: "850634148926",
+        appId: "1:850634148926:web:2fd42f92d1e846938e156f",
+        measurementId: "G-67LRT5GK62",
+        databaseURL: "https://travworld-858a6-default-rtdb.firebaseio.com/", // Update with your correct URL
+      };
 
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const database = getDatabase(app);
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const database = getDatabase(app);
 
-        // Monitor authentication state
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                // Display basic user details
-                document.getElementById('profile-email').textContent = `Email: ${user.email}`;;
-                document.getElementById('profile-pic').src = user.photoURL || '../images/profile_img.png';
+      // Monitor authentication state
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // Display basic user details
+          document.getElementById(
+            "profile-email"
+          ).textContent = `Email: ${user.email}`;
+          document.getElementById("profile-pic").src =
+            user.photoURL || "../images/profile_img.png";
 
-                // Fetch additional details from Realtime Database
-                const userRef = ref(database, `users/${user.uid}`);
-                get(userRef).then((snapshot) => {
-                    if (snapshot.exists()) {
-                        const data = snapshot.val();
-                        let name = document.getElementById('profile-name').textContent = `Name: ${data.username || 'N/A'}`;
-                        
-                    } else {
-                        console.error("No user data found in the database.");
-                    }
-                }).catch((error) => {
-                    console.error("Error fetching user data:", error);
-                });
-            } else {
-                // If not logged in, redirect to login page
-                window.location.href = '../pages/login.html';
-            }
-        });
-
-        // Logout function
-        function logout() {
-            signOut(auth).then(() => {
-                window.location.href = '../../homepage.html'; // Redirect to homepage after logout
-            }).catch((error) => {
-                console.error('Error logging out:', error);
+          // Fetch additional details from Realtime Database
+          const userRef = ref(database, `users/${user.uid}`);
+          get(userRef)
+            .then((snapshot) => {
+              if (snapshot.exists()) {
+                const data = snapshot.val();
+                let name = (document.getElementById(
+                  "profile-name"
+                ).textContent = `Name: ${data.username || "N/A"}`);
+              } else {
+                console.error("No user data found in the database.");
+              }
+            })
+            .catch((error) => {
+              console.error("Error fetching user data:", error);
             });
+        } else {
+          // If not logged in, redirect to login page
+          window.location.href = "../pages/login.html";
         }
+      });
 
-        // Event listener for logout
-        document.getElementById('logout-btn').addEventListener('click', logout);
-        document.getElementById('logout-link').addEventListener('click', logout);
+      // Logout function
+      function logout() {
+        signOut(auth)
+          .then(() => {
+            window.location.href = "../../homepage.html"; // Redirect to homepage after logout
+          })
+          .catch((error) => {
+            console.error("Error logging out:", error);
+          });
+      }
+
+      // Event listener for logout
+      document.getElementById("logout-btn").addEventListener("click", logout);
+      document.getElementById("logout-link").addEventListener("click", logout);
     </script>
-</body>
+  </body>
 </html>

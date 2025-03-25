@@ -1,62 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>North India Tour Packages</title>
-    <link rel="stylesheet" href="../../css/packages.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="../../css/packages.css" />
+  </head>
+  <body>
     <header>
-        <h1 id="packageName">Package Title</h1>
-        <p>Explore the rich heritage and culture of North India with our curated tour packages</p>
+      <h1 id="packageName">Package Title</h1>
+      <p>
+        Explore the rich heritage and culture of North India with our curated
+        tour packages
+      </p>
     </header>
 
     <main>
-        <div class="tour-package-container" id="tourPackages"></div>
+      <div class="tour-package-container" id="tourPackages"></div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Travworld | All Rights Reserved</p>
+      <p>&copy; 2024 Travworld | All Rights Reserved</p>
     </footer>
 
     <script>
-        const jsonUrl = '../json/packages.json';
-        const packageName = localStorage.getItem("packageName");
+      const jsonUrl = "../json/packages.json";
+      const packageName = localStorage.getItem("packageName");
 
-        fetch(jsonUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Error loading packages: ${response.statusText}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                const tourPackages = data[packageName];
-                if (!tourPackages) {
-                    throw new Error(`No packages found for: ${packageName}`);
-                }
-                displayTourPackages(tourPackages);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById('tourPackages').innerHTML = '<p>Unable to load tour packages. Please try again later.</p>';
-            });
+      fetch(jsonUrl)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Error loading packages: ${response.statusText}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          const tourPackages = data[packageName];
+          if (!tourPackages) {
+            throw new Error(`No packages found for: ${packageName}`);
+          }
+          displayTourPackages(tourPackages);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          document.getElementById("tourPackages").innerHTML =
+            "<p>Unable to load tour packages. Please try again later.</p>";
+        });
 
-        function displayTourPackages(packages) {
-            document.getElementById("packageName").innerText = packageName;
-            document.title = packageName;
+      function displayTourPackages(packages) {
+        document.getElementById("packageName").innerText = packageName;
+        document.title = packageName;
 
-            
-            
-            const container = document.getElementById('tourPackages');
-            container.innerHTML = ''; // Clear existing content if any
+        const container = document.getElementById("tourPackages");
+        container.innerHTML = ""; // Clear existing content if any
 
-            packages.forEach((pkg, index) => {
-                const packageCard = document.createElement('div');
-                packageCard.classList.add('tour-package');
-                packageCard.innerHTML = `
+        packages.forEach((pkg, index) => {
+          const packageCard = document.createElement("div");
+          packageCard.classList.add("tour-package");
+          packageCard.innerHTML = `
                     <img src="${pkg.image_url}" alt="${pkg.name}">
                     <h3>${pkg.name}</h3>
                     <p><strong>Duration:</strong> ${pkg.duration}</p>
@@ -64,18 +65,17 @@
                     <p>${pkg.description}</p>
                     <button onclick="viewDetails(${index})">View Details</button>
                 `;
-                container.appendChild(packageCard);
-            });
-        }
+          container.appendChild(packageCard);
+        });
+      }
 
-        function viewDetails(packageIndex) {
-            // Store the selected package index in localStorage for use on the details page
-            localStorage.setItem("selectedPackageIndex", packageIndex);
-            
-            // Redirect to the details page
-            window.location.href = '../pages/details.html';
-        }
+      function viewDetails(packageIndex) {
+        // Store the selected package index in localStorage for use on the details page
+        localStorage.setItem("selectedPackageIndex", packageIndex);
+
+        // Redirect to the details page
+        window.location.href = "../pages/details.html";
+      }
     </script>
-    
-</body>
+  </body>
 </html>

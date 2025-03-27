@@ -164,7 +164,7 @@
           validateForm();
 
           if (validateForm()) {
-            // Populate modal with booking details
+           
             let packageName = (document.getElementById(
               "modal-package-name"
             ).textContent = getPackages.Name);
@@ -204,10 +204,10 @@
             allBookings[email].push(bookingDetails);
             localStorage.setItem("userBookings", JSON.stringify(allBookings));
 
-            // Show confirmation modal
+     
             modal.style.display = "block";
 
-            // Redirect to "My Bookings" page
+  
             setTimeout(() => {
               window.location.href = "../pages/mybooking.html";
             }, 2000);

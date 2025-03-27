@@ -153,9 +153,9 @@
               "<p>Unable to load tours. Please try again later.</p>";
           });
 
-        // Function to display tours
+        //  display tours
         function displayTours(tours) {
-          tourList.innerHTML = ""; // Clear existing tours
+          tourList.innerHTML = ""; 
           if (tours.length === 0) {
             tourList.innerHTML = "<p>No tours available for this category.</p>";
             return;
@@ -193,14 +193,13 @@
           });
         }
 
-        // Redirect to a detailed page
         window.viewDetails = function (tourIndex) {
           const selectedCategory = localStorage.getItem("selectedCategory");
           if (!selectedCategory) {
             alert("Category is not selected.");
             return;
           }
-          // Redirect with category and index as query parameters
+          // Redirect 
           window.location.href = `../pages/info.html?category=${selectedCategory}&index=${tourIndex}`;
         };
       });

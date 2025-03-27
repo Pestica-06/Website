@@ -51,25 +51,23 @@
         messagingSenderId: "850634148926",
         appId: "1:850634148926:web:2fd42f92d1e846938e156f",
         measurementId: "G-67LRT5GK62",
-        databaseURL: "https://travworld-858a6-default-rtdb.firebaseio.com/", // Update with your correct URL
+        databaseURL: "https://travworld-858a6-default-rtdb.firebaseio.com/", 
       };
 
-      // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
       const database = getDatabase(app);
 
-      // Monitor authentication state
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          // Display basic user details
+          // Display user details
           document.getElementById(
             "profile-email"
           ).textContent = `Email: ${user.email}`;
           document.getElementById("profile-pic").src =
             user.photoURL || "../images/profile_img.png";
 
-          // Fetch additional details from Realtime Database
+          // Fetch
           const userRef = ref(database, `users/${user.uid}`);
           get(userRef)
             .then((snapshot) => {
@@ -86,7 +84,7 @@
               console.error("Error fetching user data:", error);
             });
         } else {
-          // If not logged in, redirect to login page
+          //  redirect to login page
           window.location.href = "../pages/login.html";
         }
       });
@@ -95,14 +93,13 @@
       function logout() {
         signOut(auth)
           .then(() => {
-            window.location.href = "../../homepage.html"; // Redirect to homepage after logout
+            window.location.href = "../../homepage.html"; 
           })
           .catch((error) => {
             console.error("Error logging out:", error);
           });
       }
 
-      // Event listener for logout
       document.getElementById("logout-btn").addEventListener("click", logout);
       document.getElementById("logout-link").addEventListener("click", logout);
     </script>

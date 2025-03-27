@@ -52,7 +52,7 @@
         document.title = packageName;
 
         const container = document.getElementById("tourPackages");
-        container.innerHTML = ""; // Clear existing content if any
+        container.innerHTML = ""; 
 
         packages.forEach((pkg, index) => {
           const packageCard = document.createElement("div");
@@ -70,10 +70,9 @@
       }
 
       function viewDetails(packageIndex) {
-        // Store the selected package index in localStorage for use on the details page
         localStorage.setItem("selectedPackageIndex", packageIndex);
 
-        // Redirect to the details page
+   
         window.location.href = "../pages/details.html";
       }
     </script>

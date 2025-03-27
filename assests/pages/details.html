@@ -12,20 +12,19 @@
     </header>
     <main>
       <div id="packageDetails" class="details-container">
-        <!-- Package details will be dynamically inserted here -->
+        <!-- Package details -->
       </div>
     </main>
     <footer class="footer">
       <p>&copy; 2024 TravelWorld. All rights reserved.</p>
     </footer>
     <script>
-      // Retrieve package details from localStorage
+     
       const jsonUrl = "../json/packages.json";
       const packageName = localStorage.getItem("packageName");
       const selectedPackageIndex = localStorage.getItem("selectedPackageIndex");
       let placeName = localStorage.getItem("placeName");
 
-      // Fetch and display the selected package details
       fetch(jsonUrl)
         .then((response) => {
           if (!response.ok) {
@@ -34,7 +33,7 @@
           return response.json();
         })
         .then((data) => {
-          // Ensure the package and index exist in the data
+        
           if (!data[packageName] || !data[packageName][selectedPackageIndex]) {
             throw new Error(
               `Package not found for name: ${packageName} and index: ${selectedPackageIndex}`
@@ -50,13 +49,13 @@
         });
 
       function displayPackageDetails(pkg) {
-        // Update page title and package name
+        // page title and package name
         document.getElementById("packageName").innerText = pkg.name;
 
         document.title = pkg.name;
         localStorage.setItem("placeName", pkg.name);
 
-        // Build the package details dynamically
+        // Build the package details 
         const detailsContainer = document.getElementById("packageDetails");
         detailsContainer.innerHTML = `
                 <div class="package-card">
@@ -92,7 +91,6 @@
       }
 
       function bookNow(packageIndex) {
-        // Store the selected package details in localStorage to retrieve on the booking page
         fetch(jsonUrl)
           .then((response) => response.json())
           .then((data) => {
@@ -101,7 +99,7 @@
               "packageDetails",
               JSON.stringify(packageDetails)
             );
-            // Redirect to the booking page
+           
             localStorage.setItem("package", packageDetails);
             localStorage.setItem("duration", packageDetails.duration);
 

@@ -119,7 +119,7 @@
       </div>
     </div>
     <script>
-      // Fetching tour details based on query parameters
+     
       const queryParams = new URLSearchParams(window.location.search);
       const category = queryParams.get("category");
       const index = queryParams.get("index");
@@ -213,7 +213,6 @@
             Date: travelDate,
           };
 
-          // Store the object as a JSON string in localStorage
           localStorage.setItem("setPackages", JSON.stringify(setPackages));
 
           window.location.href = `../pages/payment.html`;

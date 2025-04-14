@@ -147,14 +147,13 @@
         const form = document.querySelector("#payment-form");
         const modal = document.getElementById("confirmation-modal");
 
-        // Toggle payment method fields
         paymentMethodSelect.addEventListener("change", () => {
           const selectedMethod = paymentMethodSelect.value;
           cardInfo.style.display = selectedMethod === "card" ? "block" : "none";
           upiInfo.style.display = selectedMethod === "upi" ? "block" : "none";
         });
 
-        // Handle form submission
+
         form.addEventListener("submit", (event) => {
           event.preventDefault();
 
@@ -177,11 +176,11 @@
             let date = getPackages.Date;
 
             let setPackages;
-            // Save user bookings
+
             const fullName = document.getElementById("full-name").value.trim();
             const email = document.getElementById("email").value.trim();
 
-            // Ensure email is provided
+
             if (!email) {
               alert("Email is required to associate bookings with the user.");
               return;
@@ -195,7 +194,7 @@
               user: fullName || email,
             };
 
-            // Save bookings in localStorage
+
             let allBookings =
               JSON.parse(localStorage.getItem("setPackages")) || {};
             if (!allBookings[email]) {
@@ -213,13 +212,6 @@
             }, 2000);
           }
         });
-        // Display booking summary
-        //  if query parameters are present
-
-        // const urlParams = new URLSearchParams(window.location.search);
-        // const packageName = urlParams.get("name");
-        // const packageDuration = urlParams.get("duration");
-        // const packagePrice = urlParams.get("price");
 
         let getPackages = JSON.parse(localStorage.getItem("setPackages"));
 
@@ -236,22 +228,11 @@
           document.querySelector(".container").prepend(summaryDiv);
         }
 
-        // if (){
-        //     const summaryDiv = document.createElement("div");
-        //     summaryDiv.innerHTML = `
-        //         <h3>Booking Summary</h3>
-        //         <p><strong>Package Name:</strong> ${packageName}</p>
-        //         <p><strong>Duration:</strong> ${packageDuration}</p>
-        //         <p><strong>Total Price:</strong> ${packagePrice}</p>
-        //     `;
-        //     document.querySelector(".container").prepend(summaryDiv);
-        // }
-
         // Form validation
         function validateForm() {
           let isValid = true;
 
-          // Full Name validation
+
           const fullName = document.getElementById("full-name");
           const fullNameError = document.getElementById("full-name-error");
           if (!fullName.value.trim()) {
@@ -262,7 +243,7 @@
             fullNameError.style.display = "none";
           }
 
-          // Email validation
+
           const email = document.getElementById("email");
           const emailError = document.getElementById("email-error");
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -274,7 +255,7 @@
             emailError.style.display = "none";
           }
 
-          // Payment method validation
+
           const paymentMethod = paymentMethodSelect.value;
           const paymentMethodError = document.getElementById(
             "payment-method-error"

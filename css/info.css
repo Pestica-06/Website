@@ -7,7 +7,6 @@ body {
   line-height: 1.6;
 }
 
-/* Container for the details and enquiry section */
 .details-container {
   display: flex;
   flex-wrap: wrap;
@@ -20,7 +19,7 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Tour Info Section */
+
 .tour-info {
   flex: 2;
   padding: 20px;
@@ -117,7 +116,7 @@ body {
   box-shadow: 0 8px 25px rgba(255, 111, 97, 0.5);
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .details-container {
       flex-direction: column;
@@ -130,4 +129,11 @@ body {
   .enquiry-section {
       flex: 1;
   }
+}
+
+
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  display: none;
 }

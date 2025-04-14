@@ -95,7 +95,7 @@
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
 
-      // Display sign-in status
+
       onAuthStateChanged(auth, (user) => {
         if (user) {
           alert(`Welcome back, ${user.displayName || user.email}!`);
@@ -104,14 +104,14 @@
         }
       });
 
-      // Fetch and display package details
+
       document.addEventListener("DOMContentLoaded", () => {
         const dur = localStorage.getItem("duration");
         const price = localStorage.getItem("price");
         const description = localStorage.getItem("description");
         const placeName = localStorage.getItem("placeName");
 
-        // Populate package details
+        //  package details
         document.getElementById("package-name").textContent = placeName;
         document.getElementById("package-price").textContent = price;
         document.getElementById("package-description").textContent =
@@ -121,7 +121,7 @@
         setupPriceCalculation(price);
       });
 
-      // Set up price calculation logic
+      //  calculation logic
       function setupPriceCalculation(pricePerPerson) {
         const adultInput = document.getElementById("adults");
         const kidInput = document.getElementById("kids");
@@ -155,7 +155,7 @@
         calculatePrice();
       }
 
-      // Validate Date Selection
+      // Date Selection
       function isFutureDate(dateString) {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
@@ -163,7 +163,7 @@
         return selectedDate > today;
       }
 
-      // Book Button logic
+      // Book Button
       document.getElementById("bookBtn").addEventListener("click", () => {
         const user = auth.currentUser;
         if (!user) {
@@ -205,7 +205,7 @@
           Date: travelDate,
         };
 
-        // Store the object in localStorage
+
         localStorage.setItem("setPackages", JSON.stringify(setPackages));
 
         window.location.href = "../pages/payment.html";

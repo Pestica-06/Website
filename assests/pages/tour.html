@@ -81,15 +81,8 @@
               Duration: packageInfo.duration,
               Price: packageInfo.price_range,
             };
-
-            // Store the object as a JSON string in localStorage
+            0
             localStorage.setItem("setPackages", JSON.stringify(setPackages));
-
-            // const paymentPageUrl = `../pages/payment.html?name=${encodeURIComponent(
-            //   packageName
-            // )}&duration=${encodeURIComponent(
-            //   packageInfo.duration
-            // )}&price=${encodeURIComponent(packageInfo.price_range)}`;
             window.location.href = "../pages/payment.html";
           })
           .catch((error) =>

@@ -1,4 +1,4 @@
-/* Global Styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -235,14 +235,12 @@ h1 {
 /* Features Section */
 .features {
   display: flex;
-  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+  flex-wrap: wrap; 
   justify-content: center;
   gap: 20px;
   background-color: #f9f9f9;
   padding: 20px;
 }
-
-/* Feature Box */
 .feature {
   text-align: center;
   width: 30%;
@@ -254,26 +252,27 @@ h1 {
   background: white;
 }
 
-/* Feature Image */
+
 .feature img {
   width: 50px;
   margin-bottom: 15px;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .features {
     justify-content: center;
   }
 
   .feature {
-    width: 45%; /* Allows two features per row on tablets */
+    width: 45%; 
   }
 }
 
+
 @media (max-width: 480px) {
   .feature {
-    width: 100%; /* Features stack in a single column on small screens */
+    width: 100%; 
   }
 }
 
@@ -469,7 +468,7 @@ footer p {
   margin: 10px 0;
 }
 
-/* Responsive Design */
+
 @media (max-width: 600px) {
   .enquiry-form-container {
     padding: 15px;

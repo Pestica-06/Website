@@ -151,17 +151,16 @@
         }
 
         if (valid) {
-          // Sign up user with Firebase Authentication
+          
           createUserWithEmailAndPassword(auth, email.value, password.value)
             .then((userCredential) => {
               const user = userCredential.user;
 
-              // Update the user's display name (username)
+          
               return updateProfile(user, {
                 displayName: username.value.trim(),
               })
                 .then(() => {
-                  // Save the username to the Realtime Database
                   const userRef = ref(db, `users/${user.uid}`);
                   return set(userRef, {
                     username: username.value.trim(),
@@ -170,7 +169,7 @@
                 })
                 .then(() => {
                   alert("Signup successful!");
-                  window.location.href = "../../index.html"; // Redirect after successful signup
+                  window.location.href = "../../index.html"; 
                 });
             })
             .catch((error) => {
@@ -180,7 +179,7 @@
         }
       });
 
-      // Clear error messages on input change
+ 
       username.addEventListener("input", () => {
         nameError.textContent = "";
       });

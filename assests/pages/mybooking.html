@@ -14,7 +14,6 @@
       document.addEventListener("DOMContentLoaded", () => {
         const bookingsContainer = document.getElementById("bookings-container");
 
-        // Get all bookings from localStorage
         const allBookings =
           JSON.parse(localStorage.getItem("userBookings")) || {};
         const userEmail = prompt("Enter your email to view bookings:");

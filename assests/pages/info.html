@@ -5,13 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tour Details</title>
     <link rel="stylesheet" href="../../css/info.css" />
-    <style>
-      .error-message {
-        color: red;
-        font-size: 0.9em;
-        display: none;
-      }
-    </style>
   </head>
   <body>
     <div class="details-container">
@@ -158,7 +151,7 @@
             "<h1>Error loading tour details. Please try again later.</h1>";
         });
 
-      // Form validation logic
+ 
       const form = document.getElementById("enquiry-form");
       form.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -178,7 +171,7 @@
         }
 
         if (isValid) {
-          // Store user details in localStorage
+
           const userInfo = {
             name: document.getElementById("name").value.trim(),
             email: document.getElementById("email").value.trim(),
@@ -194,17 +187,8 @@
           let price =
             Number(adults) * Number(tour.price) +
             Number(kids) * (Number(tour.price) / 2) +
-            Number(infants) * 0; // Infants travel for free
+            Number(infants) * 0;
 
-          // const queryParams = new URLSearchParams({
-          //     name: packageName,
-          //     duration,
-          //     date: travelDate,
-          //     adults,
-          //     kids,
-          //     infants,
-          //     price,
-          // }).toString();
 
           let setPackages = {
             Name: packageName,

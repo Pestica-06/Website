@@ -85,7 +85,7 @@ header nav ul li a:hover {
     color: #666;
 }
 
-/* Logout Button */
+
 .logout-button {
     background: linear-gradient(135deg, #F44336, #D32F2F);
     color: white;
@@ -105,7 +105,7 @@ header nav ul li a:hover {
     box-shadow: 0 8px 20px rgba(244, 67, 54, 0.4);
 }
 
-/* Links Section */
+
 .links {
     margin-top: 20px;
     font-size: 16px;
@@ -124,7 +124,7 @@ header nav ul li a:hover {
     color: #fff;
 }
 
-/* Background Enhancement */
+
 body::before {
     content: '';
     position: fixed;

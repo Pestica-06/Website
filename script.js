@@ -10,20 +10,19 @@ document.addEventListener("click", function (event) {
     .closest(".dropdown")
     ?.querySelector(".dropdown-content");
 
-  // Close all open dropdowns
+
   dropdowns.forEach((dropdown) => {
     if (dropdown !== currentDropdown) {
       dropdown.classList.remove("show");
     }
   });
 
-  // Toggle the clicked dropdown menu
+
   if (isDropdownButton && currentDropdown) {
     currentDropdown.classList.toggle("show");
   }
 });
 
-// Close the dropdown menu when clicking outside
 document.addEventListener("click", function (event) {
   const isDropdown = event.target.closest(".dropdown");
   if (!isDropdown) {
@@ -33,22 +32,22 @@ document.addEventListener("click", function (event) {
   }
 });
 
-// Fetch data from the JSON file and render the cards
+
 let allPackages = [];
 
-// Fetch data from the JSON file and render the initial cards
+
 fetch("./assests/json/places.json")
   .then((response) => response.json())
   .then((data) => {
-    allPackages = data.packages; // Store all packages for filtering
-    renderPackages(allPackages); // Render all packages initially
+    allPackages = data.packages; 
+    renderPackages(allPackages); 
   })
   .catch((error) => console.error("Error fetching data:", error));
 
-// Function to render packages dynamically
+
 function renderPackages(packages) {
   const container = document.getElementById("packages");
-  container.innerHTML = ""; // Clear existing packages
+  container.innerHTML = "";
 
   if (packages.length === 0) {
     container.innerHTML = `<p>No packages found.</p>`;
@@ -77,7 +76,7 @@ function renderPackages(packages) {
   });
 }
 
-// Function to filter packages based on the search query
+
 function filterPackages() {
   const query = document.getElementById("searchBar").value.toLowerCase();
   const filteredPackages = allPackages.filter((packageItem) =>
@@ -91,45 +90,44 @@ function filterPackages() {
 document
   .getElementById("enquiryForm")
   .addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); 
 
-    // Get form values
+
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const phone = document.getElementById("phone").value.trim();
     const message = document.getElementById("message").value.trim();
 
-    // Name validation
     if (name.length < 3) {
       alert("Please enter a valid name (at least 3 characters).");
       return;
     }
 
-    // Email validation
+
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
       alert("Please enter a valid email address.");
       return;
     }
 
-    // Phone validation (optional)
+
     if (phone && !/^\+?\d{10,15}$/.test(phone)) {
       alert("Please enter a valid phone number (10-15 digits).");
       return;
     }
 
-    // Message validation
+
     if (message.length < 10) {
       alert("Your message should be at least 10 characters long.");
       return;
     }
 
-    // If all validations pass
+
     alert(`Thank you, ${name}! Your message has been sent successfully.`);
-    document.getElementById("enquiryForm").reset(); // Clear the form
+    document.getElementById("enquiryForm").reset(); 
   });
 
 function selectCategory(category) {
   localStorage.setItem("selectedCategory", category);
-  window.location.href = "./assests/pages/roughdetails.html"; // Redirect to the packages page
+  window.location.href = "./assests/pages/roughdetails.html";
 }

@@ -109,7 +109,7 @@
           return;
         }
 
-        // Fetch the data from the JSON file
+
         fetch(jsonUrl)
           .then((response) => {
             if (!response.ok) {
@@ -199,7 +199,7 @@
             alert("Category is not selected.");
             return;
           }
-          // Redirect 
+
           window.location.href = `../pages/info.html?category=${selectedCategory}&index=${tourIndex}`;
         };
       });
